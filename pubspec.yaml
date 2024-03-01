@@ -1,0 +1,47 @@
+name: football_app
+description: "A new Flutter project."
+publish_to: "none"
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.2.6 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.2
+  iconsax: ^0.0.8
+  badges: ^3.1.2
+  bloc: ^8.1.3
+  flutter_bloc: ^8.1.4
+  toast: ^0.3.0
+  path_provider: ^2.1.2
+  flutter_colorpicker: ^1.0.3
+  provider: 6.1.1
+  shared_preferences: ^2.2.2
+  bugsnag_flutter: ^3.0.2
+  get: ^4.6.6
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - google_fonts/
+    - assets/images/
+
+  fonts:
+    - family: PlusJakartaSans
+      fonts:
+        - asset: google_fonts/PlusJakartaSans-Regular.ttf
+        - asset: google_fonts/PlusJakartaSans-SemiBold.ttf
+          weight: 700
+        - asset: google_fonts/PlusJakartaSans-SemiBold.ttf
+          weight: 500
