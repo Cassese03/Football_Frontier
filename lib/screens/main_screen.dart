@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:football_app/common/drawer.dart';
 import 'package:football_app/constants.dart';
+import 'package:football_app/screens/squad_screen.dart';
 import 'package:football_app/screens/stadium_screen.dart';
 import 'package:football_app/screens/account/account_screen.dart';
 import 'package:football_app/screens/calendar_screen.dart';
@@ -14,7 +15,14 @@ final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 // ignore: must_be_immutable
 class MainScreen extends StatefulWidget {
   int currentTab;
-  MainScreen({super.key, required this.currentTab});
+  int? idGiocatore;
+  int? idSquadra;
+  MainScreen({
+    super.key,
+    required this.currentTab,
+    this.idGiocatore,
+    this.idSquadra,
+  });
 
   @override
   State<MainScreen> createState() => _MainScreenState();
@@ -38,16 +46,21 @@ class _MainScreenState extends State<MainScreen> {
     }
   }
 
-  List screens = [
-    const HomeScreen(),
-    const CalendarScreen(),
-    const StandingScreen(),
-    StadiumScreen(),
-    const AccountScreen(),
-  ];
-
   @override
   Widget build(BuildContext context) {
+    List screens = [
+      const HomeScreen(),
+      const CalendarScreen(),
+      const StandingScreen(),
+      StadiumScreen(),
+      AccountScreen(
+        idGiocatore: widget.idGiocatore ?? 0,
+      ),
+      SquadScreen(
+        squad: widget.idGiocatore ?? 0,
+      ),
+    ];
+
     return Scaffold(
       key: scaffoldKey,
       bottomNavigationBar: Container(

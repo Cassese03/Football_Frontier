@@ -8,8 +8,10 @@ import 'package:football_app/widgets/profile_card.dart';
 import 'package:football_app/widgets/stats.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+// ignore: must_be_immutable
 class AccountScreen extends StatefulWidget {
-  const AccountScreen({super.key});
+  int? idGiocatore;
+  AccountScreen({super.key, this.idGiocatore});
   @override
   State<AccountScreen> createState() => _AccountScreenState();
 }

@@ -1,38 +1,48 @@
 import 'package:flutter/material.dart';
 import 'package:football_app/constants.dart';
-import 'package:football_app/screens/squad_screen.dart';
+import 'package:football_app/screens/main_screen.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 class AnteprimaProfilo extends StatelessWidget {
-  final String Logo, Title, GolScored, GolConcessed, Points;
+  final String Logo, Title, Ruolo;
   final bool isFavorite;
-  final int position;
   final int currentColor;
-  final int Winning;
-  final int Losing;
+  final int Presenze;
+  final int Gol;
+  final int Assits;
   const AnteprimaProfilo({
     super.key,
     required this.Logo,
     required this.Title,
-    required this.GolScored,
+    required this.Ruolo,
     required this.currentColor,
-    required this.GolConcessed,
-    required this.Points,
-    required this.Winning,
-    required this.Losing,
+    required this.Presenze,
+    required this.Gol,
     required this.isFavorite,
-    required this.position,
+    required this.Assits,
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => Get.to(
-        () => SquadScreen(squad: 0),
-        transition: Transition.rightToLeft,
-        duration: const Duration(seconds: 1),
+      onTap: () => Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => MainScreen(
+            currentTab: 4,
+            idGiocatore: 0,
+          ),
+        ),
       ),
+      // Get.to(
+      //   () => MainScreen(
+      //     currentTab: 4,
+      //     idGiocatore: 0,
+      //   ),
+      //   transition: Transition.rightToLeft,
+      //   duration: const Duration(seconds: 1),
+      // ),
       child: Stack(
         children: [
           Container(
@@ -52,14 +62,6 @@ class AnteprimaProfilo extends StatelessWidget {
             child: Row(
               children: [
                 const SizedBox(width: 10),
-                Text(
-                  position.toString(),
-                  style: const TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                const SizedBox(width: 2),
                 Expanded(
                   flex: 65,
                   child: Row(
@@ -85,7 +87,7 @@ class AnteprimaProfilo extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            '$GolScored / $GolConcessed',
+                            'Ruolo $Ruolo',
                             style: TextStyle(
                               fontSize: 12,
                               color: Color(currentColor),
@@ -106,7 +108,7 @@ class AnteprimaProfilo extends StatelessWidget {
                       Column(
                         children: [
                           Text(
-                            Winning.toString(),
+                            Presenze.toString(),
                             style: const TextStyle(
                               color: Colors.black,
                               fontSize: 18,
@@ -119,7 +121,7 @@ class AnteprimaProfilo extends StatelessWidget {
                       Column(
                         children: [
                           Text(
-                            Losing.toString(),
+                            Gol.toString(),
                             style: const TextStyle(
                               color: Colors.black,
                               fontSize: 18,
@@ -132,7 +134,7 @@ class AnteprimaProfilo extends StatelessWidget {
                       Column(
                         children: [
                           Text(
-                            Points,
+                            Assits.toString(),
                             style: const TextStyle(
                               color: Colors.black,
                               fontSize: 18,
@@ -186,8 +188,7 @@ class AnteprimaProfilo extends StatelessWidget {
               height: 5,
               width: double.infinity,
               decoration: BoxDecoration(
-                color:
-                    (position == 6) ? Color(currentColor) : Colors.transparent,
+                color: Colors.transparent,
                 borderRadius: const BorderRadius.only(
                   bottomLeft: Radius.circular(30),
                   bottomRight: Radius.circular(30),

@@ -222,10 +222,19 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                           );
                         }
-                        Get.to(
-                          () => MainScreen(currentTab: 0),
-                          transition: Transition.rightToLeft,
-                          duration: const Duration(seconds: 1),
+                        //Get.to(
+                        //  () => MainScreen(currentTab: 0),
+                        //  transition: Transition.rightToLeft,
+                        //  duration: const Duration(seconds: 1),
+                        //);
+                        //
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => MainScreen(
+                              currentTab: 0,
+                            ),
+                          ),
                         );
                       },
                       child: const Text(

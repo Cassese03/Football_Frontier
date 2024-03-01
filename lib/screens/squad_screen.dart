@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:football_app/common/appbar.dart';
 import 'package:football_app/constants.dart';
+import 'package:football_app/widgets/anteprima_profilo_header.dart';
 import 'package:football_app/widgets/profile_card.dart';
-import 'package:football_app/widgets/standing.dart';
-import 'package:football_app/widgets/standing_head.dart';
+import 'package:football_app/widgets/anteprima_profilo.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 // ignore: must_be_immutable
@@ -45,10 +45,10 @@ class _SquadScreenState extends State<SquadScreen> {
           Expanded(
             flex: 25,
             child: Padding(
-              padding: EdgeInsets.all(15),
+              padding: const EdgeInsets.all(15),
               child: Row(
                 children: [
-                  Spacer(),
+                  const Spacer(),
                   Center(
                     child: CircleAvatar(
                       backgroundColor: Color(currentColor),
@@ -58,7 +58,7 @@ class _SquadScreenState extends State<SquadScreen> {
                       ),
                     ),
                   ),
-                  Spacer(),
+                  const Spacer(),
                 ],
               ),
             ),
@@ -117,89 +117,68 @@ class _SquadScreenState extends State<SquadScreen> {
                   primary: false,
                   physics: const NeverScrollableScrollPhysics(),
                   children: [
-                    Standing(
+                    AnteprimaProfiloHeader(
+                      currentColor: currentColor,
+                    ),
+                    AnteprimaProfilo(
                       currentColor: currentColor,
                       Logo: "assets/images/raimon.jpg",
-                      Title: "Raimon",
-                      Winning: 1,
-                      Losing: 1,
-                      GolScored: "30",
-                      GolConcessed: "10",
-                      Points: "30",
+                      Title: "Lorenzo",
+                      Ruolo: "Difensore",
+                      Gol: 1,
+                      Assits: 4,
                       isFavorite: true,
-                      position: 1,
+                      Presenze: 4,
                     ),
-                    Standing(
+                    AnteprimaProfilo(
                       currentColor: currentColor,
-                      Logo: "assets/images/stoke.png",
-                      Title: "Stoke City",
-                      Winning: 1,
-                      Losing: 1,
-                      GolScored: "27",
-                      GolConcessed: "20",
-                      Points: "26",
+                      Logo: "assets/images/raimon.jpg",
+                      Title: "Lorenzo",
+                      Ruolo: "Difensore",
+                      Gol: 1,
+                      Assits: 4,
                       isFavorite: false,
-                      position: 2,
+                      Presenze: 4,
                     ),
-                    Standing(
+                    AnteprimaProfilo(
                       currentColor: currentColor,
-                      Logo: "assets/images/southampton.png",
-                      Title: "Southhampton",
-                      Winning: 1,
-                      Losing: 1,
-                      GolScored: "20",
-                      GolConcessed: "22",
-                      Points: "18",
+                      Logo: "assets/images/raimon.jpg",
+                      Title: "Lorenzo",
+                      Ruolo: "Difensore",
+                      Gol: 1,
+                      Assits: 4,
                       isFavorite: false,
-                      position: 3,
+                      Presenze: 4,
                     ),
-                    Standing(
+                    AnteprimaProfilo(
                       currentColor: currentColor,
-                      Logo: "assets/images/liverpool.png",
-                      Title: "Liverpool",
-                      Winning: 1,
-                      Losing: 1,
-                      GolScored: "23",
-                      GolConcessed: "27",
-                      Points: "16",
+                      Logo: "assets/images/raimon.jpg",
+                      Title: "Lorenzo",
+                      Ruolo: "Difensore",
+                      Gol: 1,
+                      Assits: 4,
                       isFavorite: false,
-                      position: 4,
+                      Presenze: 4,
                     ),
-                    Standing(
+                    AnteprimaProfilo(
                       currentColor: currentColor,
-                      Logo: "assets/images/FCBarcelona.png",
-                      Title: "Barcelona",
-                      Winning: 1,
-                      Losing: 1,
-                      GolScored: "18",
-                      GolConcessed: "24",
-                      Points: "14",
+                      Logo: "assets/images/raimon.jpg",
+                      Title: "Lorenzo",
+                      Ruolo: "Difensore",
+                      Gol: 1,
+                      Assits: 4,
                       isFavorite: false,
-                      position: 4,
+                      Presenze: 4,
                     ),
-                    Standing(
+                    AnteprimaProfilo(
                       currentColor: currentColor,
-                      Logo: "assets/images/west_ham.png",
-                      Title: "West Ham",
-                      Winning: 1,
-                      Losing: 1,
-                      GolScored: "16",
-                      GolConcessed: "22",
-                      Points: "12",
+                      Logo: "assets/images/raimon.jpg",
+                      Title: "Lorenzo",
+                      Ruolo: "Difensore",
+                      Gol: 1,
+                      Assits: 4,
                       isFavorite: false,
-                      position: 4,
-                    ),
-                    Standing(
-                      currentColor: currentColor,
-                      Logo: "assets/images/swansea.png",
-                      Title: "Swansea AFC",
-                      Winning: 1,
-                      Losing: 1,
-                      GolScored: "17",
-                      GolConcessed: "27",
-                      Points: "10",
-                      isFavorite: false,
-                      position: 6,
+                      Presenze: 4,
                     ),
                   ],
                 ),

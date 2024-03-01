@@ -24,9 +24,7 @@ class DrawerLorenzo extends StatelessWidget implements PreferredSizeWidget {
             children: [
               Expanded(
                 flex: 25,
-                child: Container(
-                  child: Image.asset("assets/images/raimon.jpg"),
-                ),
+                child: Image.asset("assets/images/raimon.jpg"),
               ),
               Expanded(
                 flex: 65,
@@ -126,13 +124,13 @@ class DrawerLorenzo extends StatelessWidget implements PreferredSizeWidget {
                         style: textStyleListTile(),
                       ),
                       onTap: () {
-                        Get.to(
-                          () => MainScreen(
-                            currentTab: 4,
-                          ),
-                          transition: Transition.rightToLeft,
-                          duration: const Duration(seconds: 1),
-                        );
+                        // Get.to(
+                        //   () => MainScreen(
+                        //     currentTab: 4,
+                        //   ),
+                        //   transition: Transition.rightToLeft,
+                        //   duration: const Duration(seconds: 1),
+                        // );
                         Navigator.push(
                           context,
                           MaterialPageRoute(
@@ -154,10 +152,16 @@ class DrawerLorenzo extends StatelessWidget implements PreferredSizeWidget {
                         style: textStyleListTile(),
                       ),
                       onTap: () {
-                        Get.to(
-                          () => const SettingsScreen(),
-                          transition: Transition.rightToLeft,
-                          duration: const Duration(seconds: 1),
+                        //Get.to(
+                        //  () => const SettingsScreen(),
+                        //  transition: Transition.rightToLeft,
+                        //  duration: const Duration(seconds: 1),
+                        //);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const SettingsScreen(),
+                          ),
                         );
                       },
                     ),
@@ -171,10 +175,17 @@ class DrawerLorenzo extends StatelessWidget implements PreferredSizeWidget {
                         style: textStyleListTile(),
                       ),
                       onTap: () {
-                        Get.to(
-                          () => const LoginScreen(),
-                          transition: Transition.leftToRight,
-                          duration: const Duration(seconds: 1),
+                        //Get.to(
+                        //  () => const LoginScreen(),
+                        //  transition: Transition.leftToRight,
+                        //  duration: const Duration(seconds: 1),
+                        //);
+
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const LoginScreen(),
+                          ),
                         );
                       },
                     ),

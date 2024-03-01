@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:football_app/constants.dart';
-import 'package:football_app/screens/squad_screen.dart';
+import 'package:football_app/screens/main_screen.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
@@ -28,11 +28,23 @@ class Standing extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => Get.to(
-        () => SquadScreen(squad: 0),
-        transition: Transition.rightToLeft,
-        duration: const Duration(seconds: 1),
+      onTap: () => Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => MainScreen(
+            currentTab: 5,
+            idSquadra: 0,
+          ),
+        ),
       ),
+      //Get.to(
+      //  () => MainScreen(
+      //    currentTab: 5,
+      //    idSquadra: 0,
+      //  ),
+      //  transition: Transition.rightToLeft,
+      //  duration: const Duration(seconds: 1),
+      //),
       child: Stack(
         children: [
           Container(
