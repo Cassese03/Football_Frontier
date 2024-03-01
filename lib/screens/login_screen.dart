@@ -54,23 +54,6 @@ class _LoginScreenState extends State<LoginScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.all(15),
-              child: Row(
-                children: [
-                  const Spacer(),
-                  Text(
-                    "Effettua il Login",
-                    style: TextStyle(
-                      fontSize: 18,
-                      color: Color(currentColor),
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  const Spacer(),
-                ],
-              ),
-            ),
-            Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Center(
                 child: Image.asset(

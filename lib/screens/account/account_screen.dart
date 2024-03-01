@@ -196,7 +196,7 @@ class _AccountScreenState extends State<AccountScreen> {
                     child: CircleAvatar(
                       backgroundColor: Color(currentColor),
                       minRadius: 100,
-                      foregroundImage: AssetImage(
+                      foregroundImage: const AssetImage(
                         'assets/images/pl.png',
                       ),
                     ),
