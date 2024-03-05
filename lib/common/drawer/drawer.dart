@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:football_app/common/bloc/drawer_bloc.dart';
+import 'package:football_app/common/drawer/drawer_bloc.dart';
 import 'package:football_app/screens/login/login_screen.dart';
 import 'package:football_app/screens/main_screen.dart';
 import 'package:football_app/screens/settings_screen.dart';
@@ -18,55 +18,28 @@ class DrawerLorenzo extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => DrawerBloc(),
-      child: Drawer(
-        backgroundColor: Color(currentColor),
-        child: SafeArea(
-          child: FractionallySizedBox(
-            heightFactor: 0.95,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Expanded(
-                  flex: 25,
-                  child: Image.asset("assets/images/raimon.jpg"),
-                ),
-                Expanded(
-                  flex: 65,
-                  child: BlocConsumer<DrawerBloc, DrawerState>(
-                    listener: (context, state) {},
-                    builder: (context, state) {
-                      if (state is DrawerTapped) {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => MainScreen(
-                              currentTab: state.currentTab,
-                            ),
-                          ),
-                        );
-                      }
-                      if (state is DrawerTappedSettings) {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const SettingsScreen(),
-                          ),
-                        );
-                      }
-                      if (state is DrawerTappedLogout) {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const LoginScreen(),
-                          ),
-                        );
-                      }
-                      if (state is DrawerLoading) {
-                        return const Center(
-                          child: CircularProgressIndicator(),
-                        );
-                      }
-                      return ListView(
+      child: BlocConsumer<DrawerBloc, DrawerState>(
+        builder: (context, state) {
+          if (state is DrawerLoading) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+          return Drawer(
+            backgroundColor: Color(currentColor),
+            child: SafeArea(
+              child: FractionallySizedBox(
+                heightFactor: 0.95,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Expanded(
+                      flex: 25,
+                      child: Image.asset("assets/images/raimon.jpg"),
+                    ),
+                    Expanded(
+                      flex: 65,
+                      child: ListView(
                         children: [
                           ListTile(
                             leading: const Icon(
@@ -177,7 +150,7 @@ class DrawerLorenzo extends StatelessWidget implements PreferredSizeWidget {
                               'Logout',
                               style: textStyleListTile(),
                             ),
-                            onTap: () {
+                            onTap: () async {
                               //Get.to(
                               //  () => const LoginScreen(),
                               //  transition: Transition.leftToRight,
@@ -188,14 +161,45 @@ class DrawerLorenzo extends StatelessWidget implements PreferredSizeWidget {
                             },
                           ),
                         ],
-                      );
-                    },
-                  ),
+                      ),
+                    ),
+                  ],
                 ),
-              ],
+              ),
             ),
-          ),
-        ),
+          );
+        },
+        listener: (BuildContext context, DrawerState state) {
+          if (state is DrawerTapped) {
+            scaffoldKey.currentState!.closeDrawer();
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => MainScreen(
+                  currentTab: state.currentTab,
+                ),
+              ),
+            );
+          }
+          if (state is DrawerTappedSettings) {
+            scaffoldKey.currentState!.closeDrawer();
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const SettingsScreen(),
+              ),
+            );
+          }
+          if (state is DrawerTappedLogout) {
+            scaffoldKey.currentState!.closeDrawer();
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const LoginScreen(),
+              ),
+            );
+          }
+        },
       ),
     );
   }

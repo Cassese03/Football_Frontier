@@ -20,7 +20,7 @@ class _LoginScreenState extends State<LoginScreen> {
     TextEditingController email = TextEditingController();
     TextEditingController password = TextEditingController();
     return Scaffold(
-      body: BlocBuilder<LoginBloc, LoginState>(
+      body: BlocConsumer<LoginBloc, LoginState>(
         builder: (context, state) {
           if (state is LoginInit) {
             context.read<LoginBloc>().add(LoginCheckRemember());
@@ -94,10 +94,8 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                         ),
                       ),
-                      BlocBuilder<LoginBloc, LoginState>(
-                        builder: (context, state) {
-                          if (state is LoginRemember) {
-                            return Row(
+                      (state is LoginRemember)
+                          ? Row(
                               children: [
                                 Checkbox(
                                   value: state.rememberMe,
@@ -119,93 +117,82 @@ class _LoginScreenState extends State<LoginScreen> {
                                   ),
                                 ),
                               ],
-                            );
-                          }
-
-                          return Row(
-                            children: [
-                              Checkbox(
-                                value: false,
-                                onChanged: (bool? value) async {
-                                  if (value != null) {
-                                    context.read<LoginBloc>().add(
-                                          LoginOnTapRemember(value),
-                                        );
-                                  }
+                            )
+                          : Row(
+                              children: [
+                                Checkbox(
+                                  value: false,
+                                  onChanged: (bool? value) async {
+                                    if (value != null) {
+                                      context.read<LoginBloc>().add(
+                                            LoginOnTapRemember(value),
+                                          );
+                                    }
+                                  },
+                                ),
+                                const SizedBox(
+                                  width: 20,
+                                ),
+                                const Text(
+                                  'Ricordati di me',
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                  ),
+                                ),
+                              ],
+                            ),
+                      (state is LoginLoading)
+                          ? CircularProgressIndicator()
+                          : Padding(
+                              padding: const EdgeInsets.all(16.0),
+                              child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Color(currentColor),
+                                ),
+                                onPressed: () async {
+                                  context.read<LoginBloc>().add(
+                                        LoginOnTapLogin(
+                                          email.text,
+                                          password.text,
+                                        ),
+                                      );
                                 },
-                              ),
-                              const SizedBox(
-                                width: 20,
-                              ),
-                              const Text(
-                                'Ricordati di me',
-                                style: TextStyle(
-                                  fontSize: 14,
-                                ),
-                              ),
-                            ],
-                          );
-                        },
-                      ),
-                      BlocConsumer<LoginBloc, LoginState>(
-                        builder: (context, state) {
-                          if (state is LoginLoading) {
-                            return const CircularProgressIndicator();
-                          }
-                          if (state is LoginSuccess) {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => MainScreen(
-                                  currentTab: 0,
-                                ),
-                              ),
-                            );
-                          }
-                          return Padding(
-                            padding: const EdgeInsets.all(16.0),
-                            child: ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Color(currentColor),
-                              ),
-                              onPressed: () async {
-                                context.read<LoginBloc>().add(
-                                      LoginOnTapLogin(
-                                        email.text,
-                                        password.text,
-                                      ),
-                                    );
-                              },
-                              child: const Text(
-                                'Login',
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
+                                child: const Text(
+                                  'Login',
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
                               ),
                             ),
-                          );
-                        },
-                        listener: (context, state) {
-                          if (state is LoginFailed) {
-                            showDialog(
-                              context: context,
-                              builder: (context) => Dialog(
-                                child: Text(
-                                  state.error,
-                                ),
-                              ),
-                            );
-                          }
-                        },
-                      ),
                     ],
                   ),
                 )
               ],
             ),
           );
+        },
+        listener: (context, state) {
+          if (state is LoginFailed) {
+            showDialog(
+              context: context,
+              builder: (context) => Dialog(
+                child: Text(
+                  state.error,
+                ),
+              ),
+            );
+          }
+          if (state is LoginSuccess) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => MainScreen(currentTab: 0),
+              ),
+            );
+          }
         },
       ),
     );

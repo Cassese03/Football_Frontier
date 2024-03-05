@@ -52,7 +52,7 @@ onCheck(LoginCheckRemember event, Emitter<LoginState> emit) async {
   bool? remember = await prefs.getBool('rememberMe');
 
   if (remember! == true) {
-    emit(LoginSuccess());
+    emit(LoginLoading());
 
     Future.delayed(Duration(seconds: 2));
 
