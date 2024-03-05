@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:football_app/common/drawer.dart';
+import 'package:football_app/common/bloc/drawer.dart';
 import 'package:football_app/constants.dart';
 import 'package:football_app/screens/squad_screen.dart';
 import 'package:football_app/screens/stadium_screen.dart';
