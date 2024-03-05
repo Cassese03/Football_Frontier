@@ -1,0 +1,213 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:football_app/constants.dart';
+import 'package:football_app/screens/login/login_bloc.dart';
+import 'package:football_app/screens/main_screen.dart';
+import 'package:fancy_password_field/fancy_password_field.dart';
+
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  int currentColor = kprimaryColor.value;
+
+  @override
+  Widget build(BuildContext context) {
+    TextEditingController email = TextEditingController();
+    TextEditingController password = TextEditingController();
+    return Scaffold(
+      body: BlocBuilder<LoginBloc, LoginState>(
+        builder: (context, state) {
+          if (state is LoginInit) {
+            context.read<LoginBloc>().add(LoginCheckRemember());
+          }
+          if (state is LoginLoading) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+          return SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Center(
+                    child: Image.asset(
+                      "assets/images/raimon.jpg",
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: ListView(
+                    shrinkWrap: true,
+                    primary: false,
+                    physics: const NeverScrollableScrollPhysics(),
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: TextFormField(
+                          style: TextStyle(
+                            decorationColor: Color(currentColor),
+                            fontSize: 18,
+                          ),
+                          controller: email,
+                          obscureText: false,
+                          keyboardType: TextInputType.emailAddress,
+                          decoration: InputDecoration(
+                            fillColor: Color(currentColor),
+                            iconColor: Color(currentColor),
+                            focusColor: Color(currentColor),
+                            hoverColor: Color(currentColor),
+                            labelText: 'Email',
+                            hintText: 'Inserisci la tua Email',
+                            icon: const Icon(
+                              Icons.people,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: FancyPasswordField(
+                          style: TextStyle(
+                            decorationColor: Color(currentColor),
+                            fontSize: 18,
+                          ),
+                          hasStrengthIndicator: false,
+                          controller: password,
+                          decoration: InputDecoration(
+                            fillColor: Color(currentColor),
+                            iconColor: Color(currentColor),
+                            focusColor: Color(currentColor),
+                            hoverColor: Color(currentColor),
+                            labelText: 'Password',
+                            hintText: 'Inserisci la tua Password',
+                            icon: const Icon(
+                              Icons.password,
+                            ),
+                          ),
+                        ),
+                      ),
+                      BlocBuilder<LoginBloc, LoginState>(
+                        builder: (context, state) {
+                          if (state is LoginRemember) {
+                            return Row(
+                              children: [
+                                Checkbox(
+                                  value: state.rememberMe,
+                                  onChanged: (bool? value) async {
+                                    if (value != null) {
+                                      context.read<LoginBloc>().add(
+                                            LoginOnTapRemember(value),
+                                          );
+                                    }
+                                  },
+                                ),
+                                const SizedBox(
+                                  width: 20,
+                                ),
+                                const Text(
+                                  'Ricordati di me',
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                  ),
+                                ),
+                              ],
+                            );
+                          }
+
+                          return Row(
+                            children: [
+                              Checkbox(
+                                value: false,
+                                onChanged: (bool? value) async {
+                                  if (value != null) {
+                                    context.read<LoginBloc>().add(
+                                          LoginOnTapRemember(value),
+                                        );
+                                  }
+                                },
+                              ),
+                              const SizedBox(
+                                width: 20,
+                              ),
+                              const Text(
+                                'Ricordati di me',
+                                style: TextStyle(
+                                  fontSize: 14,
+                                ),
+                              ),
+                            ],
+                          );
+                        },
+                      ),
+                      BlocConsumer<LoginBloc, LoginState>(
+                        builder: (context, state) {
+                          if (state is LoginLoading) {
+                            return const CircularProgressIndicator();
+                          }
+                          if (state is LoginSuccess) {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => MainScreen(
+                                  currentTab: 0,
+                                ),
+                              ),
+                            );
+                          }
+                          return Padding(
+                            padding: const EdgeInsets.all(16.0),
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Color(currentColor),
+                              ),
+                              onPressed: () async {
+                                context.read<LoginBloc>().add(
+                                      LoginOnTapLogin(
+                                        email.text,
+                                        password.text,
+                                      ),
+                                    );
+                              },
+                              child: const Text(
+                                'Login',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          );
+                        },
+                        listener: (context, state) {
+                          if (state is LoginFailed) {
+                            showDialog(
+                              context: context,
+                              builder: (context) => Dialog(
+                                child: Text(
+                                  state.error,
+                                ),
+                              ),
+                            );
+                          }
+                        },
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            ),
+          );
+        },
+      ),
+    );
+  }
+}

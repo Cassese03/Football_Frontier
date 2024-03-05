@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:football_app/screens/login_screen.dart';
+import 'package:football_app/screens/login/login_screen.dart';
 import 'package:football_app/screens/main_screen.dart';
 import 'package:football_app/screens/settings_screen.dart';
 import 'package:get/get.dart';
