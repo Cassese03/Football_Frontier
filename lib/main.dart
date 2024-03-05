@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:football_app/constants.dart';
 import 'package:football_app/screens/login/login_bloc.dart';
 import 'package:football_app/screens/login/login_screen.dart';
-import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'providers/players_provider.dart';
 

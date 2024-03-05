@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:football_app/common/drawer/drawer_bloc.dart';
 import 'package:football_app/screens/login/login_screen.dart';
 import 'package:football_app/screens/main_screen.dart';
-import 'package:football_app/screens/settings_screen.dart';
+import 'package:football_app/screens/settings/settings_screen.dart';
 import 'package:get/get.dart';
 
 // ignore: must_be_immutable
