@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:football_app/common/appbar.dart';
 import 'package:football_app/constants.dart';
 import 'package:football_app/widgets/live_match_box.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -33,9 +32,6 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppbarAll(
-        currentColor: currentColor,
-      ),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

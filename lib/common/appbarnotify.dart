@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:football_app/screens/main/main_screen.dart';
 
 // ignore: must_be_immutable
 class AppbarNotify extends StatelessWidget implements PreferredSizeWidget {
@@ -13,7 +14,12 @@ class AppbarNotify extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       leading: IconButton(
         onPressed: () {
-          Navigator.pop(context);
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => MainScreen(currentTab: 0),
+            ),
+          );
         },
         icon: const Icon(Icons.arrow_back),
       ),

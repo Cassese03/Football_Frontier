@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:football_app/common/appbar.dart';
 import 'package:football_app/screens/calendar/calendar_bloc.dart';
 import 'package:football_app/widgets/giornata.dart';
 import 'package:football_app/widgets/upcoming_lorenzo.dart';
@@ -21,9 +20,6 @@ class _CalendarScreenState extends State<CalendarScreen> {
         builder: (context, state) {
           if (state is CalendarReady) {
             return Scaffold(
-              appBar: AppbarAll(
-                currentColor: state.currentColor,
-              ),
               body: SingleChildScrollView(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

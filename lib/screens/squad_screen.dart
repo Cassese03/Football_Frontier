@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:football_app/common/appbar.dart';
 import 'package:football_app/constants.dart';
 import 'package:football_app/widgets/anteprima_profilo_header.dart';
 import 'package:football_app/widgets/profile_card.dart';
@@ -36,9 +35,6 @@ class _SquadScreenState extends State<SquadScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppbarAll(
-        currentColor: currentColor,
-      ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

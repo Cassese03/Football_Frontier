@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:football_app/constants.dart';
 import 'package:football_app/screens/login/login_bloc.dart';
-import 'package:football_app/screens/main_screen.dart';
+import 'package:football_app/screens/main/main_screen.dart';
 import 'package:fancy_password_field/fancy_password_field.dart';
 
 class LoginScreen extends StatefulWidget {

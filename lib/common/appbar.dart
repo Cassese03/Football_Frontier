@@ -1,7 +1,7 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:flutter/material.dart';
-import 'package:football_app/screens/main_screen.dart';
+import 'package:football_app/screens/main/main_screen.dart';
 import 'package:football_app/screens/notification_screen.dart';
 import 'package:iconsax/iconsax.dart';
 

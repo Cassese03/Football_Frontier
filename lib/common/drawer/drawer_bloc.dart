@@ -1,5 +1,6 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:bloc/bloc.dart';
-import 'package:get/get.dart';
 import 'package:meta/meta.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -18,7 +19,6 @@ class DrawerBloc extends Bloc<DrawerEvent, DrawerState> {
   }
 }
 
-// ignore: non_constant_identifier_names
 OnTappedHome(DrawerTapHome event, Emitter<DrawerState> emit) async {
   emit(DrawerLoading());
 

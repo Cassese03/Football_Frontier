@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:football_app/common/appbar.dart';
 import 'package:football_app/constants.dart';
 import 'package:football_app/widgets/standing.dart';
 import 'package:football_app/widgets/standing_head.dart';
@@ -33,9 +32,6 @@ class _StandingScreenState extends State<StandingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppbarAll(
-        currentColor: currentColor,
-      ),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

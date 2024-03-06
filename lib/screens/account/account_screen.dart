@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:football_app/common/appbar.dart';
 import 'package:football_app/constants.dart';
 import 'package:badges/badges.dart' as badges;
 import 'package:football_app/screens/account/bloc/account_bloc.dart';
@@ -37,9 +36,6 @@ class _AccountScreenState extends State<AccountScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppbarAll(
-        currentColor: currentColor,
-      ),
       body: BlocProvider(
         create: (context) => AccountBloc(),
         child: Builder(builder: (context) {

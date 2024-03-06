@@ -2,7 +2,6 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:football_app/common/appbar.dart';
 import 'package:football_app/constants.dart';
 import 'package:football_app/providers/players_provider.dart';
 import 'package:football_app/utils/json_handler.dart';
@@ -68,9 +67,6 @@ class _StadiumScreenState extends State<StadiumScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppbarAll(
-        currentColor: currentColor,
-      ),
       body: SafeArea(
         child: Center(
           child: Container(

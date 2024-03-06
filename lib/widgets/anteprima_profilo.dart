@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:football_app/constants.dart';
-import 'package:football_app/screens/main_screen.dart';
+import 'package:football_app/screens/main/main_screen.dart';
 import 'package:iconsax/iconsax.dart';
 
 class AnteprimaProfilo extends StatelessWidget {
