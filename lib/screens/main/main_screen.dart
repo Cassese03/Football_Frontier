@@ -4,12 +4,12 @@ import 'package:football_app/common/appbar.dart';
 import 'package:football_app/common/drawer/drawer.dart';
 import 'package:football_app/constants.dart';
 import 'package:football_app/screens/main/main_bloc.dart';
-import 'package:football_app/screens/squad_screen.dart';
+import 'package:football_app/screens/squad/squad_screen.dart';
 import 'package:football_app/screens/stadium_screen.dart';
 import 'package:football_app/screens/account/account_screen.dart';
 import 'package:football_app/screens/calendar/calendar_screen.dart';
-import 'package:football_app/screens/home_screen.dart';
-import 'package:football_app/screens/standing_screen.dart';
+import 'package:football_app/screens/home/home_screen.dart';
+import 'package:football_app/screens/standing/standing_screen.dart';
 import 'package:iconsax/iconsax.dart';
 
 final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();

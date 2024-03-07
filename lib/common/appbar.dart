@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:football_app/screens/main/main_screen.dart';
-import 'package:football_app/screens/notification_screen.dart';
+import 'package:football_app/screens/notification/notification_screen.dart';
 import 'package:iconsax/iconsax.dart';
 
 class AppbarAll extends StatelessWidget implements PreferredSizeWidget {
