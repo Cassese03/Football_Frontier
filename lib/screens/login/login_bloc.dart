@@ -28,12 +28,10 @@ onLogin(LoginOnTapLogin event, Emitter<LoginState> emit) async {
   var response = await http.post(
     Uri.parse('https://footballfrontier-be.vercel.app/api2/login'),
     headers: <String, String>{
-      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Origin": "https://football-app-murex.vercel.app",
       "Content-Type": "application/json",
-      "Access-Control-Allow-Credentials": "true",
-      "Access-Control-Allow-Headers":
-          "Origin,Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,locale",
-      "Access-Control-Allow-Methods": "POST, OPTIONS"
+      "Access-Control-Allow-Headers": "Content-Type, Authorization",
+      "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS"
     },
     body: jsonEncode(
       <String, String>{
@@ -85,12 +83,10 @@ onCheck(LoginCheckRemember event, Emitter<LoginState> emit) async {
     var response = await http.post(
       Uri.parse('https://footballfrontier-be.vercel.app/api2/fast_login'),
       headers: <String, String>{
-        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Origin": "https://football-app-murex.vercel.app",
         "Content-Type": "application/json",
-        "Access-Control-Allow-Credentials": "true",
-        "Access-Control-Allow-Headers":
-            "Origin,Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,locale",
-        "Access-Control-Allow-Methods": "POST, OPTIONS"
+        "Access-Control-Allow-Headers": "Content-Type, Authorization",
+        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS"
       },
       body: jsonEncode(
         <String, String>{
