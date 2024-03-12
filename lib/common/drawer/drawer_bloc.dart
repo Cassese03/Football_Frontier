@@ -61,6 +61,8 @@ OnTappedLogout(DrawerTapLogout event, Emitter<DrawerState> emit) async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
 
   await prefs.setBool('rememberMe', false);
+  await prefs.setString('email', '');
+  await prefs.setString('access_token', '');
 
   emit(DrawerTappedLogout());
 }
