@@ -27125,7 +27125,7 @@ var $async$xW=A.Q(function(c,d){if(c===1)return A.M(d,r)
 while(true)switch(s){case 0:if(!b.d)b.a.$1(new A.qr())
 p=A.hb("https://footballfrontier-be.vercel.app/api2/login")
 o=t.N
-n=A.aE(["Access-Control-Allow-Origin","https://football-app-murex.vercel.app","Content-Type","application/json","Access-Control-Allow-Headers","Content-Type, Authorization","Access-Control-Allow-Methods","GET, POST, PUT, DELETE, OPTIONS"],o,o)
+n=A.aE(["Access-Control-Allow-Origin","https://footballfrontier-be.vercel.app","Content-Type","application/json","Access-Control-Allow-Headers","Content-Type, Authorization","Access-Control-Allow-Methods","GET, POST, PUT, DELETE, OPTIONS"],o,o)
 m=a.a
 s=3
 return A.S(A.aIk(p,B.bc.Hd(A.aE(["email",m,"password",a.b],o,o),null),n),$async$xW)
@@ -27187,7 +27187,7 @@ p=A.d_(j.h(k,"access_token"))
 o=A.d_(j.h(k,"email"))
 k=A.hb("https://footballfrontier-be.vercel.app/api2/fast_login")
 j=t.N
-i=A.aE(["Access-Control-Allow-Origin","https://football-app-murex.vercel.app","Content-Type","application/json","Access-Control-Allow-Headers","Content-Type, Authorization","Access-Control-Allow-Methods","GET, POST, PUT, DELETE, OPTIONS"],j,j)
+i=A.aE(["Access-Control-Allow-Origin","https://footballfrontier-be.vercel.app","Content-Type","application/json","Access-Control-Allow-Headers","Content-Type, Authorization","Access-Control-Allow-Methods","GET, POST, PUT, DELETE, OPTIONS"],j,j)
 s=7
 return A.S(A.aIk(k,B.bc.Hd(A.aE(["token",J.e0(p),"email",J.e0(o)],j,j),null),i),$async$ti)
 case 7:n=d
