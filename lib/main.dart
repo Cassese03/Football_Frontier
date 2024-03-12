@@ -5,8 +5,11 @@ import 'package:football_app/screens/login/login_bloc.dart';
 import 'package:football_app/screens/login/login_screen.dart';
 import 'package:provider/provider.dart';
 import 'providers/players_provider.dart';
+//import 'package:firebase_core/firebase_core.dart';
 
 void main() {
+  //WidgetsFlutterBinding.ensureInitialized();
+  //Firebase.initializeApp();
   runApp(
     MultiProvider(
       providers: [ChangeNotifierProvider.value(value: PlayersProvider())],
