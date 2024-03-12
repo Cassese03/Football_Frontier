@@ -178,10 +178,19 @@ class _LoginScreenState extends State<LoginScreen> {
           if (state is LoginFailed) {
             showDialog(
               context: context,
-              builder: (context) => Dialog(
-                child: Text(
+              builder: (context) => AlertDialog(
+                content: Text(
                   state.error,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
+                actions: [
+                  ElevatedButton(
+                    onPressed: () => Navigator.pop(context),
+                    child: const Text('Riprova'),
+                  ),
+                ],
               ),
             );
           }

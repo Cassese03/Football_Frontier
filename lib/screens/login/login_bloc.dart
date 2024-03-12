@@ -56,8 +56,7 @@ onLogin(LoginOnTapLogin event, Emitter<LoginState> emit) async {
   } else {
     var returned = json.decode(response.body);
 
-    emit(LoginFailed(returned.body));
-    return;
+    return emit(LoginFailed(returned["error"]));
   }
 }
 
