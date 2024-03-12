@@ -109,7 +109,8 @@ onCheck(LoginCheckRemember event, Emitter<LoginState> emit) async {
 
       return emit(LoginSuccess());
     } else {
-      return emit(LoginRemember(remember));
+      prefs.setBool('rememberMe', false);
+      return emit(LoginRemember(false));
     }
   }
   return emit(LoginRemember(remember));
