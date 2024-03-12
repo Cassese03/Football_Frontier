@@ -1,8 +1,12 @@
+import 'dart:convert';
+
 import 'package:bloc/bloc.dart';
 
 import 'package:meta/meta.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
+
+import 'package:http/http.dart' as http;
 
 part 'login_event.dart';
 
@@ -21,19 +25,40 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 onLogin(LoginOnTapLogin event, Emitter<LoginState> emit) async {
   emit(LoginLoading());
 
-  if (event.username != 'pippo') {
-    emit(LoginFailed('ERRORE USERNAME'));
+  var response = await http.post(
+    Uri.parse('https://footballfrontier-be.vercel.app/api2/login'),
+    headers: <String, String>{
+      "Access-Control-Allow-Origin": "*",
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Credentials": "true",
+      "Access-Control-Allow-Headers":
+          "Origin,Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,locale",
+      "Access-Control-Allow-Methods": "POST, OPTIONS"
+    },
+    body: jsonEncode(
+      <String, String>{
+        'email': event.username,
+        'password': event.password,
+      },
+    ),
+  );
+  if (response.statusCode == 200) {
+    var returned = json.decode(response.body);
 
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    await prefs.setString('access_token', returned["access_token"]);
+
+    await prefs.setString('email', event.username);
+
+    emit(LoginSuccess());
+    return;
+  } else {
+    var returned = json.decode(response.body);
+
+    emit(LoginFailed(returned.body));
     return;
   }
-
-  if (event.password != 'pippo') {
-    emit(LoginFailed('ERRORE PASSWORD'));
-
-    return;
-  }
-
-  emit(LoginSuccess());
 }
 
 onRemember(LoginOnTapRemember event, Emitter<LoginState> emit) async {
@@ -54,10 +79,38 @@ onCheck(LoginCheckRemember event, Emitter<LoginState> emit) async {
   if (remember! == true) {
     emit(LoginLoading());
 
-    Future.delayed(Duration(seconds: 2));
+    var access_token = prefs.getString('access_token');
 
-    return emit(LoginSuccess());
+    var email = prefs.getString('email');
+
+    var response = await http.post(
+      Uri.parse('https://footballfrontier-be.vercel.app/api2/fast_login'),
+      headers: <String, String>{
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Credentials": "true",
+        "Access-Control-Allow-Headers":
+            "Origin,Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,locale",
+        "Access-Control-Allow-Methods": "POST, OPTIONS"
+      },
+      body: jsonEncode(
+        <String, String>{
+          'token': access_token.toString(),
+          'email': email.toString(),
+        },
+      ),
+    );
+    if (response.statusCode == 200) {
+      var returned = json.decode(response.body);
+
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+
+      await prefs.setString('access_token', returned["access_token"]);
+
+      return emit(LoginSuccess());
+    } else {
+      return emit(LoginRemember(remember));
+    }
   }
-
-  emit(LoginInit());
+  return emit(LoginRemember(remember));
 }
