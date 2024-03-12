@@ -28,10 +28,7 @@ onLogin(LoginOnTapLogin event, Emitter<LoginState> emit) async {
   var response = await http.post(
     Uri.parse('https://footballfrontier-be.vercel.app/api2/login'),
     headers: <String, String>{
-      "Access-Control-Allow-Origin": "https://footballfrontier-be.vercel.app",
       "Content-Type": "application/json",
-      "Access-Control-Allow-Headers": "Content-Type, Authorization",
-      "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS"
     },
     body: jsonEncode(
       <String, String>{
@@ -83,10 +80,7 @@ onCheck(LoginCheckRemember event, Emitter<LoginState> emit) async {
     var response = await http.post(
       Uri.parse('https://footballfrontier-be.vercel.app/api2/fast_login'),
       headers: <String, String>{
-        "Access-Control-Allow-Origin": "https://footballfrontier-be.vercel.app",
         "Content-Type": "application/json",
-        "Access-Control-Allow-Headers": "Content-Type, Authorization",
-        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS"
       },
       body: jsonEncode(
         <String, String>{
