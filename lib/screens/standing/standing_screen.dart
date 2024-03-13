@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:football_app/screens/standing/standing_bloc.dart';
@@ -65,20 +63,22 @@ class _StandingScreenState extends State<StandingScreen> {
                             isFavorite: false,
                             position: 0,
                           ),
-                          ...state.returned.map(
-                            (e) => Standing(
-                              currentColor: state.currentColor,
-                              Logo: "assets/images/raimon.jpg",
-                              Title: e["nome"].toString(),
-                              Winning: e["partitevinte"],
-                              Losing: e["partiteperse"],
-                              GolScored: e["golfatti"].toString(),
-                              GolConcessed: e["golsubiti"].toString(),
-                              Points: e["punti"].toString(),
-                              isFavorite: e["owner"],
-                              position: e["position"],
-                            ),
-                          )
+                          ...state.returned
+                              .map(
+                                (e) => Standing(
+                                  currentColor: state.currentColor,
+                                  Logo: "assets/images/raimon.jpg",
+                                  Title: e["nome"].toString(),
+                                  Winning: e["partitevinte"],
+                                  Losing: e["partiteperse"],
+                                  GolScored: e["golfatti"].toString(),
+                                  GolConcessed: e["golsubiti"].toString(),
+                                  Points: e["punti"].toString(),
+                                  isFavorite: e["owner"],
+                                  position: e["position"],
+                                ),
+                              )
+                              .toList(),
                           // Standing(
                           //   currentColor: state.currentColor,
                           //   Logo: "assets/images/raimon.jpg",

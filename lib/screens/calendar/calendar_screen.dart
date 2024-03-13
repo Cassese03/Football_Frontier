@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:football_app/screens/calendar/calendar_bloc.dart';
 import 'package:football_app/widgets/giornata.dart';
 import 'package:football_app/widgets/upcoming_lorenzo.dart';
+import 'package:intl/intl.dart' as inter;
 
 class CalendarScreen extends StatefulWidget {
   const CalendarScreen({super.key});
@@ -48,42 +49,65 @@ class _CalendarScreenState extends State<CalendarScreen> {
                         physics: const NeverScrollableScrollPhysics(),
                         children: [
                           Giornata(currentColor: state.currentColor),
-                          const UpComingLorenzo(
-                            awayLogo: "assets/images/man_united.png",
-                            awayTitle: "Man United",
-                            homeLogo: "assets/images/liverpool.png",
-                            homeTitle: "Liverpool FC",
-                            date: "30 Dec",
-                            time: "06:30",
-                            isFavorite: true,
-                          ),
-                          const UpComingLorenzo(
-                            awayLogo: "assets/images/swansea.png",
-                            awayTitle: "Swansea AFC",
-                            homeLogo: "assets/images/tottenham.png",
-                            homeTitle: "Tottenham",
-                            date: "30 Dec",
-                            time: "06:30",
-                            isFavorite: false,
-                          ),
-                          const UpComingLorenzo(
-                            awayLogo: "assets/images/stoke.png",
-                            awayTitle: "Stoke City",
-                            homeLogo: "assets/images/arsenal.png",
-                            homeTitle: "Arsenal",
-                            date: "30 Dec",
-                            time: "06:30",
-                            isFavorite: false,
-                          ),
-                          const UpComingLorenzo(
-                            awayLogo: "assets/images/southampton.png",
-                            awayTitle: "Southhampton",
-                            homeLogo: "assets/images/sunderland.png",
-                            homeTitle: "Sunderland",
-                            date: "30 Dec",
-                            time: "06:30",
-                            isFavorite: false,
-                          ),
+                          ...state.returned.map(
+                            (e) {
+                              String datamatch = e['datamatch'];
+                              DateTime dateTime = DateTime.parse(datamatch);
+                              String dataFormattata =
+                                  '${dateTime.day} ${inter.DateFormat('LLLL', 'it').format(DateTime(2024, dateTime.month))}';
+                              String orarioFormattato =
+                                  '${dateTime.hour}:${(dateTime.minute < 10) ? '0${dateTime.minute}' : dateTime.minute}';
+                              return UpComingLorenzo(
+                                homeLogo: (e['imgcasa'] != null)
+                                    ? e['imgcasa']
+                                    : "assets/images/raimon.jpg",
+                                homeTitle: e['nomecasa'],
+                                awayLogo: (e['imgospite'] != null)
+                                    ? e['imgospite']
+                                    : "assets/images/raimon.jpg",
+                                awayTitle: e['nomeospite'],
+                                date: orarioFormattato,
+                                time: dataFormattata,
+                                isFavorite: false,
+                              );
+                            },
+                          ).toList(),
+                          // const UpComingLorenzo(
+                          //   awayLogo: "assets/images/man_united.png",
+                          //   awayTitle: "Man United",
+                          //   homeLogo: "assets/images/liverpool.png",
+                          //   homeTitle: "Liverpool FC",
+                          //   date: "30 Dec",
+                          //   time: "06:30",
+                          //   isFavorite: true,
+                          // ),
+                          // const UpComingLorenzo(
+                          //   awayLogo: "assets/images/swansea.png",
+                          //   awayTitle: "Swansea AFC",
+                          //   homeLogo: "assets/images/tottenham.png",
+                          //   homeTitle: "Tottenham",
+                          //   date: "30 Dec",
+                          //   time: "06:30",
+                          //   isFavorite: false,
+                          // ),
+                          // const UpComingLorenzo(
+                          //   awayLogo: "assets/images/stoke.png",
+                          //   awayTitle: "Stoke City",
+                          //   homeLogo: "assets/images/arsenal.png",
+                          //   homeTitle: "Arsenal",
+                          //   date: "30 Dec",
+                          //   time: "06:30",
+                          //   isFavorite: false,
+                          // ),
+                          // const UpComingLorenzo(
+                          //   awayLogo: "assets/images/southampton.png",
+                          //   awayTitle: "Southhampton",
+                          //   homeLogo: "assets/images/sunderland.png",
+                          //   homeTitle: "Sunderland",
+                          //   date: "30 Dec",
+                          //   time: "06:30",
+                          //   isFavorite: false,
+                          // ),
                         ],
                       ),
                     )
