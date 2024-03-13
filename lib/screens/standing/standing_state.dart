@@ -14,7 +14,10 @@ final class StandingReady extends StandingState {
   final int currentColor;
 
 
-  StandingReady(this.currentColor);
+  final List returned;
+
+
+  StandingReady(this.currentColor, this.returned);
 
 }
 

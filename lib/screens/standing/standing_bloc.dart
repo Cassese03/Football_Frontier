@@ -1,3 +1,9 @@
+import 'dart:convert';
+
+
+import 'dart:developer';
+
+
 import 'package:bloc/bloc.dart';
 
 
@@ -8,6 +14,9 @@ import 'package:meta/meta.dart';
 
 
 import 'package:shared_preferences/shared_preferences.dart';
+
+
+import 'package:http/http.dart' as http;
 
 
 part 'standing_event.dart';
@@ -50,7 +59,44 @@ class StandingBloc extends Bloc<StandingEvent, StandingState> {
     }
 
 
-    emit(StandingReady(currentColor));
+    var access_token = prefs.getString('access_token');
+
+
+    var response = await http.post(
+
+      Uri.parse('https://footballfrontier-be.vercel.app/api2/classifica'),
+
+      headers: <String, String>{
+
+        "Content-Type": "application/json",
+
+      },
+
+      body: jsonEncode(
+
+        <String, String>{
+
+          'token': access_token.toString(),
+
+        },
+
+      ),
+
+    );
+
+
+    if (response.statusCode == 200) {
+
+      var returned = json.decode(response.body);
+
+
+      return emit(StandingReady(currentColor, returned));
+
+    } else {
+
+      return emit(StandingInitial());
+
+    }
 
   }
 
