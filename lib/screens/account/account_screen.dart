@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:football_app/constants.dart';
@@ -160,7 +162,17 @@ class _AccountScreenState extends State<AccountScreen> {
               if (state is AccountLoading) {
                 return const Center(child: CircularProgressIndicator());
               }
-              return Fetched(context);
+              if (state is AccountFetched) {
+                return Fetched(context, state.returned);
+              }
+              if (state is AccountInit) {
+                context.read<AccountBloc>().add(
+                      AccountLoad(
+                        (widget.idGiocatore != null) ? widget.idGiocatore! : 0,
+                      ),
+                    );
+              }
+              return const Center(child: CircularProgressIndicator());
             },
           );
         }),
@@ -169,7 +181,7 @@ class _AccountScreenState extends State<AccountScreen> {
   }
 
   // ignore: non_constant_identifier_names
-  Container Fetched(BuildContext context) {
+  Container Fetched(BuildContext context, var returned) {
     return Container(
       color: kbackgroundColor,
       child: Column(
@@ -179,48 +191,58 @@ class _AccountScreenState extends State<AccountScreen> {
             child: Row(
               children: [
                 const Spacer(),
-                badges.Badge(
-                  position: badges.BadgePosition.topEnd(),
-                  badgeContent: const Icon(
-                    Icons.edit,
-                  ),
-                  badgeStyle: const badges.BadgeStyle(
-                    badgeColor: Colors.white,
-                  ),
-                  onTap: () async {
-                    context.read<AccountBloc>().add(AccountEdit());
-                  },
-                  child: Center(
-                    child: CircleAvatar(
-                      backgroundColor: Color(currentColor),
-                      minRadius: 100,
-                      foregroundImage: const AssetImage(
-                        'assets/images/pl.png',
+                (returned["owner"] == true)
+                    ? badges.Badge(
+                        position: badges.BadgePosition.topEnd(),
+                        badgeContent: const Icon(
+                          Icons.edit,
+                        ),
+                        badgeStyle: const badges.BadgeStyle(
+                          badgeColor: Colors.white,
+                        ),
+                        onTap: () async {
+                          context.read<AccountBloc>().add(AccountEdit());
+                        },
+                        child: Center(
+                          child: CircleAvatar(
+                            backgroundColor: Color(currentColor),
+                            minRadius: 100,
+                            foregroundImage: const AssetImage(
+                              'assets/images/pl.png',
+                            ),
+                          ),
+                        ),
+                      )
+                    : Center(
+                        child: CircleAvatar(
+                          backgroundColor: Color(currentColor),
+                          minRadius: 100,
+                          foregroundImage: const AssetImage(
+                            'assets/images/pl.png',
+                          ),
+                        ),
                       ),
-                    ),
-                  ),
-                ),
                 const Spacer(),
               ],
             ),
           ),
-          const Expanded(
+          Expanded(
             flex: 10,
             child: Column(
               children: [
                 Expanded(
                   child: Row(
                     children: [
-                      Spacer(),
+                      const Spacer(),
                       Text(
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.bold,
                           fontSize: 20,
                         ),
-                        'Lorenzo Cassese',
+                        returned["profilo"][0]["nome"].toString(),
                       ),
-                      Spacer(),
+                      const Spacer(),
                     ],
                   ),
                 ),
@@ -239,7 +261,8 @@ class _AccountScreenState extends State<AccountScreen> {
                         flex: 50,
                         child: ProfileCard(
                           currentColor: currentColor,
-                          numero: 2,
+                          numero: returned["statisticheSquadra"][0]
+                              ["partitevinte"],
                           content: 'Partite Vinte',
                         ),
                       ),
@@ -247,7 +270,8 @@ class _AccountScreenState extends State<AccountScreen> {
                         flex: 50,
                         child: ProfileCard(
                           currentColor: currentColor,
-                          numero: 1,
+                          numero: returned["statisticheSquadra"][0]
+                              ["partiteperse"],
                           content: 'Partite Perse',
                         ),
                       ),
@@ -261,7 +285,7 @@ class _AccountScreenState extends State<AccountScreen> {
                       Expanded(
                         child: ProfileCard(
                           currentColor: currentColor,
-                          numero: 3,
+                          numero: returned["statisticheSquadra"][0]["presenze"],
                           content: 'Partite Giocate',
                         ),
                       ),
@@ -296,8 +320,9 @@ class _AccountScreenState extends State<AccountScreen> {
                 Stats(
                   currentColor: currentColor,
                   logo: "assets/images/arsenal.png",
-                  title: "Lorenzo Cassese",
-                  content: "Posizione : Difensore",
+                  title: returned["profilo"][0]["nome"].toString(),
+                  content:
+                      "Posizione : ${returned["profilo"][0]["ruolo"].toString()}",
                   icon: Icon(
                     Icons.stars_outlined,
                     size: 28,
@@ -308,7 +333,8 @@ class _AccountScreenState extends State<AccountScreen> {
                   currentColor: currentColor,
                   logo: "assets/images/swansea.png",
                   title: "Gol",
-                  content: "2",
+                  content:
+                      returned["statistichePersonali"][0]["gol"].toString(),
                   icon: Icon(
                     Icons.stars_outlined,
                     size: 28,
@@ -319,7 +345,8 @@ class _AccountScreenState extends State<AccountScreen> {
                   currentColor: currentColor,
                   logo: "assets/images/west_ham.png",
                   title: "Assist",
-                  content: "4",
+                  content:
+                      returned["statistichePersonali"][0]["assist"].toString(),
                   icon: Icon(
                     Icons.stars_outlined,
                     size: 28,
@@ -330,7 +357,8 @@ class _AccountScreenState extends State<AccountScreen> {
                   currentColor: currentColor,
                   logo: "assets/images/pl.png",
                   title: "Presenze",
-                  content: "4",
+                  content: returned["statistichePersonali"][0]["presenze"]
+                      .toString(),
                   icon: Icon(
                     Icons.stars_outlined,
                     size: 28,
@@ -341,7 +369,7 @@ class _AccountScreenState extends State<AccountScreen> {
                   currentColor: currentColor,
                   logo: "assets/images/raimon.jpg",
                   title: "Squadra",
-                  content: "Raimon",
+                  content: returned["profilo"][0]["nomesquadra"].toString(),
                   icon: Icon(
                     Icons.stars_outlined,
                     size: 28,
