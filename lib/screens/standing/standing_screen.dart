@@ -76,6 +76,7 @@ class _StandingScreenState extends State<StandingScreen> {
                                   Points: e["punti"].toString(),
                                   isFavorite: e["owner"],
                                   position: e["position"],
+                                  idSquadra: e['id_squadra'],
                                 ),
                               )
                               .toList(),

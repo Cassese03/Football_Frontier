@@ -68,15 +68,15 @@ class AnteprimaProfiloHeader extends StatelessWidget {
                   ),
                 ),
                 const Spacer(),
-                Expanded(
+                const Expanded(
                   flex: 35,
                   child: Row(
                     children: [
                       Column(
                         children: [
                           Text(
-                            'Presenze',
-                            style: const TextStyle(
+                            'P',
+                            style: TextStyle(
                               color: Colors.black,
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
@@ -84,12 +84,12 @@ class AnteprimaProfiloHeader extends StatelessWidget {
                           ),
                         ],
                       ),
-                      const Spacer(),
+                      Spacer(),
                       Column(
                         children: [
                           Text(
                             'Gol',
-                            style: const TextStyle(
+                            style: TextStyle(
                               color: Colors.black,
                               fontSize: 18,
                               fontWeight: FontWeight.bold,

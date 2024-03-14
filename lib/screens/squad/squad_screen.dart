@@ -22,7 +22,7 @@ class _SquadScreenState extends State<SquadScreen> {
       child: BlocBuilder<SquadBloc, SquadState>(
         builder: (context, state) {
           if (state is SquadInitial) {
-            context.read<SquadBloc>().add(SquadInit());
+            context.read<SquadBloc>().add(SquadInit(widget.squad));
           }
           if (state is SquadLoading) {
             return const Center(
@@ -34,6 +34,25 @@ class _SquadScreenState extends State<SquadScreen> {
               body: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  Row(
+                    children: [
+                      const Spacer(),
+                      Text(
+                        state.returned.entries
+                            .where((entry) => entry.key == "squadra")
+                            .first
+                            .value[0]["nome"],
+                        textAlign: TextAlign.center,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          color: Color(state.currentColor),
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const Spacer(),
+                    ],
+                  ),
                   Expanded(
                     flex: 25,
                     child: Padding(
@@ -67,7 +86,10 @@ class _SquadScreenState extends State<SquadScreen> {
                                 flex: 50,
                                 child: ProfileCard(
                                   currentColor: state.currentColor,
-                                  numero: 2,
+                                  numero: state.returned.entries
+                                      .where((entry) => entry.key == "squadra")
+                                      .first
+                                      .value[0]["partitevinte"],
                                   content: 'Partite Vinte',
                                 ),
                               ),
@@ -75,7 +97,10 @@ class _SquadScreenState extends State<SquadScreen> {
                                 flex: 50,
                                 child: ProfileCard(
                                   currentColor: state.currentColor,
-                                  numero: 1,
+                                  numero: state.returned.entries
+                                      .where((entry) => entry.key == "squadra")
+                                      .first
+                                      .value[0]["partiteperse"],
                                   content: 'Partite Perse',
                                 ),
                               ),
@@ -89,7 +114,10 @@ class _SquadScreenState extends State<SquadScreen> {
                               Expanded(
                                 child: ProfileCard(
                                   currentColor: state.currentColor,
-                                  numero: 3,
+                                  numero: state.returned.entries
+                                      .where((entry) => entry.key == "squadra")
+                                      .first
+                                      .value[0]["presenze"],
                                   content: 'Partite Giocate',
                                 ),
                               ),
@@ -112,66 +140,29 @@ class _SquadScreenState extends State<SquadScreen> {
                             AnteprimaProfiloHeader(
                               currentColor: state.currentColor,
                             ),
-                            AnteprimaProfilo(
-                              currentColor: state.currentColor,
-                              Logo: "assets/images/raimon.jpg",
-                              Title: "Lorenzo",
-                              Ruolo: "Difensore",
-                              Gol: 1,
-                              Assits: 4,
-                              isFavorite: true,
-                              Presenze: 4,
-                            ),
-                            AnteprimaProfilo(
-                              currentColor: state.currentColor,
-                              Logo: "assets/images/raimon.jpg",
-                              Title: "Lorenzo",
-                              Ruolo: "Difensore",
-                              Gol: 1,
-                              Assits: 4,
-                              isFavorite: false,
-                              Presenze: 4,
-                            ),
-                            AnteprimaProfilo(
-                              currentColor: state.currentColor,
-                              Logo: "assets/images/raimon.jpg",
-                              Title: "Lorenzo",
-                              Ruolo: "Difensore",
-                              Gol: 1,
-                              Assits: 4,
-                              isFavorite: false,
-                              Presenze: 4,
-                            ),
-                            AnteprimaProfilo(
-                              currentColor: state.currentColor,
-                              Logo: "assets/images/raimon.jpg",
-                              Title: "Lorenzo",
-                              Ruolo: "Difensore",
-                              Gol: 1,
-                              Assits: 4,
-                              isFavorite: false,
-                              Presenze: 4,
-                            ),
-                            AnteprimaProfilo(
-                              currentColor: state.currentColor,
-                              Logo: "assets/images/raimon.jpg",
-                              Title: "Lorenzo",
-                              Ruolo: "Difensore",
-                              Gol: 1,
-                              Assits: 4,
-                              isFavorite: false,
-                              Presenze: 4,
-                            ),
-                            AnteprimaProfilo(
-                              currentColor: state.currentColor,
-                              Logo: "assets/images/raimon.jpg",
-                              Title: "Lorenzo",
-                              Ruolo: "Difensore",
-                              Gol: 1,
-                              Assits: 4,
-                              isFavorite: false,
-                              Presenze: 4,
-                            ),
+                            ...state.returned.entries
+                                .where((entry) => entry.key == "giocatori")
+                                .map(
+                              (entry) {
+                                return Column(
+                                  children: entry.value.map<Widget>(
+                                    (giocatore) {
+                                      return AnteprimaProfilo(
+                                        currentColor: state.currentColor,
+                                        Logo: "assets/images/raimon.jpg",
+                                        Title: giocatore["nominativo"],
+                                        Ruolo: giocatore["ruolo"],
+                                        Gol: giocatore["gol"],
+                                        Assits: giocatore["assist"],
+                                        isFavorite: false,
+                                        Presenze: giocatore["presenze"],
+                                        idGiocatore: giocatore["id_giocatore"],
+                                      );
+                                    },
+                                  ).toList(),
+                                );
+                              },
+                            ).toList(),
                           ],
                         ),
                       ),

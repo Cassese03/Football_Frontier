@@ -10,6 +10,7 @@ class Standing extends StatelessWidget {
   final int currentColor;
   final int Winning;
   final int Losing;
+  final int idSquadra;
   const Standing({
     super.key,
     required this.Logo,
@@ -22,6 +23,7 @@ class Standing extends StatelessWidget {
     required this.Losing,
     required this.isFavorite,
     required this.position,
+    required this.idSquadra,
   });
 
   @override
@@ -32,7 +34,7 @@ class Standing extends StatelessWidget {
         MaterialPageRoute(
           builder: (context) => MainScreen(
             currentTab: 5,
-            idSquadra: 0,
+            idSquadra: idSquadra,
           ),
         ),
       ),

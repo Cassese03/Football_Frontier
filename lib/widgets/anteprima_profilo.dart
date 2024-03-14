@@ -10,6 +10,7 @@ class AnteprimaProfilo extends StatelessWidget {
   final int Presenze;
   final int Gol;
   final int Assits;
+  final int idGiocatore;
   const AnteprimaProfilo({
     super.key,
     required this.Logo,
@@ -20,6 +21,7 @@ class AnteprimaProfilo extends StatelessWidget {
     required this.Gol,
     required this.isFavorite,
     required this.Assits,
+    required this.idGiocatore,
   });
 
   @override
@@ -29,8 +31,8 @@ class AnteprimaProfilo extends StatelessWidget {
         context,
         MaterialPageRoute(
           builder: (context) => MainScreen(
-            currentTab: 4,
-            idGiocatore: 0,
+            currentTab: 6,
+            idGiocatore: idGiocatore,
           ),
         ),
       ),

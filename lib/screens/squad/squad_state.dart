@@ -14,7 +14,10 @@ final class SquadReady extends SquadState {
   final int currentColor;
 
 
-  SquadReady(this.currentColor);
+  final Map returned;
+
+
+  SquadReady(this.currentColor, this.returned);
 
 }
 

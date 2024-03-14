@@ -6,5 +6,12 @@ part of 'squad_bloc.dart';
 sealed class SquadEvent {}
 
 
-final class SquadInit extends SquadEvent {}
+final class SquadInit extends SquadEvent {
+
+  final int idSquadra;
+
+
+  SquadInit(this.idSquadra);
+
+}
 
