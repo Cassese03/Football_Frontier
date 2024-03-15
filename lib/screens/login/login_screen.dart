@@ -4,6 +4,7 @@ import 'package:football_app/constants.dart';
 import 'package:football_app/screens/login/login_bloc.dart';
 import 'package:football_app/screens/main/main_screen.dart';
 import 'package:fancy_password_field/fancy_password_field.dart';
+import 'package:football_app/widgets/loading.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -26,8 +27,8 @@ class _LoginScreenState extends State<LoginScreen> {
             context.read<LoginBloc>().add(LoginCheckRemember());
           }
           if (state is LoginLoading) {
-            return const Center(
-              child: CircularProgressIndicator(),
+            return const Loading(
+              duration: Duration(seconds: 1),
             );
           }
           return SingleChildScrollView(
@@ -142,7 +143,9 @@ class _LoginScreenState extends State<LoginScreen> {
                               ],
                             ),
                       (state is LoginLoading)
-                          ? CircularProgressIndicator()
+                          ? const Loading(
+                              duration: Duration(seconds: 1),
+                            )
                           : Padding(
                               padding: const EdgeInsets.all(16.0),
                               child: ElevatedButton(

@@ -5,6 +5,7 @@ import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:football_app/common/appbarnotify.dart';
 import 'package:football_app/constants.dart';
 import 'package:football_app/screens/settings/settings_bloc.dart';
+import 'package:football_app/widgets/loading.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
@@ -133,8 +134,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ),
             );
           }
-          return const Center(
-            child: CircularProgressIndicator(),
+          return const Loading(
+            duration: Duration(seconds: 1),
           );
         },
       ),

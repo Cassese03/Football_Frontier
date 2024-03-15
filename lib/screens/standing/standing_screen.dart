@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:football_app/screens/standing/standing_bloc.dart';
+import 'package:football_app/widgets/loading.dart';
 import 'package:football_app/widgets/standing.dart';
 import 'package:football_app/widgets/standing_head.dart';
 
@@ -173,13 +174,13 @@ class _StandingScreenState extends State<StandingScreen> {
             );
           }
           if (state is StandingLoading) {
-            return const Center(
-              child: CircularProgressIndicator(),
+            return const Loading(
+              duration: Duration(seconds: 1),
             );
           }
 
-          return const Center(
-            child: CircularProgressIndicator(),
+          return const Loading(
+            duration: Duration(seconds: 1),
           );
         },
       ),

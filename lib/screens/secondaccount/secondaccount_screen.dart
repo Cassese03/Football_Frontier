@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:football_app/constants.dart';
 import 'package:badges/badges.dart' as badges;
 import 'package:football_app/screens/account/bloc/account_bloc.dart';
+import 'package:football_app/widgets/loading.dart';
 import 'package:football_app/widgets/profile_card.dart';
 import 'package:football_app/widgets/stats.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -158,7 +159,9 @@ class _SecondAccountScreenState extends State<SecondAccountScreen> {
             },
             builder: (BuildContext context, AccountState state) {
               if (state is AccountLoading) {
-                return const Center(child: CircularProgressIndicator());
+                return const Loading(
+                  duration: Duration(seconds: 1),
+                );
               }
               if (state is AccountFetched) {
                 return Fetched(context, state.returned);
@@ -170,7 +173,9 @@ class _SecondAccountScreenState extends State<SecondAccountScreen> {
                       ),
                     );
               }
-              return const Center(child: CircularProgressIndicator());
+              return const Loading(
+                duration: Duration(seconds: 1),
+              );
             },
           );
         }),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:football_app/common/appbarnotify.dart';
 import 'package:football_app/screens/notification/notification_bloc.dart';
+import 'package:football_app/widgets/loading.dart';
 import 'package:football_app/widgets/notify.dart';
 
 class NotificationScreen extends StatefulWidget {
@@ -19,8 +20,8 @@ class _NotificationScreenState extends State<NotificationScreen> {
       child: BlocBuilder<NotificationBloc, NotificationState>(
         builder: (context, state) {
           if (state is NotificationLoading) {
-            return const Center(
-              child: CircularProgressIndicator(),
+            return const Loading(
+              duration: Duration(seconds: 1),
             );
           }
           if (state is NotificationInitial) {
@@ -89,8 +90,8 @@ class _NotificationScreenState extends State<NotificationScreen> {
               ),
             );
           }
-          return const Center(
-            child: CircularProgressIndicator(),
+          return const Loading(
+            duration: Duration(seconds: 1),
           );
         },
       ),

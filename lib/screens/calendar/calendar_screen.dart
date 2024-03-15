@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:football_app/screens/calendar/calendar_bloc.dart';
 import 'package:football_app/widgets/giornata.dart';
+import 'package:football_app/widgets/loading.dart';
 import 'package:football_app/widgets/upcoming_lorenzo.dart';
 import 'package:intl/intl.dart' as inter;
 
@@ -120,12 +121,12 @@ class _CalendarScreenState extends State<CalendarScreen> {
             context.read<CalendarBloc>().add(CalendarInit());
           }
           if (state is CalendarLoading) {
-            return const Center(
-              child: CircularProgressIndicator(),
+            return const Loading(
+              duration: Duration(seconds: 1),
             );
           }
-          return const Center(
-            child: CircularProgressIndicator(),
+          return const Loading(
+            duration: Duration(seconds: 1),
           );
         },
       ),

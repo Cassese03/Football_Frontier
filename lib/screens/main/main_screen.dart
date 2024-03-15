@@ -11,6 +11,7 @@ import 'package:football_app/screens/account/account_screen.dart';
 import 'package:football_app/screens/calendar/calendar_screen.dart';
 import 'package:football_app/screens/home/home_screen.dart';
 import 'package:football_app/screens/standing/standing_screen.dart';
+import 'package:football_app/widgets/loading.dart';
 import 'package:iconsax/iconsax.dart';
 
 final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
@@ -58,8 +59,8 @@ class _MainScreenState extends State<MainScreen> {
             context.read<MainBloc>().add(MainInit());
           }
           if (state is MainLoading) {
-            return const Center(
-              child: CircularProgressIndicator(),
+            return const Loading(
+              duration: Duration(seconds: 1),
             );
           }
           if (state is MainReady) {
@@ -149,8 +150,8 @@ class _MainScreenState extends State<MainScreen> {
               ),
             );
           }
-          return const Center(
-            child: CircularProgressIndicator(),
+          return const Loading(
+            duration: Duration(seconds: 1),
           );
         },
       ),

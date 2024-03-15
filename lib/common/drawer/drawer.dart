@@ -4,6 +4,7 @@ import 'package:football_app/common/drawer/drawer_bloc.dart';
 import 'package:football_app/screens/login/login_screen.dart';
 import 'package:football_app/screens/main/main_screen.dart';
 import 'package:football_app/screens/settings/settings_screen.dart';
+import 'package:football_app/widgets/loading.dart';
 
 // ignore: must_be_immutable
 class DrawerLorenzo extends StatelessWidget implements PreferredSizeWidget {
@@ -20,8 +21,8 @@ class DrawerLorenzo extends StatelessWidget implements PreferredSizeWidget {
       child: BlocConsumer<DrawerBloc, DrawerState>(
         builder: (context, state) {
           if (state is DrawerLoading) {
-            return const Center(
-              child: CircularProgressIndicator(),
+            return const Loading(
+              duration: Duration(seconds: 1),
             );
           }
           return Drawer(

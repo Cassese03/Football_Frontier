@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:football_app/screens/squad/squad_bloc.dart';
 import 'package:football_app/widgets/anteprima_profilo_header.dart';
+import 'package:football_app/widgets/loading.dart';
 import 'package:football_app/widgets/profile_card.dart';
 import 'package:football_app/widgets/anteprima_profilo.dart';
 
@@ -25,8 +26,8 @@ class _SquadScreenState extends State<SquadScreen> {
             context.read<SquadBloc>().add(SquadInit(widget.squad));
           }
           if (state is SquadLoading) {
-            return const Center(
-              child: CircularProgressIndicator(),
+            return const Loading(
+              duration: Duration(seconds: 1),
             );
           }
           if (state is SquadReady) {
@@ -172,8 +173,8 @@ class _SquadScreenState extends State<SquadScreen> {
               ),
             );
           }
-          return const Center(
-            child: CircularProgressIndicator(),
+          return const Loading(
+            duration: Duration(seconds: 1),
           );
         },
       ),
