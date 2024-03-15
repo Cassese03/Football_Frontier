@@ -13,7 +13,6 @@ class LiveMatchInfoBox extends StatelessWidget {
         vertical: 15,
         horizontal: 20,
       ),
-      height: 250,
       width: double.infinity,
       decoration: BoxDecoration(
         color: kboxColor,
@@ -27,7 +26,7 @@ class LiveMatchInfoBox extends StatelessWidget {
       child: Column(
         children: [
           const Text(
-            "Camp Nou",
+            "Bombonera",
             style: TextStyle(
               fontSize: 14,
               color: Colors.white,
@@ -93,45 +92,6 @@ class LiveMatchInfoBox extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const Row(
-                    children: [
-                      Column(
-                        children: [
-                          Text(
-                            "Fati 45+2'",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 10,
-                            ),
-                          ),
-                          SizedBox(height: 5),
-                          Text(
-                            "Depay 74'",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 10,
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(width: 10),
-                      Column(
-                        children: [
-                          Icon(
-                            Icons.sports_soccer,
-                            color: Colors.white,
-                            size: 15,
-                          ),
-                          SizedBox(height: 5),
-                          Icon(
-                            Icons.sports_soccer,
-                            color: Colors.white,
-                            size: 15,
-                          ),
-                        ],
-                      )
-                    ],
-                  ),
                 ],
               ),
               const Spacer(),
@@ -142,7 +102,6 @@ class LiveMatchInfoBox extends StatelessWidget {
               ),
             ],
           ),
-          const Spacer(),
           SizedBox(
             height: 20,
             child: Stack(
@@ -156,7 +115,7 @@ class LiveMatchInfoBox extends StatelessWidget {
                   ),
                 ),
                 Positioned(
-                  right: 60,
+                  right: 0,
                   left: 0,
                   top: 3,
                   bottom: 3,
@@ -190,28 +149,6 @@ class LiveMatchInfoBox extends StatelessWidget {
                 ),
                 Positioned(
                   top: 0,
-                  right: MediaQuery.of(context).size.width / 2 -
-                      MediaQuery.of(context).size.width / 8,
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 3,
-                      vertical: 2,
-                    ),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(5),
-                    ),
-                    child: const Text(
-                      "HT",
-                      style: TextStyle(
-                        fontSize: 10,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                ),
-                Positioned(
-                  top: 0,
                   right: 0,
                   child: Container(
                     padding: const EdgeInsets.symmetric(
@@ -232,6 +169,122 @@ class LiveMatchInfoBox extends StatelessWidget {
                     ),
                   ),
                 )
+              ],
+            ),
+          ),
+          const Spacer(),
+          Expanded(
+            child: ListView(
+              scrollDirection: Axis.vertical,
+              children: const [
+                Spacer(),
+                Expanded(
+                  child: Row(
+                    children: [
+                      Spacer(),
+                      SizedBox(
+                        width: 100,
+                        child: Text(
+                          "Fati 45+2'",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                          ),
+                        ),
+                      ),
+                      Icon(
+                        Icons.sports_soccer,
+                        color: Colors.white,
+                        size: 18,
+                      ),
+                      SizedBox(
+                        width: 100,
+                        child: Text(
+                          "",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                          ),
+                        ),
+                      ),
+                      Spacer(),
+                    ],
+                  ),
+                ),
+                Spacer(),
+                Expanded(
+                  child: Row(
+                    children: [
+                      Spacer(),
+                      SizedBox(
+                        width: 100,
+                        child: Text(
+                          "",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                          ),
+                        ),
+                      ),
+                      Icon(
+                        Icons.sports_soccer,
+                        color: Colors.white,
+                        size: 18,
+                      ),
+                      SizedBox(
+                        width: 100,
+                        child: Text(
+                          "Fati 45+2'",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                          ),
+                        ),
+                      ),
+                      Spacer(),
+                    ],
+                  ),
+                ),
+                Spacer(),
+                Expanded(
+                  child: Row(
+                    children: [
+                      Spacer(),
+                      SizedBox(
+                        width: 100,
+                        child: Text(
+                          "",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                          ),
+                        ),
+                      ),
+                      Icon(
+                        Icons.sports_soccer,
+                        color: Colors.white,
+                        size: 18,
+                      ),
+                      SizedBox(
+                        width: 100,
+                        child: Text(
+                          "Fati 45+2'",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                          ),
+                        ),
+                      ),
+                      Spacer(),
+                    ],
+                  ),
+                ),
               ],
             ),
           ),

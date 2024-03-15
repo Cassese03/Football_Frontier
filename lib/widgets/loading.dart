@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:math' as math;
 
 class Loading extends StatefulWidget {
   const Loading({super.key, required this.duration});
