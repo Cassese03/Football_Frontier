@@ -62,42 +62,45 @@ class AnteprimaProfilo extends StatelessWidget {
             ),
             child: Row(
               children: [
-                const SizedBox(width: 10),
                 Expanded(
                   flex: 65,
                   child: Row(
                     children: [
-                      Column(
-                        children: [
-                          Image.asset(
-                            Logo,
-                            height: 45,
-                            width: 45,
-                          ),
-                        ],
-                      ),
-                      const Spacer(),
-                      Column(
-                        children: [
-                          Text(
-                            Title,
-                            style: TextStyle(
-                              fontSize: 18,
-                              color: Colors.grey.shade700,
-                              fontWeight: FontWeight.bold,
+                      Expanded(
+                        child: Column(
+                          children: [
+                            Image.asset(
+                              Logo,
+                              height: 45,
+                              width: 45,
                             ),
-                          ),
-                          Text(
-                            'Ruolo $Ruolo',
-                            style: TextStyle(
-                              fontSize: 12,
-                              color: Color(currentColor),
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                      const Spacer(),
+                      Expanded(
+                        child: Column(
+                          children: [
+                            Text(
+                              Title,
+                              overflow: TextOverflow.clip,
+                              style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.grey.shade700,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Text(
+                              'Ruolo $Ruolo',
+                              overflow: TextOverflow.clip,
+                              style: TextStyle(
+                                fontSize: 12,
+                                color: Color(currentColor),
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                     ],
                   ),
                 ),

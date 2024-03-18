@@ -34,36 +34,40 @@ class AnteprimaProfiloHeader extends StatelessWidget {
                   flex: 65,
                   child: Row(
                     children: [
-                      const Column(
-                        children: [
-                          SizedBox(
-                            height: 45,
-                            width: 45,
-                          ),
-                        ],
-                      ),
-                      const Spacer(),
-                      Column(
-                        children: [
-                          Text(
-                            'Nome Cognome',
-                            style: TextStyle(
-                              fontSize: 18,
-                              color: Colors.grey.shade700,
-                              fontWeight: FontWeight.bold,
+                      const Expanded(
+                        child: Column(
+                          children: [
+                            SizedBox(
+                              height: 45,
+                              width: 45,
                             ),
-                          ),
-                          Text(
-                            'Ruolo',
-                            style: TextStyle(
-                              fontSize: 12,
-                              color: Color(currentColor),
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                      const Spacer(),
+                      Expanded(
+                        child: Column(
+                          children: [
+                            Text(
+                              'Nome Cognome',
+                              overflow: TextOverflow.clip,
+                              style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.grey.shade700,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Text(
+                              'Ruolo',
+                              overflow: TextOverflow.clip,
+                              style: TextStyle(
+                                fontSize: 12,
+                                color: Color(currentColor),
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                     ],
                   ),
                 ),

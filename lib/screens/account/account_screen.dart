@@ -36,149 +36,158 @@ class _AccountScreenState extends State<AccountScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: BlocProvider(
-        create: (context) => AccountBloc(),
-        child: Builder(builder: (context) {
-          return BlocConsumer<AccountBloc, AccountState>(
-            listener: (BuildContext context, AccountState state) {
-              if (state is AccountEditing) {
-                TextEditingController nome = TextEditingController();
-                TextEditingController cognome = TextEditingController();
-                TextEditingController ruolo = TextEditingController();
-                TextEditingController squadra = TextEditingController();
-                showDialog<AccountTryEdit?>(
-                  context: context,
-                  builder: (context) => AlertDialog(
-                    title: const Text(
-                      'Modifica Profilo',
+    // ignore: deprecated_member_use
+    return WillPopScope(
+      key: GlobalKey(),
+      onWillPop: () async {
+        Navigator.pop(context); return true;
+      },
+      child: Scaffold(
+        body: BlocProvider(
+          create: (context) => AccountBloc(),
+          child: Builder(builder: (context) {
+            return BlocConsumer<AccountBloc, AccountState>(
+              listener: (BuildContext context, AccountState state) {
+                if (state is AccountEditing) {
+                  TextEditingController nome = TextEditingController();
+                  TextEditingController cognome = TextEditingController();
+                  TextEditingController ruolo = TextEditingController();
+                  TextEditingController squadra = TextEditingController();
+                  showDialog<AccountTryEdit?>(
+                    context: context,
+                    builder: (context) => AlertDialog(
+                      title: const Text(
+                        'Modifica Profilo',
+                      ),
+                      content: SingleChildScrollView(
+                        child: ListBody(
+                          children: [
+                            const Padding(
+                              padding: EdgeInsets.symmetric(vertical: 4.0),
+                              child: Text(
+                                'Inserisci Nome',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                            TextField(
+                              controller: nome,
+                            ),
+                            const Padding(
+                              padding: EdgeInsets.symmetric(vertical: 4.0),
+                              child: Text(
+                                'Inserisci Cognome',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                            TextField(
+                              controller: cognome,
+                            ),
+                            const Padding(
+                              padding: EdgeInsets.symmetric(vertical: 4.0),
+                              child: Text(
+                                'Inserisci Ruolo',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                            TextField(
+                              controller: ruolo,
+                            ),
+                            const Padding(
+                              padding: EdgeInsets.symmetric(vertical: 4.0),
+                              child: Text(
+                                'Inserisci Squadra',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                            TextField(
+                              controller: squadra,
+                            ),
+                          ],
+                        ),
+                      ),
+                      actions: [
+                        ElevatedButton(
+                          onPressed: () {
+                            Navigator.of(context).pop(
+                              AccountTryEdit(
+                                'prova',
+                                'prova',
+                                'prova',
+                                'prova',
+                              ),
+                            );
+                          },
+                          child: const Text('Modifica'),
+                        )
+                      ],
                     ),
-                    content: SingleChildScrollView(
-                      child: ListBody(
-                        children: [
-                          const Padding(
-                            padding: EdgeInsets.symmetric(vertical: 4.0),
-                            child: Text(
-                              'Inserisci Nome',
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                          TextField(
-                            controller: nome,
-                          ),
-                          const Padding(
-                            padding: EdgeInsets.symmetric(vertical: 4.0),
-                            child: Text(
-                              'Inserisci Cognome',
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                          TextField(
-                            controller: cognome,
-                          ),
-                          const Padding(
-                            padding: EdgeInsets.symmetric(vertical: 4.0),
-                            child: Text(
-                              'Inserisci Ruolo',
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                          TextField(
-                            controller: ruolo,
-                          ),
-                          const Padding(
-                            padding: EdgeInsets.symmetric(vertical: 4.0),
-                            child: Text(
-                              'Inserisci Squadra',
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                          TextField(
-                            controller: squadra,
-                          ),
-                        ],
+                  ).then(
+                    (value) {
+                      if (value == null) return;
+                      context.read<AccountBloc>().add(value);
+                    },
+                  );
+                }
+                if (state is AccountEditingFailed) {
+                  showDialog(
+                    context: context,
+                    builder: (context) => Dialog(
+                      child: Text(
+                        state.error,
                       ),
                     ),
-                    actions: [
-                      ElevatedButton(
-                        onPressed: () {
-                          Navigator.of(context).pop(
-                            AccountTryEdit(
-                              'prova',
-                              'prova',
-                              'prova',
-                              'prova',
-                            ),
-                          );
-                        },
-                        child: const Text('Modifica'),
-                      )
-                    ],
-                  ),
-                ).then(
-                  (value) {
-                    if (value == null) return;
-                    context.read<AccountBloc>().add(value);
-                  },
-                );
-              }
-              if (state is AccountEditingFailed) {
-                showDialog(
-                  context: context,
-                  builder: (context) => Dialog(
-                    child: Text(
-                      state.error,
+                  );
+                }
+                if (state is AccountEditingSuccess) {
+                  showDialog(
+                    context: context,
+                    builder: (context) => const Dialog(
+                      child: Text('Complimenti'),
                     ),
-                  ),
-                );
-              }
-              if (state is AccountEditingSuccess) {
-                showDialog(
-                  context: context,
-                  builder: (context) => const Dialog(
-                    child: Text('Complimenti'),
-                  ),
-                );
-              }
-            },
-            builder: (BuildContext context, AccountState state) {
-              if (state is AccountLoading) {
+                  );
+                }
+              },
+              builder: (BuildContext context, AccountState state) {
+                if (state is AccountLoading) {
+                  return const Loading(
+                    duration: Duration(seconds: 1),
+                  );
+                }
+                if (state is AccountFetched) {
+                  return Fetched(context, state.returned);
+                }
+                if (state is AccountInit) {
+                  context.read<AccountBloc>().add(
+                        AccountLoad(
+                          (widget.idGiocatore != null)
+                              ? widget.idGiocatore!
+                              : 0,
+                        ),
+                      );
+                }
                 return const Loading(
                   duration: Duration(seconds: 1),
                 );
-              }
-              if (state is AccountFetched) {
-                return Fetched(context, state.returned);
-              }
-              if (state is AccountInit) {
-                context.read<AccountBloc>().add(
-                      AccountLoad(
-                        (widget.idGiocatore != null) ? widget.idGiocatore! : 0,
-                      ),
-                    );
-              }
-              return const Loading(
-                duration: Duration(seconds: 1),
-              );
-            },
-          );
-        }),
+              },
+            );
+          }),
+        ),
       ),
     );
   }
