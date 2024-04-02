@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class Giornata extends StatelessWidget {
-  int currentColor;
+  int currentColor, giornata;
 
   Giornata({
     super.key,
     required this.currentColor,
+    required this.giornata,
   });
 
   @override
@@ -15,17 +16,17 @@ class Giornata extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 16),
       child: Card(
         color: Color(currentColor),
-        child: const Row(
+        child: Row(
           children: [
-            Spacer(),
+            const Spacer(),
             Text(
-              'Giornata 24',
-              style: TextStyle(
+              'Giornata ${giornata.toString()}',
+              style: const TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            Spacer(),
+            const Spacer(),
           ],
         ),
       ),

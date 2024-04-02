@@ -49,27 +49,39 @@ class _CalendarScreenState extends State<CalendarScreen> {
                         primary: false,
                         physics: const NeverScrollableScrollPhysics(),
                         children: [
-                          Giornata(currentColor: state.currentColor),
                           ...state.returned.map(
                             (e) {
-                              String datamatch = e['datamatch'];
-                              DateTime dateTime = DateTime.parse(datamatch);
-                              String dataFormattata =
-                                  '${dateTime.day} ${inter.DateFormat('LLLL', 'it').format(DateTime(2024, dateTime.month))}';
-                              String orarioFormattato =
-                                  '${dateTime.hour}:${(dateTime.minute < 10) ? '0${dateTime.minute}' : dateTime.minute}';
-                              return UpComingLorenzo(
-                                homeLogo: (e['imgcasa'] != null)
-                                    ? e['imgcasa']
-                                    : "assets/images/raimon.jpg",
-                                homeTitle: e['nomecasa'],
-                                awayLogo: (e['imgospite'] != null)
-                                    ? e['imgospite']
-                                    : "assets/images/raimon.jpg",
-                                awayTitle: e['nomeospite'],
-                                date: orarioFormattato,
-                                time: dataFormattata,
-                                isFavorite: false,
+                              return Column(
+                                children: [
+                                  Giornata(
+                                    currentColor: state.currentColor,
+                                    giornata: e['giornata'],
+                                  ),
+                                  ...e['partite'].map(
+                                    (e) {
+                                      String datamatch = e['datamatch'];
+                                      DateTime dateTime =
+                                          DateTime.parse(datamatch);
+                                      String dataFormattata =
+                                          '${dateTime.day} ${inter.DateFormat('LLLL', 'it').format(DateTime(2024, dateTime.month))}';
+                                      String orarioFormattato =
+                                          '${dateTime.hour}:${(dateTime.minute < 10) ? '0${dateTime.minute}' : dateTime.minute}';
+                                      return UpComingLorenzo(
+                                        homeLogo: (e['imgcasa'] != null)
+                                            ? e['imgcasa']
+                                            : "assets/images/raimon.jpg",
+                                        homeTitle: e['nomecasa'],
+                                        awayLogo: (e['imgospite'] != null)
+                                            ? e['imgospite']
+                                            : "assets/images/raimon.jpg",
+                                        awayTitle: e['nomeospite'],
+                                        date: orarioFormattato,
+                                        time: dataFormattata,
+                                        isFavorite: false,
+                                      );
+                                    },
+                                  ),
+                                ],
                               );
                             },
                           ).toList(),
