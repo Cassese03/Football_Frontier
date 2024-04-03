@@ -90,9 +90,6 @@ class StandingBloc extends Bloc<StandingEvent, StandingState> {
       var returned = json.decode(response.body);
 
 
-      print(returned.toString());
-
-
       return emit(StandingReady(currentColor, returned));
 
     } else {
