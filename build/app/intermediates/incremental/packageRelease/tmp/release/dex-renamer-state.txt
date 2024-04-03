@@ -1,4 +1,4 @@
-#Tue Apr 02 18:00:20 CEST 2024
+#Wed Apr 03 14:47:10 CEST 2024
 base.0=C\:\\xampp\\htdocs\\Football_Frontier\\build\\app\\intermediates\\dex\\release\\minifyReleaseWithR8\\classes.dex
 path.0=classes.dex
 renamed.0=classes.dex

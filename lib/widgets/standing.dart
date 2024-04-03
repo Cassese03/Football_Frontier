@@ -6,11 +6,7 @@ import 'package:iconsax/iconsax.dart';
 class Standing extends StatelessWidget {
   final String Logo, Title, GolScored, GolConcessed, Points;
   final bool isFavorite;
-  final int position;
-  final int currentColor;
-  final int Winning;
-  final int Losing;
-  final int idSquadra;
+  final int position, currentColor, Winning, Losing, idSquadra;
   const Standing({
     super.key,
     required this.Logo,

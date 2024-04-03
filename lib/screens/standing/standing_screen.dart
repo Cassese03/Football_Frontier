@@ -75,7 +75,7 @@ class _StandingScreenState extends State<StandingScreen> {
                                   GolScored: e["golfatti"].toString(),
                                   GolConcessed: e["golsubiti"].toString(),
                                   Points: e["punti"].toString(),
-                                  isFavorite: e["owner"],
+                                  isFavorite: (e["owner"] == 0) ? false : true,
                                   position: e["position"],
                                   idSquadra: e['id_squadra'],
                                 ),
