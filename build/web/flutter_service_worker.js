@@ -55,7 +55,7 @@ const RESOURCES = {"assets/AssetManifest.bin": "32a8dc19b63ecdc8d217b5730cf2f232
 "assets/google_fonts/TitilliumWeb-Regular.ttf": "57e937e4eef39e324bd4f26745053687",
 "assets/google_fonts/TitilliumWeb-SemiBold.ttf": "c21564022e51245ca150237eeb23a2bb",
 "assets/google_fonts/TitilliumWeb-SemiBoldItalic.ttf": "20d8982e3d57983b66ae8dfcdcf48501",
-"assets/NOTICES": "4339ae40b7ab79beb3148f69aff20875",
+"assets/NOTICES": "9286f05637a5e1f6831f1555dea7a31c",
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "6d342eb68f170c97609e9da345464e5e",
 "assets/packages/iconsax/lib/assets/fonts/iconsax.ttf": "071d77779414a409552e0584dcbfd03d",
 "assets/packages/toast/assets/toastify.css": "a85675050054f179444bc5ad70ffc635",
@@ -77,9 +77,9 @@ const RESOURCES = {"assets/AssetManifest.bin": "32a8dc19b63ecdc8d217b5730cf2f232
 "icons/Icon-512.png": "343222d11edf74648c3aff06da3441b4",
 "icons/Icon-maskable-192.png": "0bcf6229c444c5092dfcdcf4d8bf2476",
 "icons/Icon-maskable-512.png": "343222d11edf74648c3aff06da3441b4",
-"index.html": "607a591d7553b0da42d22748f9755677",
-"/": "607a591d7553b0da42d22748f9755677",
-"main.dart.js": "e785ad1432de4f8d5ad34bd61f02ee30",
+"index.html": "bb395854b4e860d68bfaeae9046d0a9c",
+"/": "bb395854b4e860d68bfaeae9046d0a9c",
+"main.dart.js": "5164de43ef7a8f0334b1fc1d907da130",
 "manifest.json": "151ccd9266762df03c0a36c000a70d57",
 "version.json": "abce5f5ec41188d0169babaa720dc38a"};
 // The application shell files that are downloaded before a service worker can

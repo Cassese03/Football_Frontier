@@ -12,13 +12,7 @@ final class AccountLoad extends AccountEvent {
 }
 
 final class AccountTryEdit extends AccountEvent {
-  final String Nome;
+  final String base64Image;
 
-  final String Cognome;
-
-  final String Ruolo;
-
-  final String Squadra;
-
-  AccountTryEdit(this.Nome, this.Cognome, this.Ruolo, this.Squadra);
+  AccountTryEdit(this.base64Image);
 }

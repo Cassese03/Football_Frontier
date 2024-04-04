@@ -1,12 +1,15 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:football_app/constants.dart';
 import 'package:badges/badges.dart' as badges;
 import 'package:football_app/screens/account/bloc/account_bloc.dart';
+import 'package:football_app/screens/main/main_screen.dart';
 import 'package:football_app/widgets/loading.dart';
 import 'package:football_app/widgets/profile_card.dart';
 import 'package:football_app/widgets/stats.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:image_picker_web/image_picker_web.dart';
 
 // ignore: must_be_immutable
 class AccountScreen extends StatefulWidget {
@@ -40,7 +43,8 @@ class _AccountScreenState extends State<AccountScreen> {
     return WillPopScope(
       key: GlobalKey(),
       onWillPop: () async {
-        Navigator.pop(context); return true;
+        Navigator.pop(context);
+        return true;
       },
       child: Scaffold(
         body: BlocProvider(
@@ -49,10 +53,6 @@ class _AccountScreenState extends State<AccountScreen> {
             return BlocConsumer<AccountBloc, AccountState>(
               listener: (BuildContext context, AccountState state) {
                 if (state is AccountEditing) {
-                  TextEditingController nome = TextEditingController();
-                  TextEditingController cognome = TextEditingController();
-                  TextEditingController ruolo = TextEditingController();
-                  TextEditingController squadra = TextEditingController();
                   showDialog<AccountTryEdit?>(
                     context: context,
                     builder: (context) => AlertDialog(
@@ -62,80 +62,25 @@ class _AccountScreenState extends State<AccountScreen> {
                       content: SingleChildScrollView(
                         child: ListBody(
                           children: [
-                            const Padding(
-                              padding: EdgeInsets.symmetric(vertical: 4.0),
-                              child: Text(
-                                'Inserisci Nome',
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                            TextField(
-                              controller: nome,
-                            ),
-                            const Padding(
-                              padding: EdgeInsets.symmetric(vertical: 4.0),
-                              child: Text(
-                                'Inserisci Cognome',
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                            TextField(
-                              controller: cognome,
-                            ),
-                            const Padding(
-                              padding: EdgeInsets.symmetric(vertical: 4.0),
-                              child: Text(
-                                'Inserisci Ruolo',
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                            TextField(
-                              controller: ruolo,
-                            ),
-                            const Padding(
-                              padding: EdgeInsets.symmetric(vertical: 4.0),
-                              child: Text(
-                                'Inserisci Squadra',
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                            TextField(
-                              controller: squadra,
+                            ElevatedButton(
+                              onPressed: () async {
+                                final pickedFile =
+                                    await ImagePickerWeb.getImageAsBytes();
+                                if (pickedFile != null) {
+                                  final base64String = base64Encode(pickedFile);
+                                  Navigator.of(context).pop(
+                                    AccountTryEdit(
+                                      base64String,
+                                    ),
+                                  );
+                                }
+                              },
+                              child: const Text('Pick Image'),
                             ),
                           ],
                         ),
                       ),
-                      actions: [
-                        ElevatedButton(
-                          onPressed: () {
-                            Navigator.of(context).pop(
-                              AccountTryEdit(
-                                'prova',
-                                'prova',
-                                'prova',
-                                'prova',
-                              ),
-                            );
-                          },
-                          child: const Text('Modifica'),
-                        )
-                      ],
+                      actions: [],
                     ),
                   ).then(
                     (value) {
@@ -147,9 +92,20 @@ class _AccountScreenState extends State<AccountScreen> {
                 if (state is AccountEditingFailed) {
                   showDialog(
                     context: context,
-                    builder: (context) => Dialog(
-                      child: Text(
-                        state.error,
+                    builder: (context) => AlertDialog(
+                      content: Text(state.error),
+                      actions: [
+                        ElevatedButton(
+                          onPressed: () => Navigator.of(context).pop(),
+                          child: const Text('Ok'),
+                        ),
+                      ],
+                    ),
+                  ).then(
+                    (value) => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => MainScreen(currentTab: 4),
                       ),
                     ),
                   );
@@ -157,8 +113,21 @@ class _AccountScreenState extends State<AccountScreen> {
                 if (state is AccountEditingSuccess) {
                   showDialog(
                     context: context,
-                    builder: (context) => const Dialog(
-                      child: Text('Complimenti'),
+                    builder: (context) => AlertDialog(
+                      content: const Text('Complimenti'),
+                      actions: [
+                        ElevatedButton(
+                          onPressed: () => Navigator.of(context).pop(),
+                          child: const Text('Ok'),
+                        ),
+                      ],
+                    ),
+                  ).then(
+                    (value) => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => MainScreen(currentTab: 4),
+                      ),
                     ),
                   );
                 }
@@ -219,9 +188,17 @@ class _AccountScreenState extends State<AccountScreen> {
                           child: CircleAvatar(
                             backgroundColor: Color(currentColor),
                             minRadius: 100,
-                            foregroundImage: const AssetImage(
-                              'assets/images/pl.png',
-                            ),
+                            child: (returned["profilo"][0]["img"] != null)
+                                ? Image(
+                                    image: MemoryImage(
+                                      base64Decode(
+                                        returned["profilo"][0]["img"],
+                                      ),
+                                    ),
+                                  )
+                                : Image.asset(
+                                    'assets/images/pl.png',
+                                  ),
                           ),
                         ),
                       )

@@ -24,8 +24,6 @@ class AccountBloc extends Bloc<AccountEvent, AccountState> {
   }
 
   FutureOr<void> onEdit(AccountEdit event, Emitter<AccountState> emit) async {
-    emit(AccountLoading());
-
     emit(AccountEditing());
   }
 
@@ -33,9 +31,26 @@ class AccountBloc extends Bloc<AccountEvent, AccountState> {
       AccountTryEdit event, Emitter<AccountState> emit) async {
     emit(AccountLoading());
 
-    if (1 == 1) emit(AccountEditingFailed('ERRORE'));
-
-    if (1 == 2) emit(AccountEditingSuccess('Fatto'));
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    var access_token = prefs.getString('access_token');
+    final response = await http.post(
+      Uri.parse(
+          'https://footballfrontier-be.vercel.app/api2/cambia_img_profilo'),
+      body: jsonEncode(
+        <String, String>{
+          'token': access_token.toString(),
+          'image': event.base64Image
+        },
+      ),
+    );
+    if (response.statusCode == 200) {
+      //log(response.body);
+      emit(AccountEditingSuccess(response.body));
+    } else {
+      print(response.body);
+      emit(AccountEditingFailed('ERRORE'));
+    }
+    //emit(AccountEditingFailed('ERRORE'));
   }
 
   FutureOr<void> onLoad(AccountLoad event, Emitter<AccountState> emit) async {
@@ -60,7 +75,6 @@ class AccountBloc extends Bloc<AccountEvent, AccountState> {
 
     if (response.statusCode == 200) {
       var returned = json.decode(response.body);
-      print(returned);
       return emit(AccountFetched(returned));
     } else {
       return emit(AccountInit());

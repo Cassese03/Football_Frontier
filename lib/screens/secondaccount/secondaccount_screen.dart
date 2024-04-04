@@ -118,14 +118,7 @@ class _SecondAccountScreenState extends State<SecondAccountScreen> {
                     actions: [
                       ElevatedButton(
                         onPressed: () {
-                          Navigator.of(context).pop(
-                            AccountTryEdit(
-                              'prova',
-                              'prova',
-                              'prova',
-                              'prova',
-                            ),
-                          );
+                          Navigator.of(context).pop();
                         },
                         child: const Text('Modifica'),
                       )

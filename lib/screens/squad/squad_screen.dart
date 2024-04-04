@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:football_app/screens/squad/squad_bloc.dart';
@@ -152,13 +154,15 @@ class _SquadScreenState extends State<SquadScreen> {
                                   return Column(
                                     children: entry.value.map<Widget>(
                                       (giocatore) {
+                                        log(giocatore.toString());
                                         return AnteprimaProfilo(
                                           currentColor: state.currentColor,
                                           Logo: "assets/images/raimon.jpg",
                                           Title: giocatore["nominativo"],
                                           Ruolo: giocatore["ruolo"],
-                                          Gol: giocatore["gol"],
-                                          Assits: giocatore["assist"],
+                                          Gol: int.parse(giocatore["gol"]),
+                                          Assits:
+                                              int.parse(giocatore["assist"]),
                                           isFavorite: false,
                                           Presenze: giocatore["presenze"],
                                           idGiocatore:
