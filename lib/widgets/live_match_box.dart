@@ -4,7 +4,7 @@ import 'package:football_app/screens/match_screen.dart';
 
 class LiveMatchBox extends StatelessWidget {
   final String homeLogo, homeTitle, awayLogo, awayTitle;
-  final int time, awayGoal, homeGoal;
+  final int time, awayGoal, homeGoal, giornata;
   final Color color, textColors;
   final DecorationImage backgroundImage;
   const LiveMatchBox({
@@ -15,6 +15,7 @@ class LiveMatchBox extends StatelessWidget {
     required this.awayTitle,
     required this.time,
     required this.awayGoal,
+    required this.giornata,
     required this.homeGoal,
     required this.color,
     required this.textColors,
@@ -47,7 +48,7 @@ class LiveMatchBox extends StatelessWidget {
           child: Column(
             children: [
               Text(
-                "St James' Park",
+                "Palladoro",
                 style: TextStyle(
                   color: textColors,
                   fontWeight: FontWeight.bold,
@@ -55,11 +56,11 @@ class LiveMatchBox extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 5),
-              const Text(
-                "Week 13",
-                style: TextStyle(
-                  color: Colors.grey,
-                  fontSize: 12,
+              Text(
+                "Giornata $giornata",
+                style: const TextStyle(
+                  color: Colors.white54,
+                  fontSize: 14,
                 ),
               ),
               const SizedBox(height: 10),

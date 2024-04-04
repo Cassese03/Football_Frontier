@@ -36,18 +36,14 @@ class AccountBloc extends Bloc<AccountEvent, AccountState> {
     final response = await http.post(
       Uri.parse(
           'https://footballfrontier-be.vercel.app/api2/cambia_img_profilo'),
-      body: jsonEncode(
-        <String, String>{
-          'token': access_token.toString(),
-          'image': event.base64Image
-        },
-      ),
+      body: {
+        'token': access_token.toString(),
+        'image': event.base64Image.toString()
+      },
     );
     if (response.statusCode == 200) {
-      //log(response.body);
       emit(AccountEditingSuccess(response.body));
     } else {
-      print(response.body);
       emit(AccountEditingFailed('ERRORE'));
     }
     //emit(AccountEditingFailed('ERRORE'));

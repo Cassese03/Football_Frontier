@@ -114,7 +114,8 @@ class _AccountScreenState extends State<AccountScreen> {
                   showDialog(
                     context: context,
                     builder: (context) => AlertDialog(
-                      content: const Text('Complimenti'),
+                      content: const Text(
+                          'Complimenti hai aggiornato la tua immagine profilo.'),
                       actions: [
                         ElevatedButton(
                           onPressed: () => Navigator.of(context).pop(),

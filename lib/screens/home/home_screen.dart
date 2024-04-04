@@ -1,8 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:football_app/constants.dart';
 import 'package:football_app/widgets/live_match_box.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:football_app/widgets/loading.dart';
+
+import 'home_bloc.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -12,216 +15,229 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int currentColor = kprimaryColor.value;
-  @override
-  void initState() {
-    super.initState();
-    check();
-  }
-
-  Future<void> check() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    var check = prefs.getInt('primaryColor');
-    if (check != null) {
-      setState(() {
-        currentColor = check;
-      });
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(20),
-            child: Row(
-              children: [
-                Text(
-                  "Prossime Partite",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18,
-                    color: Colors.grey.shade800,
-                  ),
-                ),
-                const Spacer(),
-                Container(
-                  padding: const EdgeInsets.all(5),
-                  decoration: BoxDecoration(
-                    color: kbackgroundColor,
-                    borderRadius: BorderRadius.circular(20),
-                    boxShadow: [
-                      BoxShadow(blurRadius: 20, color: Colors.grey.shade200),
-                    ],
-                  ),
-                  child: Row(
-                    children: [
-                      Image.asset(
-                        "assets/images/pl.png",
-                        width: 40,
-                        height: 40,
-                      ),
-                      const SizedBox(width: 3),
-                      const Text(
-                        "Premier League",
-                        style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
+    return BlocProvider(
+      create: (context) => HomeBloc(),
+      child: Scaffold(
+        body: BlocBuilder<HomeBloc, HomeState>(
+          builder: (context, state) {
+            if (state is HomeReady) {
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(20),
+                    child: Row(
+                      children: [
+                        Text(
+                          "Prossime Partite",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                            color: Colors.grey.shade800,
+                          ),
                         ),
-                      ),
-                      const SizedBox(width: 3),
-                      const Icon(
-                        CupertinoIcons.chevron_down,
-                        size: 18,
-                      ),
-                    ],
+                        const Spacer(),
+                        Container(
+                          padding: const EdgeInsets.all(5),
+                          decoration: BoxDecoration(
+                            color: kbackgroundColor,
+                            borderRadius: BorderRadius.circular(20),
+                            boxShadow: [
+                              BoxShadow(
+                                  blurRadius: 20, color: Colors.grey.shade200),
+                            ],
+                          ),
+                          child: Row(
+                            children: [
+                              Image.asset(
+                                "assets/images/pl.png",
+                                width: 40,
+                                height: 40,
+                              ),
+                              const SizedBox(width: 3),
+                              const Text(
+                                "Premier League",
+                                style: TextStyle(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black,
+                                ),
+                              ),
+                              const SizedBox(width: 3),
+                              const Icon(
+                                CupertinoIcons.chevron_down,
+                                size: 18,
+                              ),
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
                   ),
-                )
-              ],
-            ),
-          ),
-          Expanded(
-            child: ListView(
-              padding: const EdgeInsets.only(left: 20),
-              shrinkWrap: true,
-              primary: false,
-              scrollDirection: Axis.horizontal,
-              children: const [
-                LiveMatchBox(
-                  awayGoal: 3,
-                  homeGoal: 0,
-                  time: 83,
-                  awayLogo: "assets/images/leicester_city.png",
-                  homeLogo: "assets/images/chelsea.png",
-                  awayTitle: "Lester City",
-                  homeTitle: "Chelsea",
-                  color: kboxColor,
-                  textColors: Colors.white,
-                  backgroundImage: DecorationImage(
-                    image: AssetImage("assets/images/pl.png"),
-                    fit: BoxFit.contain,
-                    alignment: Alignment.bottomLeft,
-                    opacity: 0.3,
+                  Expanded(
+                    child: ListView(
+                      padding: const EdgeInsets.only(left: 20),
+                      shrinkWrap: true,
+                      primary: false,
+                      scrollDirection: Axis.horizontal,
+                      children: [
+                        ...state.returned.entries.expand(
+                          (entry) {
+                            if (entry.key == 'partite_future') {
+                              return entry.value.map(
+                                (e) {
+                                  return LiveMatchBox(
+                                    awayGoal: int.parse(e["Gol_Ospite"]),
+                                    homeGoal: int.parse(e["Gol_Casa"]),
+                                    time: 0,
+                                    awayLogo: (e["Immagine_Ospite"] == null)
+                                        ? "assets/images/leicester_city.png"
+                                        : "assets/images/raimon.jpg",
+                                    homeLogo: (e["Immagine_Casa"] == null)
+                                        ? "assets/images/chelsea.png"
+                                        : "assets/images/raimon.jpg",
+                                    awayTitle: e["Squadra_Ospite"].toString(),
+                                    homeTitle: e["Squadra_Casa"].toString(),
+                                    giornata: e["giornata"],
+                                    color: (e['id_partita'] % 2 == 0)
+                                        ? kboxColor
+                                        : ksecondBoxColor,
+                                    textColors: (e['id_partita'] % 2 == 0)
+                                        ? Colors.white
+                                        : Colors.black,
+                                    backgroundImage: const DecorationImage(
+                                      image: AssetImage("assets/images/pl.png"),
+                                      fit: BoxFit.contain,
+                                      alignment: Alignment.bottomLeft,
+                                      opacity: 0.3,
+                                    ),
+                                  );
+                                },
+                              ).toList();
+                            } else {
+                              return <Widget>[];
+                            }
+                          },
+                        ).toList(),
+                      ],
+                    ),
                   ),
-                ),
-                LiveMatchBox(
-                  awayGoal: 3,
-                  homeGoal: 0,
-                  time: 65,
-                  awayLogo: "assets/images/man_united.png",
-                  homeLogo: "assets/images/west_ham.png",
-                  awayTitle: "Man United",
-                  homeTitle: "West Ham",
-                  color: ksecondBoxColor,
-                  textColors: Colors.black,
-                  backgroundImage: DecorationImage(
-                    image: AssetImage("assets/images/pl.png"),
-                    fit: BoxFit.contain,
-                    alignment: Alignment.bottomLeft,
-                    opacity: 0.1,
-                  ),
-                )
-              ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(20),
-            child: Row(
-              children: [
-                Text(
-                  "Partite Concluse",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18,
-                    color: Colors.grey.shade800,
-                  ),
-                ),
-                const Spacer(),
-                Container(
-                  padding: const EdgeInsets.all(5),
-                  decoration: BoxDecoration(
-                    color: kbackgroundColor,
-                    borderRadius: BorderRadius.circular(20),
-                    boxShadow: [
-                      BoxShadow(blurRadius: 20, color: Colors.grey.shade200),
-                    ],
-                  ),
-                  child: Row(
-                    children: [
-                      Image.asset(
-                        "assets/images/pl.png",
-                        width: 40,
-                        height: 40,
-                      ),
-                      const SizedBox(width: 3),
-                      const Text(
-                        "Premier League",
-                        style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
+                  Padding(
+                    padding: const EdgeInsets.all(20),
+                    child: Row(
+                      children: [
+                        Text(
+                          "Partite Concluse",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                            color: Colors.grey.shade800,
+                          ),
                         ),
-                      ),
-                      const SizedBox(width: 3),
-                      const Icon(
-                        CupertinoIcons.chevron_down,
-                        size: 18,
-                      ),
-                    ],
+                        const Spacer(),
+                        Container(
+                          padding: const EdgeInsets.all(5),
+                          decoration: BoxDecoration(
+                            color: kbackgroundColor,
+                            borderRadius: BorderRadius.circular(20),
+                            boxShadow: [
+                              BoxShadow(
+                                  blurRadius: 20, color: Colors.grey.shade200),
+                            ],
+                          ),
+                          child: Row(
+                            children: [
+                              Image.asset(
+                                "assets/images/pl.png",
+                                width: 40,
+                                height: 40,
+                              ),
+                              const SizedBox(width: 3),
+                              const Text(
+                                "Premier League",
+                                style: TextStyle(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black,
+                                ),
+                              ),
+                              const SizedBox(width: 3),
+                              const Icon(
+                                CupertinoIcons.chevron_down,
+                                size: 18,
+                              ),
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
                   ),
-                )
-              ],
-            ),
-          ),
-          Expanded(
-            child: ListView(
-              padding: const EdgeInsets.only(left: 20),
-              shrinkWrap: true,
-              primary: false,
-              scrollDirection: Axis.horizontal,
-              children: const [
-                LiveMatchBox(
-                  awayGoal: 3,
-                  homeGoal: 0,
-                  time: 83,
-                  awayLogo: "assets/images/leicester_city.png",
-                  homeLogo: "assets/images/chelsea.png",
-                  awayTitle: "Lester City",
-                  homeTitle: "Chelsea",
-                  color: kboxColor,
-                  textColors: Colors.white,
-                  backgroundImage: DecorationImage(
-                    image: AssetImage("assets/images/pl.png"),
-                    fit: BoxFit.contain,
-                    alignment: Alignment.bottomLeft,
-                    opacity: 0.3,
-                  ),
-                ),
-                LiveMatchBox(
-                  awayGoal: 3,
-                  homeGoal: 0,
-                  time: 65,
-                  awayLogo: "assets/images/man_united.png",
-                  homeLogo: "assets/images/west_ham.png",
-                  awayTitle: "Man United",
-                  homeTitle: "West Ham",
-                  color: ksecondBoxColor,
-                  textColors: Colors.black,
-                  backgroundImage: DecorationImage(
-                    image: AssetImage("assets/images/pl.png"),
-                    fit: BoxFit.contain,
-                    alignment: Alignment.bottomLeft,
-                    opacity: 0.1,
-                  ),
-                )
-              ],
-            ),
-          )
-        ],
+                  Expanded(
+                    child: ListView(
+                      padding: const EdgeInsets.only(left: 20),
+                      shrinkWrap: true,
+                      primary: false,
+                      scrollDirection: Axis.horizontal,
+                      children: [
+                        ...state.returned.entries.expand(
+                          (entry) {
+                            if (entry.key == 'partite_giocate') {
+                              return entry.value.map(
+                                (e) {
+                                  return LiveMatchBox(
+                                    awayGoal: int.parse(e["Gol_Ospite"]),
+                                    homeGoal: int.parse(e["Gol_Casa"]),
+                                    time: 0,
+                                    awayLogo: (e["Immagine_Ospite"] == null)
+                                        ? "assets/images/leicester_city.png"
+                                        : "assets/images/raimon.jpg",
+                                    homeLogo: (e["Immagine_Casa"] == null)
+                                        ? "assets/images/chelsea.png"
+                                        : "assets/images/raimon.jpg",
+                                    awayTitle: e["Squadra_Ospite"].toString(),
+                                    homeTitle: e["Squadra_Casa"].toString(),
+                                    giornata: e["giornata"],
+                                    color: (e['id_partita'] % 2 == 0)
+                                        ? kboxColor
+                                        : ksecondBoxColor,
+                                    textColors: (e['id_partita'] % 2 == 0)
+                                        ? Colors.white
+                                        : Colors.black,
+                                    backgroundImage: const DecorationImage(
+                                      image: AssetImage("assets/images/pl.png"),
+                                      fit: BoxFit.contain,
+                                      alignment: Alignment.bottomLeft,
+                                      opacity: 0.3,
+                                    ),
+                                  );
+                                },
+                              ).toList();
+                            } else {
+                              return <Widget>[];
+                            }
+                          },
+                        ).toList(),
+                      ],
+                    ),
+                  )
+                ],
+              );
+            }
+            if (state is HomeInitial) {
+              context.read<HomeBloc>().add(HomeInit());
+            }
+            if (state is HomeLoading) {
+              return const Loading(
+                duration: Duration(seconds: 1),
+              );
+            }
+            return const Loading(
+              duration: Duration(seconds: 1),
+            );
+          },
+        ),
       ),
     );
   }

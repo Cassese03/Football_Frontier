@@ -55,6 +55,16 @@ class _StadiumScreenState extends State<StadiumScreen> {
     var byteData = await image.toByteData(format: ImageByteFormat.png);
     var pngBytes = byteData?.buffer.asUint8List();
     return pngBytes;
+//     Map<String, Offset> savePlayerPositions() {
+//   var playerProvider = Provider.of<PlayersProvider>(context, listen: false);
+//   Map<String, Offset> positions = {};
+
+//   for (var player in playerProvider.players) {
+//     positions[player.name] = player.coordinates;
+//   }
+
+//   return positions;
+// }
   }
 
   @override

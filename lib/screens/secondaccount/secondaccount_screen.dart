@@ -7,6 +7,7 @@ import 'package:football_app/widgets/loading.dart';
 import 'package:football_app/widgets/profile_card.dart';
 import 'package:football_app/widgets/stats.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'dart:convert';
 
 // ignore: must_be_immutable
 class SecondAccountScreen extends StatefulWidget {
@@ -203,9 +204,17 @@ class _SecondAccountScreenState extends State<SecondAccountScreen> {
                           child: CircleAvatar(
                             backgroundColor: Color(currentColor),
                             minRadius: 100,
-                            foregroundImage: const AssetImage(
-                              'assets/images/pl.png',
-                            ),
+                            child: (returned["profilo"][0]["img"] != null)
+                                ? Image(
+                                    image: MemoryImage(
+                                      base64Decode(
+                                        returned["profilo"][0]["img"],
+                                      ),
+                                    ),
+                                  )
+                                : Image.asset(
+                                    'assets/images/pl.png',
+                                  ),
                           ),
                         ),
                       )
@@ -213,9 +222,17 @@ class _SecondAccountScreenState extends State<SecondAccountScreen> {
                         child: CircleAvatar(
                           backgroundColor: Color(currentColor),
                           minRadius: 100,
-                          foregroundImage: const AssetImage(
-                            'assets/images/pl.png',
-                          ),
+                          child: (returned["profilo"][0]["img"] != null)
+                              ? Image(
+                                  image: MemoryImage(
+                                    base64Decode(
+                                      returned["profilo"][0]["img"],
+                                    ),
+                                  ),
+                                )
+                              : Image.asset(
+                                  'assets/images/pl.png',
+                                ),
                         ),
                       ),
                 const Spacer(),

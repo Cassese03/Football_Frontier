@@ -70,8 +70,7 @@ onCheck(LoginCheckRemember event, Emitter<LoginState> emit) async {
 
   bool? remember = await prefs.getBool('rememberMe');
 
-  if (remember
-  ! == true) {
+  if (remember! == true) {
     emit(LoginLoading());
 
     var access_token = prefs.getString('access_token');
