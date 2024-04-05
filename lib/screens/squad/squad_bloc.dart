@@ -28,6 +28,12 @@ class SquadBloc extends Bloc<SquadEvent, SquadState> {
 
     on<SquadInit>(onInit);
 
+
+    on<SquadEdit>(onEdit);
+
+
+    on<SquadTryEdit>(onTryEdit);
+
   }
 
 
@@ -100,6 +106,61 @@ class SquadBloc extends Bloc<SquadEvent, SquadState> {
     }
 
   }
+
+}
+
+
+void onEdit(SquadEdit event, Emitter<SquadState> emit) async {
+
+  emit(SquadEditing());
+
+}
+
+
+void onTryEdit(SquadTryEdit event, Emitter<SquadState> emit) async {
+
+  emit(SquadLoading());
+
+
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+
+
+  var access_token = prefs.getString('access_token');
+
+
+  final response = await http.post(
+
+    Uri.parse('https://footballfrontier-be.vercel.app/api2/cambia_img_squadra'),
+
+    body: {
+
+      'token': access_token.toString(),
+
+      'image': event.base64Image.toString()
+
+    },
+
+  );
+
+
+  if (response.statusCode == 200) {
+
+    print(response.body);
+
+
+    emit(SquadEditingSuccess(response.body));
+
+  } else {
+
+    print(response.body);
+
+
+    emit(SquadEditingFailed('ERRORE'));
+
+  }
+
+
+  //emit(SquadEditingFailed('ERRORE'));
 
 }
 

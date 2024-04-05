@@ -75,7 +75,7 @@ class _AccountScreenState extends State<AccountScreen> {
                                   );
                                 }
                               },
-                              child: const Text('Pick Image'),
+                              child: const Text('Scegli Immagine'),
                             ),
                           ],
                         ),

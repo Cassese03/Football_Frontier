@@ -15,3 +15,16 @@ final class SquadInit extends SquadEvent {
 
 }
 
+
+final class SquadEdit extends SquadEvent {}
+
+
+final class SquadTryEdit extends SquadEvent {
+
+  final String base64Image;
+
+
+  SquadTryEdit(this.base64Image);
+
+}
+

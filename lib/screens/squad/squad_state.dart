@@ -24,3 +24,26 @@ final class SquadReady extends SquadState {
 
 final class SquadLoading extends SquadState {}
 
+
+final class SquadEditing extends SquadState {}
+
+
+final class SquadEditingSuccess extends SquadState {
+
+  final String esito;
+
+
+  SquadEditingSuccess(this.esito);
+
+}
+
+
+final class SquadEditingFailed extends SquadState {
+
+  final String error;
+
+
+  SquadEditingFailed(this.error);
+
+}
+
