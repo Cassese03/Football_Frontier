@@ -84,21 +84,21 @@ class DrawerLorenzo extends StatelessWidget implements PreferredSizeWidget {
                                   .add(DrawerTapStanding());
                             },
                           ),
-                          ListTile(
-                            leading: const Icon(
-                              Icons.stadium,
-                              color: Colors.black,
-                            ),
-                            title: Text(
-                              'Formazioni',
-                              style: textStyleListTile(),
-                            ),
-                            onTap: () {
-                              context
-                                  .read<DrawerBloc>()
-                                  .add(DrawerTapLineups());
-                            },
-                          ),
+                          // ListTile(
+                          //   leading: const Icon(
+                          //     Icons.stadium,
+                          //     color: Colors.black,
+                          //   ),
+                          //   title: Text(
+                          //     'Formazioni',
+                          //     style: textStyleListTile(),
+                          //   ),
+                          //   onTap: () {
+                          //     context
+                          //         .read<DrawerBloc>()
+                          //         .add(DrawerTapLineups());
+                          //   },
+                          // ),
                           ListTile(
                             leading: const Icon(
                               Icons.emoji_people,

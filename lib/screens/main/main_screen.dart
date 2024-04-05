@@ -119,17 +119,17 @@ class _MainScreenState extends State<MainScreen> {
                         });
                       },
                     ),
-                    BottomNavItem(
-                      currentColor: state.currentColor,
-                      title: "Lineup",
-                      icon: Icons.stadium,
-                      isActive: widget.currentTab == 3,
-                      onTap: () {
-                        setState(() {
-                          widget.currentTab = 3;
-                        });
-                      },
-                    ),
+                    // BottomNavItem(
+                    //   currentColor: state.currentColor,
+                    //   title: "Lineup",
+                    //   icon: Icons.stadium,
+                    //   isActive: widget.currentTab == 3,
+                    //   onTap: () {
+                    //     setState(() {
+                    //       widget.currentTab = 3;
+                    //     });
+                    //   },
+                    // ),
                     BottomNavItem(
                       currentColor: state.currentColor,
                       title: "Account",
