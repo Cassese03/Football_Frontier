@@ -89,15 +89,17 @@ class _HomeScreenState extends State<HomeScreen> {
                               return entry.value.map(
                                 (e) {
                                   return LiveMatchBox(
+                                    idPartita:
+                                        int.parse(e["id_partita"].toString()),
                                     awayGoal: int.parse(e["Gol_Ospite"]),
                                     homeGoal: int.parse(e["Gol_Casa"]),
                                     time: 0,
                                     awayLogo: (e["Immagine_Ospite"] == null)
-                                        ? "assets/images/leicester_city.png"
-                                        : "assets/images/raimon.jpg",
+                                        ? "assets/images/raimon.jpg"
+                                        : e["Immagine_Ospite"],
                                     homeLogo: (e["Immagine_Casa"] == null)
-                                        ? "assets/images/chelsea.png"
-                                        : "assets/images/raimon.jpg",
+                                        ? "assets/images/raimon.jpg"
+                                        : e["Immagine_Casa"],
                                     awayTitle: e["Squadra_Ospite"].toString(),
                                     homeTitle: e["Squadra_Casa"].toString(),
                                     giornata: e["giornata"],
@@ -187,9 +189,10 @@ class _HomeScreenState extends State<HomeScreen> {
                               return entry.value.map(
                                 (e) {
                                   return LiveMatchBox(
+                                    idPartita: int.parse(e["id_partita"]),
                                     awayGoal: int.parse(e["Gol_Ospite"]),
                                     homeGoal: int.parse(e["Gol_Casa"]),
-                                    time: 0,
+                                    time: 90,
                                     awayLogo: (e["Immagine_Ospite"] == null)
                                         ? "assets/images/leicester_city.png"
                                         : "assets/images/raimon.jpg",

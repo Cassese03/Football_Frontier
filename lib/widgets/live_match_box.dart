@@ -1,10 +1,12 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:football_app/constants.dart';
-import 'package:football_app/screens/match_screen.dart';
+import 'package:football_app/screens/match/match_screen.dart';
 
 class LiveMatchBox extends StatelessWidget {
   final String homeLogo, homeTitle, awayLogo, awayTitle;
-  final int time, awayGoal, homeGoal, giornata;
+  final int time, awayGoal, homeGoal, giornata, idPartita;
   final Color color, textColors;
   final DecorationImage backgroundImage;
   const LiveMatchBox({
@@ -13,6 +15,7 @@ class LiveMatchBox extends StatelessWidget {
     required this.homeTitle,
     required this.awayLogo,
     required this.awayTitle,
+    required this.idPartita,
     required this.time,
     required this.awayGoal,
     required this.giornata,
@@ -27,10 +30,11 @@ class LiveMatchBox extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const MatchScreen(),
-            ));
+          context,
+          MaterialPageRoute(
+            builder: (context) => MatchScreen(idPartita: idPartita),
+          ),
+        );
       },
       child: SingleChildScrollView(
         child: Container(
@@ -68,11 +72,21 @@ class LiveMatchBox extends StatelessWidget {
                 children: [
                   Column(
                     children: [
-                      Image.asset(
-                        homeLogo,
-                        width: 90,
-                        height: 90,
-                      ),
+                      (homeLogo == 'assets/images/raimon.jpg')
+                          ? Image.asset(
+                              homeLogo,
+                              width: 90,
+                              height: 90,
+                            )
+                          : Image(
+                              width: 90,
+                              height: 90,
+                              image: MemoryImage(
+                                base64Decode(
+                                  homeLogo,
+                                ),
+                              ),
+                            ),
                       const SizedBox(height: 10),
                       Text(
                         homeTitle,
@@ -128,11 +142,21 @@ class LiveMatchBox extends StatelessWidget {
                   const SizedBox(width: 20),
                   Column(
                     children: [
-                      Image.asset(
-                        awayLogo,
-                        width: 90,
-                        height: 90,
-                      ),
+                      (awayLogo == 'assets/images/raimon.jpg')
+                          ? Image.asset(
+                              awayLogo,
+                              width: 90,
+                              height: 90,
+                            )
+                          : Image(
+                              width: 90,
+                              height: 90,
+                              image: MemoryImage(
+                                base64Decode(
+                                  awayLogo,
+                                ),
+                              ),
+                            ),
                       const SizedBox(height: 10),
                       Text(
                         awayTitle,

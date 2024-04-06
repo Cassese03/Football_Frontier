@@ -2,17 +2,19 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:football_app/constants.dart';
-import 'package:football_app/screens/match_screen.dart';
+import 'package:football_app/screens/match/match_screen.dart';
 import 'package:iconsax/iconsax.dart';
 
 class UpComingLorenzo extends StatelessWidget {
   final String homeLogo, homeTitle, awayLogo, awayTitle, date, time;
+  final int idPartita;
   final bool isFavorite;
   const UpComingLorenzo({
     super.key,
     required this.homeLogo,
     required this.homeTitle,
     required this.awayLogo,
+    required this.idPartita,
     required this.awayTitle,
     required this.date,
     required this.time,
@@ -28,7 +30,9 @@ class UpComingLorenzo extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const MatchScreen(),
+                builder: (context) => MatchScreen(
+                  idPartita: idPartita,
+                ),
               ),
             );
           },

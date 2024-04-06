@@ -67,6 +67,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
                                       String orarioFormattato =
                                           '${dateTime.hour}:${(dateTime.minute < 10) ? '0${dateTime.minute}' : dateTime.minute}';
                                       return UpComingLorenzo(
+                                        idPartita: e['IdPartita'],
                                         homeLogo: (e['imgcasa'] != null)
                                             ? e['imgcasa']
                                             : "assets/images/raimon.jpg",
