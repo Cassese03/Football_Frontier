@@ -34,7 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           "Prossime Partite",
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            fontSize: 18,
+                            fontSize: 16,
                             color: Colors.grey.shade800,
                           ),
                         ),
@@ -53,14 +53,14 @@ class _HomeScreenState extends State<HomeScreen> {
                             children: [
                               Image.asset(
                                 "assets/images/pl.png",
-                                width: 40,
-                                height: 40,
+                                width: 30,
+                                height: 30,
                               ),
                               const SizedBox(width: 3),
                               const Text(
-                                "Premier League",
+                                "Football Frontier",
                                 style: TextStyle(
-                                  fontSize: 15,
+                                  fontSize: 12,
                                   fontWeight: FontWeight.bold,
                                   color: Colors.black,
                                 ),
@@ -103,12 +103,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                     awayTitle: e["Squadra_Ospite"].toString(),
                                     homeTitle: e["Squadra_Casa"].toString(),
                                     giornata: e["giornata"],
-                                    color: (e['id_partita'] % 2 == 0)
-                                        ? kboxColor
-                                        : ksecondBoxColor,
-                                    textColors: (e['id_partita'] % 2 == 0)
-                                        ? Colors.white
-                                        : Colors.black,
+                                    color: kboxColor,
+                                    textColors: Colors.white,
                                     backgroundImage: const DecorationImage(
                                       image: AssetImage("assets/images/pl.png"),
                                       fit: BoxFit.contain,
@@ -134,7 +130,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           "Partite Concluse",
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            fontSize: 18,
+                            fontSize: 14,
                             color: Colors.grey.shade800,
                           ),
                         ),
@@ -153,14 +149,14 @@ class _HomeScreenState extends State<HomeScreen> {
                             children: [
                               Image.asset(
                                 "assets/images/pl.png",
-                                width: 40,
-                                height: 40,
+                                width: 30,
+                                height: 30,
                               ),
                               const SizedBox(width: 3),
                               const Text(
-                                "Premier League",
+                                "Football Frontier",
                                 style: TextStyle(
-                                  fontSize: 15,
+                                  fontSize: 12,
                                   fontWeight: FontWeight.bold,
                                   color: Colors.black,
                                 ),
@@ -202,12 +198,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                     awayTitle: e["Squadra_Ospite"].toString(),
                                     homeTitle: e["Squadra_Casa"].toString(),
                                     giornata: e["giornata"],
-                                    color: (e['id_partita'] % 2 == 0)
-                                        ? kboxColor
-                                        : ksecondBoxColor,
-                                    textColors: (e['id_partita'] % 2 == 0)
-                                        ? Colors.white
-                                        : Colors.black,
+                                    color: kboxColor,
+                                    textColors: Colors.white,
                                     backgroundImage: const DecorationImage(
                                       image: AssetImage("assets/images/pl.png"),
                                       fit: BoxFit.contain,
