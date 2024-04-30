@@ -196,7 +196,7 @@ class Standing extends StatelessWidget {
               width: double.infinity,
               decoration: BoxDecoration(
                 color:
-                    (position == 6) ? Color(currentColor) : Colors.transparent,
+                    (position == 8) ? Color(currentColor) : Colors.transparent,
                 borderRadius: const BorderRadius.only(
                   bottomLeft: Radius.circular(30),
                   bottomRight: Radius.circular(30),
