@@ -69,38 +69,42 @@ onCheck(LoginCheckRemember event, Emitter<LoginState> emit) async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
 
   bool? remember = await prefs.getBool('rememberMe');
+  try {
+    if (remember! == true) {
+      emit(LoginLoading());
 
-  if (remember! == true) {
-    emit(LoginLoading());
+      var access_token = prefs.getString('access_token');
 
-    var access_token = prefs.getString('access_token');
+      var email = prefs.getString('email');
 
-    var email = prefs.getString('email');
-
-    var response = await http.post(
-      Uri.parse('https://footballfrontier-be.vercel.app/api2/fast_login'),
-      headers: <String, String>{
-        "Content-Type": "application/json",
-      },
-      body: jsonEncode(
-        <String, String>{
-          'token': access_token.toString(),
-          'email': email.toString(),
+      var response = await http.post(
+        Uri.parse('https://footballfrontier-be.vercel.app/api2/fast_login'),
+        headers: <String, String>{
+          "Content-Type": "application/json",
         },
-      ),
-    );
-    if (response.statusCode == 200) {
-      var returned = json.decode(response.body);
+        body: jsonEncode(
+          <String, String>{
+            'token': access_token.toString(),
+            'email': email.toString(),
+          },
+        ),
+      );
+      if (response.statusCode == 200) {
+        var returned = json.decode(response.body);
 
-      SharedPreferences prefs = await SharedPreferences.getInstance();
+        SharedPreferences prefs = await SharedPreferences.getInstance();
 
-      await prefs.setString('access_token', returned["access_token"]);
+        await prefs.setString('access_token', returned["access_token"]);
 
-      return emit(LoginSuccess());
-    } else {
-      prefs.setBool('rememberMe', false);
-      return emit(LoginRemember(false));
+        return emit(LoginSuccess());
+      } else {
+        prefs.setBool('rememberMe', false);
+        return emit(LoginRemember(false));
+      }
+      // ignore: empty_catches
     }
+  } on Exception catch (_) {
+    return emit(LoginRemember(false));
   }
-  return emit(LoginRemember(remember));
+  return emit(LoginRemember(false));
 }
