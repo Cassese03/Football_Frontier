@@ -74,7 +74,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
                                         homeTitle: e['nomecasa'],
                                         awayLogo: (e['imgospite'] != null)
                                             ? e['imgospite']
-                                            : "assets/images/raimon.jpg",
+                                            : "assets/images/SoloMcDonald.png",
                                         awayTitle: e['nomeospite'],
                                         date: orarioFormattato,
                                         time: dataFormattata,

@@ -92101,7 +92101,7 @@ A.a8a.prototype={
 $2(a,b){var s,r=null
 if(b instanceof A.jo)return B.aG
 s=t.p
-return new A.Nz(new A.k(this.a.c>>>0),A.Ej(!0,new A.Og(0.95,A.b7(A.a([A.bo(A.ev("assets/images/raimon.jpg",r,r),25),A.bo(A.iB(A.a([A.Cf(B.Q6,new A.a84(a),A.aM("Home",r,r,r,B.eX,r,r)),A.Cf(B.Qe,new A.a85(a),A.aM("Calendario",r,r,r,B.eX,r,r)),A.Cf(B.PY,new A.a86(a),A.aM("Classifica",r,r,r,B.eX,r,r)),A.Cf(B.Qd,new A.a87(a),A.aM("Account",r,r,r,B.eX,r,r)),A.Cf(B.Qf,new A.a88(a),A.aM("Impostazioni",r,r,r,B.eX,r,r)),A.Cf(B.PZ,new A.a89(a),A.aM("Logout",r,r,r,B.eX,r,r))],s),r,r,r,B.a9,!1),65)],s),B.hT,B.j,B.k),r),B.b2,!0),r)},
+return new A.Nz(new A.k(this.a.c>>>0),A.Ej(!0,new A.Og(0.95,A.b7(A.a([A.bo(A.ev("assets/images/McDonald.png",r,r),25),A.bo(A.iB(A.a([A.Cf(B.Q6,new A.a84(a),A.aM("Home",r,r,r,B.eX,r,r)),A.Cf(B.Qe,new A.a85(a),A.aM("Calendario",r,r,r,B.eX,r,r)),A.Cf(B.PY,new A.a86(a),A.aM("Classifica",r,r,r,B.eX,r,r)),A.Cf(B.Qd,new A.a87(a),A.aM("Account",r,r,r,B.eX,r,r)),A.Cf(B.Qf,new A.a88(a),A.aM("Impostazioni",r,r,r,B.eX,r,r)),A.Cf(B.PZ,new A.a89(a),A.aM("Logout",r,r,r,B.eX,r,r))],s),r,r,r,B.a9,!1),65)],s),B.hT,B.j,B.k),r),B.b2,!0),r)},
 $S:517}
 A.a84.prototype={
 $0(){J.bK(A.ck(this.a,!1,t.lk),new A.qq())},
@@ -92394,15 +92394,15 @@ for(s=J.aA(J.aC0(s.h(a,"partite"),new A.aqI()));s.A();)r.push(s.gK(s))
 return A.b7(r,B.l,B.j,B.k)},
 $S:534}
 A.aqI.prototype={
-$1(a){var s,r,q,p,o="assets/images/raimon.jpg",n="imgospite",m=J.av(a),l=A.aSU(m.h(a,"datamatch")),k=A.aSM("LLLL","it"),j=A.R3(2024,A.iI(l),1,0,0,0,0,!1)
-if(!A.nf(j))A.X(A.lo(j))
-k=k.A9(new A.er(j,!1))
-j=A.j(A.R0(l)<10?"0"+A.R0(l):A.R0(l))
-s=m.h(a,"IdPartita")
-r=m.h(a,"imgcasa")!=null?m.h(a,"imgcasa"):o
-q=m.h(a,"nomecasa")
-p=m.h(a,n)!=null?m.h(a,n):o
-return new A.xz(r,q,p,m.h(a,"nomeospite"),""+A.ox(l)+":"+j,""+A.R_(l)+" "+k,s,!1,null)},
+$1(a){var s,r,q,p,o="imgospite",n=J.av(a),m=A.aSU(n.h(a,"datamatch")),l=A.aSM("LLLL","it"),k=A.R3(2024,A.iI(m),1,0,0,0,0,!1)
+if(!A.nf(k))A.X(A.lo(k))
+l=l.A9(new A.er(k,!1))
+k=A.j(A.R0(m)<10?"0"+A.R0(m):A.R0(m))
+s=n.h(a,"IdPartita")
+r=n.h(a,"imgcasa")!=null?n.h(a,"imgcasa"):"assets/images/raimon.jpg"
+q=n.h(a,"nomecasa")
+p=n.h(a,o)!=null?n.h(a,o):"assets/images/SoloMcDonald.png"
+return new A.xz(r,q,p,n.h(a,"nomeospite"),""+A.ox(m)+":"+k,""+A.R_(m)+" "+l,s,!1,null)},
 $S:535}
 A.qU.prototype={}
 A.qV.prototype={}
@@ -92481,7 +92481,7 @@ A.auu.prototype={
 $2(a,b){var s,r,q,p,o,n,m,l,k,j=null
 if(b instanceof A.Co)J.bK(A.ck(a,!1,t.wt),new A.rm())
 if(b instanceof A.rn)return B.aG
-s=A.eq(A.ev("assets/images/raimon.jpg",j,j),j,j)
+s=A.eq(A.ev("assets/images/McDonald.png",j,j),j,j)
 r=this.a.d
 q=A.bV(j,j,j,j,j,new A.k(r),j,j,j,j,j,18,j,j,j,j,j,!0,j,j,j,j,j,j,j,j)
 p=this.b
@@ -92670,12 +92670,12 @@ r.dS(0,A.b2C(),t.hH)
 return r},
 $S:547}
 A.avd.prototype={
-$2(a,b){var s,r,q=null,p="assets/images/raimon.jpg"
+$2(a,b){var s,r,q=null,p="assets/images/McDonald.png"
 if(b instanceof A.D2)return B.aG
 if(b instanceof A.D1)J.bK(A.ck(a,!1,t.ph),new A.rN())
 if(b instanceof A.D3){s=b.a
 r=t.p
-return A.jJ(new A.zG(s,q),q,A.jN(A.b7(A.a([new A.bb(new A.au(15,15,15,15),A.bn(A.a([A.aM("Notifiche",q,q,q,A.bV(q,q,new A.k(s>>>0),q,q,q,q,q,q,q,q,18,q,q,B.R,q,q,!0,q,q,q,q,q,q,q,q),q,q),new A.jP(1,q)],r),B.l,B.j,B.k),q),new A.bb(new A.au(20,0,20,0),new A.w6("assets/images/raimon_perde.jpg","Dura Sconfitta","Dura sconfitta per la Raimon, IMMERITATA!!! Testa alla PROSSIMA!",0,s,q),q),new A.bb(new A.au(20,0,20,0),new A.w6(p,"Attilio Ma che Combini ?!","Attilio ha scopato una vecchia. Incredibile!!!",0,s,q),q),new A.bb(new A.au(20,0,20,0),new A.w6(p,"Capocannoniere Insolito","Per favore non fate segnare Agostino, mi sembra uno zoppo che corre.",1,s,q),q)],r),B.cp,B.j,B.k)),q,q,q)}return B.aG},
+return A.jJ(new A.zG(s,q),q,A.jN(A.b7(A.a([new A.bb(new A.au(15,15,15,15),A.bn(A.a([A.aM("Notifiche",q,q,q,A.bV(q,q,new A.k(s>>>0),q,q,q,q,q,q,q,q,18,q,q,B.R,q,q,!0,q,q,q,q,q,q,q,q),q,q),new A.jP(1,q)],r),B.l,B.j,B.k),q),new A.bb(new A.au(20,0,20,0),new A.w6("assets/images/raimon_perde.jpg","Dura Sconfitta","Dura sconfitta per la Raimon, IMMERITATA!!! Testa alla PROSSIMA!",0,s,q),q),new A.bb(new A.au(20,0,20,0),new A.w6(p,"Attilio Ma che Combini ?!","Attilio ha fatto un autogol in rovesciata. Incredibile!!!",0,s,q),q),new A.bb(new A.au(20,0,20,0),new A.w6(p,"Capocannoniere Insolito","Per favore non fate segnare Agostino, mi sembra uno zoppo che corre.",1,s,q),q)],r),B.cp,B.j,B.k)),q,q,q)}return B.aG},
 $S:548}
 A.EA.prototype={
 ae(){return new A.a_w(4294948172,B.m)}}
@@ -93287,7 +93287,7 @@ q.e=new A.b6(A.co(B.hU,s,p),new A.aF(0.75,1.5,r),r.i("b6<aG.T>"))
 q.d.aq1(0,!0)},
 F(a){var s=null,r=this.d
 r===$&&A.b()
-return A.eq(A.jc(r,new A.auk(this),A.dx(A.ev("assets/images/raimon.jpg",s,s),250,250)),s,s)}}
+return A.eq(A.jc(r,new A.auk(this),A.dx(A.ev("assets/images/McDonald.png",s,s),250,250)),s,s)}}
 A.auk.prototype={
 $2(a,b){var s,r,q=null,p=this.a.e
 p===$&&A.b()

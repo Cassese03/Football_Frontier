@@ -67,10 +67,10 @@ class _NotificationScreenState extends State<NotificationScreen> {
                       padding: EdgeInsets.symmetric(horizontal: 20),
                       child: Notify(
                         currentColor: state.currentColor,
-                        Logo: "assets/images/raimon.jpg",
+                        Logo: "assets/images/McDonald.png",
                         Title: "Attilio Ma che Combini ?!",
                         Content:
-                            "Attilio ha scopato una vecchia. Incredibile!!!",
+                            "Attilio ha fatto un autogol in rovesciata. Incredibile!!!",
                         Read: 0,
                       ),
                     ),
@@ -78,7 +78,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                       padding: EdgeInsets.symmetric(horizontal: 20),
                       child: Notify(
                         currentColor: state.currentColor,
-                        Logo: "assets/images/raimon.jpg",
+                        Logo: "assets/images/McDonald.png",
                         Title: "Capocannoniere Insolito",
                         Content:
                             "Per favore non fate segnare Agostino, mi sembra uno zoppo che corre.",

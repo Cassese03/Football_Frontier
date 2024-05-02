@@ -35,7 +35,7 @@ class DrawerLorenzo extends StatelessWidget implements PreferredSizeWidget {
                   children: [
                     Expanded(
                       flex: 25,
-                      child: Image.asset("assets/images/raimon.jpg"),
+                      child: Image.asset("assets/images/McDonald.png"),
                     ),
                     Expanded(
                       flex: 65,

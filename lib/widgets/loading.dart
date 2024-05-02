@@ -43,7 +43,7 @@ class _LoadingState extends State<Loading> with SingleTickerProviderStateMixin {
           width: 250,
           height: 250,
           child: Image.asset(
-            "assets/images/raimon.jpg",
+            "assets/images/McDonald.png",
           ),
         ),
       ),
