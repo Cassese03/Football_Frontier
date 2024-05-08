@@ -83,6 +83,7 @@ class UpComingLorenzo extends StatelessWidget {
                     children: [
                       Text(
                         time,
+                        textAlign: TextAlign.center,
                         style: const TextStyle(
                           color: Colors.black,
                           fontSize: 18,
@@ -91,6 +92,7 @@ class UpComingLorenzo extends StatelessWidget {
                       ),
                       Text(
                         date,
+                        textAlign: TextAlign.center,
                         style: const TextStyle(
                           fontSize: 12,
                         ),

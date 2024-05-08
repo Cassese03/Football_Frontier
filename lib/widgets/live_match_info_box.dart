@@ -51,19 +51,43 @@ class LiveMatchInfoBox extends StatelessWidget {
           Row(
             children: [
               (homeLogo == 'assets/images/raimon.jpg')
-                  ? Image.asset(
-                      homeLogo,
-                      width: 90,
-                      height: 90,
-                    )
-                  : Image(
-                      width: 90,
-                      height: 90,
-                      image: MemoryImage(
-                        base64Decode(
+                  ? Column(
+                      children: [
+                        Image.asset(
                           homeLogo,
+                          width: 90,
+                          height: 90,
                         ),
-                      ),
+                        Text(
+                          homeTitle,
+                          overflow: TextOverflow.clip,
+                          style: const TextStyle(
+                            fontSize: 14,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
+                    )
+                  : Column(
+                      children: [
+                        Image(
+                          width: 90,
+                          height: 90,
+                          image: MemoryImage(
+                            base64Decode(
+                              homeLogo,
+                            ),
+                          ),
+                        ),
+                        Text(
+                          homeTitle,
+                          overflow: TextOverflow.clip,
+                          style: const TextStyle(
+                            fontSize: 14,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
                     ),
               const Spacer(),
               Column(
@@ -120,19 +144,43 @@ class LiveMatchInfoBox extends StatelessWidget {
               ),
               const Spacer(),
               (awayLogo == 'assets/images/raimon.jpg')
-                  ? Image.asset(
-                      awayLogo,
-                      width: 90,
-                      height: 90,
-                    )
-                  : Image(
-                      width: 90,
-                      height: 90,
-                      image: MemoryImage(
-                        base64Decode(
+                  ? Column(
+                      children: [
+                        Image.asset(
                           awayLogo,
+                          width: 90,
+                          height: 90,
                         ),
-                      ),
+                        Text(
+                          awayTitle,
+                          overflow: TextOverflow.clip,
+                          style: const TextStyle(
+                            fontSize: 14,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
+                    )
+                  : Column(
+                      children: [
+                        Image(
+                          width: 90,
+                          height: 90,
+                          image: MemoryImage(
+                            base64Decode(
+                              awayLogo,
+                            ),
+                          ),
+                        ),
+                        Text(
+                          awayTitle,
+                          overflow: TextOverflow.clip,
+                          style: const TextStyle(
+                            fontSize: 14,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
                     ),
             ],
           ),
