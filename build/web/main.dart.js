@@ -90378,32 +90378,32 @@ return A.K(null,r)}})
 return A.L($async$eY,r)},
 E(a){var s=null
 return new A.xm(A.iG(s,s,A.ih(new A.dW(new A.amI(this),s),new A.amJ(),t.M2),s,s,s),new A.amK(a),new A.bA(s,t.A))},
-Cx(a6,a7){var s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d=this,c=null,b="profilo",a="assets/images/pl.png",a0="statisticheSquadra",a1="presenze",a2="statistichePersonali",a3=J.au(a7),a4=J.c(a3.h(a7,"owner"),!0),a5=d.d>>>0
-if(a4){a4=J.W(J.W(a3.h(a7,b),0),"img")!=null?A.nJ(c,new A.eX(B.bL.cH(J.W(J.W(a3.h(a7,b),0),"img")),1),c):A.er(a,c,c)
-a4=A.azF(B.lZ,B.kO,A.ea(A.zR(new A.k(a5),a4,c,100),c,c),new A.amu(a6),new A.uc(-8,-10,c,c,!1))}else a4=A.ea(A.zR(new A.k(a5),c,B.ov,100),c,c)
-a5=t.p
-a4=A.bo(A.bn(A.a([B.z,a4,B.z],a5),B.l,B.j,B.k),30)
-s=A.bo(A.b1(A.a([A.bo(A.bn(A.a([B.z,A.aF(J.bb(J.W(J.W(a3.h(a7,b),0),"nome")),c,c,c,B.Il,c,c),B.z],a5),B.l,B.j,B.k),1)],a5),B.l,B.j,B.k),10)
+Cx(a5,a6){var s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d=this,c=null,b="profilo",a="statisticheSquadra",a0="presenze",a1="statistichePersonali",a2=J.au(a6),a3=J.c(a2.h(a6,"owner"),!0),a4=d.d>>>0
+if(a3){a3=J.W(J.W(a2.h(a6,b),0),"img")!=null?A.nJ(c,new A.eX(B.bL.cH(J.W(J.W(a2.h(a6,b),0),"img")),1),c):A.er("assets/images/pl.png",c,c)
+a3=A.azF(B.lZ,B.kO,A.ea(A.zR(new A.k(a4),a3,c,100),c,c),new A.amu(a5),new A.uc(-8,-10,c,c,!1))}else a3=A.ea(A.zR(new A.k(a4),c,B.ov,100),c,c)
+a4=t.p
+a3=A.bo(A.bn(A.a([B.z,a3,B.z],a4),B.l,B.j,B.k),30)
+s=A.bo(A.b1(A.a([A.bo(A.bn(A.a([B.z,A.aF(J.bb(J.W(J.W(a2.h(a6,b),0),"nome")),c,c,c,B.Il,c,c),B.z],a4),B.l,B.j,B.k),1)],a4),B.l,B.j,B.k),10)
 r=d.d
-r=A.bo(new A.iC(J.W(J.W(a3.h(a7,a0),0),"partitevinte"),r,"Partite Vinte",c),50)
+r=A.bo(new A.iC(J.W(J.W(a2.h(a6,a),0),"partitevinte"),r,"Partite Vinte",c),50)
 q=d.d
-q=A.bo(A.bn(A.a([r,A.bo(new A.iC(J.W(J.W(a3.h(a7,a0),0),"partiteperse"),q,"Partite Perse",c),50)],a5),B.l,B.j,B.k),50)
+q=A.bo(A.bn(A.a([r,A.bo(new A.iC(J.W(J.W(a2.h(a6,a),0),"partiteperse"),q,"Partite Perse",c),50)],a4),B.l,B.j,B.k),50)
 r=d.d
-r=A.bo(A.b1(A.a([q,A.bo(A.bn(A.a([A.bo(new A.iC(J.W(J.W(a3.h(a7,a0),0),a1),r,"Partite Giocate",c),1)],a5),B.l,B.j,B.k),50)],a5),B.l,B.j,B.k),35)
+r=A.bo(A.b1(A.a([q,A.bo(A.bn(A.a([A.bo(new A.iC(J.W(J.W(a2.h(a6,a),0),a0),r,"Partite Giocate",c),1)],a4),B.l,B.j,B.k),50)],a4),B.l,B.j,B.k),35)
 q=d.d
-p=J.bb(J.W(J.W(a3.h(a7,b),0),"nome"))
-o=J.bb(J.W(J.W(a3.h(a7,b),0),"ruolo"))
+p=J.bb(J.W(J.W(a2.h(a6,b),0),"nome"))
+o=J.bb(J.W(J.W(a2.h(a6,b),0),"ruolo"))
 n=d.d
 m=A.dZ(B.cm,new A.k(n>>>0),c,28)
-l=J.bb(J.W(J.W(a3.h(a7,a2),0),"gol"))
+l=J.bb(J.W(J.W(a2.h(a6,a1),0),"gol"))
 k=d.d
 j=A.dZ(B.cm,new A.k(k>>>0),c,28)
-i=J.bb(J.W(J.W(a3.h(a7,a2),0),"assist"))
+i=J.bb(J.W(J.W(a2.h(a6,a1),0),"assist"))
 h=d.d
 g=A.dZ(B.cm,new A.k(h>>>0),c,28)
-f=J.bb(J.W(J.W(a3.h(a7,a2),0),a1))
+f=J.bb(J.W(J.W(a2.h(a6,a1),0),a0))
 e=d.d
-return A.bO(c,A.b1(A.a([a4,s,r,B.pP,A.bo(A.iw(A.a([new A.i3("assets/images/arsenal.png",p,"Posizione : "+o,m,q,c),new A.i3("assets/images/Gol.png","Gol",l,j,n,c),new A.i3("assets/images/west_ham.png","Assist",i,g,k,c),new A.i3(a,"Presenze",f,A.dZ(B.cm,new A.k(e>>>0),c,28),h,c),new A.i3("assets/images/raimon.jpg","Squadra",J.bb(J.W(J.W(a3.h(a7,b),0),"nomesquadra")),A.dZ(B.cm,new A.k(d.d>>>0),c,28),e,c)],a5),c,c,!1,B.a5,!0),50)],a5),B.l,B.j,B.k),B.q,B.i,c,c,c,c,c,c,c,c,c)}}
+return A.bO(c,A.b1(A.a([a3,s,r,B.pP,A.bo(A.iw(A.a([new A.i3("assets/images/giocatore.png",p,"Posizione : "+o,m,q,c),new A.i3("assets/images/Gol.png","Gol",l,j,n,c),new A.i3("assets/images/assist.png","Assist",i,g,k,c),new A.i3("assets/images/maglia.png","Presenze",f,A.dZ(B.cm,new A.k(e>>>0),c,28),h,c),new A.i3("assets/images/raimon.jpg","Squadra",J.bb(J.W(J.W(a2.h(a6,b),0),"nomesquadra")),A.dZ(B.cm,new A.k(d.d>>>0),c,28),e,c)],a4),c,c,!1,B.a5,!0),50)],a4),B.l,B.j,B.k),B.q,B.i,c,c,c,c,c,c,c,c,c)}}
 A.amL.prototype={
 $0(){this.a.d=this.b},
 $S:0}
@@ -90909,7 +90909,7 @@ h=d.d
 g=A.dZ(B.cm,new A.k(h>>>0),c,28)
 f=J.bb(J.W(J.W(a4.h(a8,a3),0),a2))
 e=d.d
-return A.bO(c,A.b1(A.a([a5,s,r,B.pP,A.bo(A.iw(A.a([new A.i3("assets/images/arsenal.png",p,"Posizione : "+o,m,q,c),new A.i3("assets/images/gol.png","Gol",l,j,n,c),new A.i3("assets/images/west_ham.png","Assist",i,g,k,c),new A.i3(a0,"Presenze",f,A.dZ(B.cm,new A.k(e>>>0),c,28),h,c),new A.i3("assets/images/raimon.jpg","Squadra",J.bb(J.W(J.W(a4.h(a8,b),0),"nomesquadra")),A.dZ(B.cm,new A.k(d.d>>>0),c,28),e,c)],a6),c,c,!1,B.a5,!0),50)],a6),B.l,B.j,B.k),B.q,B.i,c,c,c,c,c,c,c,c,c)}}
+return A.bO(c,A.b1(A.a([a5,s,r,B.pP,A.bo(A.iw(A.a([new A.i3("assets/images/giocatore.png",p,"Posizione : "+o,m,q,c),new A.i3("assets/images/gol.png","Gol",l,j,n,c),new A.i3("assets/images/assist.png","Assist",i,g,k,c),new A.i3("assets/images/maglia.png","Presenze",f,A.dZ(B.cm,new A.k(e>>>0),c,28),h,c),new A.i3("assets/images/raimon.jpg","Squadra",J.bb(J.W(J.W(a4.h(a8,b),0),"nomesquadra")),A.dZ(B.cm,new A.k(d.d>>>0),c,28),e,c)],a6),c,c,!1,B.a5,!0),50)],a6),B.l,B.j,B.k),B.q,B.i,c,c,c,c,c,c,c,c,c)}}
 A.auJ.prototype={
 $0(){this.a.d=this.b},
 $S:0}

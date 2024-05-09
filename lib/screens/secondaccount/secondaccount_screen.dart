@@ -332,7 +332,7 @@ class _SecondAccountScreenState extends State<SecondAccountScreen> {
               children: [
                 Stats(
                   currentColor: currentColor,
-                  logo: "assets/images/arsenal.png",
+                  logo: "assets/images/giocatore.png",
                   title: returned["profilo"][0]["nome"].toString(),
                   content:
                       "Posizione : ${returned["profilo"][0]["ruolo"].toString()}",
@@ -356,7 +356,7 @@ class _SecondAccountScreenState extends State<SecondAccountScreen> {
                 ),
                 Stats(
                   currentColor: currentColor,
-                  logo: "assets/images/west_ham.png",
+                  logo: "assets/images/assist.png",
                   title: "Assist",
                   content:
                       returned["statistichePersonali"][0]["assist"].toString(),
@@ -368,7 +368,7 @@ class _SecondAccountScreenState extends State<SecondAccountScreen> {
                 ),
                 Stats(
                   currentColor: currentColor,
-                  logo: "assets/images/pl.png",
+                  logo: "assets/images/maglia.png",
                   title: "Presenze",
                   content: returned["statistichePersonali"][0]["presenze"]
                       .toString(),
