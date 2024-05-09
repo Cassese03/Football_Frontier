@@ -90315,7 +90315,7 @@ h=d.d
 g=A.dZ(B.cm,new A.k(h>>>0),c,28)
 f=J.bb(J.W(J.W(a3.h(a7,a2),0),a1))
 e=d.d
-return A.bN(c,A.b1(A.a([a4,s,r,B.pO,A.bo(A.it(A.a([new A.i1("assets/images/arsenal.png",p,"Posizione : "+o,m,q,c),new A.i1("assets/images/swansea.png","Gol",l,j,n,c),new A.i1("assets/images/west_ham.png","Assist",i,g,k,c),new A.i1(a,"Presenze",f,A.dZ(B.cm,new A.k(e>>>0),c,28),h,c),new A.i1("assets/images/raimon.jpg","Squadra",J.bb(J.W(J.W(a3.h(a7,b),0),"nomesquadra")),A.dZ(B.cm,new A.k(d.d>>>0),c,28),e,c)],a5),c,c,!1,B.a8,!0),50)],a5),B.l,B.j,B.k),B.p,B.i,c,c,c,c,c,c,c,c,c)}}
+return A.bN(c,A.b1(A.a([a4,s,r,B.pO,A.bo(A.it(A.a([new A.i1("assets/images/arsenal.png",p,"Posizione : "+o,m,q,c),new A.i1("assets/images/Gol.png","Gol",l,j,n,c),new A.i1("assets/images/west_ham.png","Assist",i,g,k,c),new A.i1(a,"Presenze",f,A.dZ(B.cm,new A.k(e>>>0),c,28),h,c),new A.i1("assets/images/raimon.jpg","Squadra",J.bb(J.W(J.W(a3.h(a7,b),0),"nomesquadra")),A.dZ(B.cm,new A.k(d.d>>>0),c,28),e,c)],a5),c,c,!1,B.a8,!0),50)],a5),B.l,B.j,B.k),B.p,B.i,c,c,c,c,c,c,c,c,c)}}
 A.ams.prototype={
 $0(){this.a.d=this.b},
 $S:0}
@@ -90821,7 +90821,7 @@ h=d.d
 g=A.dZ(B.cm,new A.k(h>>>0),c,28)
 f=J.bb(J.W(J.W(a4.h(a8,a3),0),a2))
 e=d.d
-return A.bN(c,A.b1(A.a([a5,s,r,B.pO,A.bo(A.it(A.a([new A.i1("assets/images/arsenal.png",p,"Posizione : "+o,m,q,c),new A.i1("assets/images/swansea.png","Gol",l,j,n,c),new A.i1("assets/images/west_ham.png","Assist",i,g,k,c),new A.i1(a0,"Presenze",f,A.dZ(B.cm,new A.k(e>>>0),c,28),h,c),new A.i1("assets/images/raimon.jpg","Squadra",J.bb(J.W(J.W(a4.h(a8,b),0),"nomesquadra")),A.dZ(B.cm,new A.k(d.d>>>0),c,28),e,c)],a6),c,c,!1,B.a8,!0),50)],a6),B.l,B.j,B.k),B.p,B.i,c,c,c,c,c,c,c,c,c)}}
+return A.bN(c,A.b1(A.a([a5,s,r,B.pO,A.bo(A.it(A.a([new A.i1("assets/images/arsenal.png",p,"Posizione : "+o,m,q,c),new A.i1("assets/images/gol.png","Gol",l,j,n,c),new A.i1("assets/images/west_ham.png","Assist",i,g,k,c),new A.i1(a0,"Presenze",f,A.dZ(B.cm,new A.k(e>>>0),c,28),h,c),new A.i1("assets/images/raimon.jpg","Squadra",J.bb(J.W(J.W(a4.h(a8,b),0),"nomesquadra")),A.dZ(B.cm,new A.k(d.d>>>0),c,28),e,c)],a6),c,c,!1,B.a8,!0),50)],a6),B.l,B.j,B.k),B.p,B.i,c,c,c,c,c,c,c,c,c)}}
 A.auq.prototype={
 $0(){this.a.d=this.b},
 $S:0}

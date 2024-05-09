@@ -321,7 +321,7 @@ class _AccountScreenState extends State<AccountScreen> {
                 ),
                 Stats(
                   currentColor: currentColor,
-                  logo: "assets/images/swansea.png",
+                  logo: "assets/images/Gol.png",
                   title: "Gol",
                   content:
                       returned["statistichePersonali"][0]["gol"].toString(),

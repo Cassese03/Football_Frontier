@@ -3,9 +3,9 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 
-const RESOURCES = {"assets/AssetManifest.bin": "75641eaa741cfe0fbb99aa2e7d1d12c5",
-"assets/AssetManifest.bin.json": "6f405981b1ee71c790c725f87a202551",
-"assets/AssetManifest.json": "235aa052cecc5e3b574d98c94da215c8",
+const RESOURCES = {"assets/AssetManifest.bin": "1cc028e9f246f1e71bab4a9ebd80ebed",
+"assets/AssetManifest.bin.json": "74325def3c66b371cc9708816bdf32f1",
+"assets/AssetManifest.json": "c0a54275d8afff22545549717f1fbbbc",
 "assets/assets/images/2-3-2.json": "1460ceebaa17d9585153ad15a1db283a",
 "assets/assets/images/4-2-3-1.json": "1498e6a8acdd6b36a3751fc7e711c78b",
 "assets/assets/images/4-3-3.json": "05e39b12f865a4e42960857fbd7586f3",
@@ -15,6 +15,7 @@ const RESOURCES = {"assets/AssetManifest.bin": "75641eaa741cfe0fbb99aa2e7d1d12c5
 "assets/assets/images/cl.png": "d06c645314cda0c50ea30737d9ef1dc7",
 "assets/assets/images/CV228.jpg": "f9a0a307a113cc92a3d645a47e73355f",
 "assets/assets/images/FCBarcelona.png": "1a4064cb05bc14acf608a6e847439f41",
+"assets/assets/images/Gol.png": "315f7dc00f661fa0bc96ec0c7d243311",
 "assets/assets/images/green-stadium.jpg": "8a30855f34a266cb96e6dea96ddee5c3",
 "assets/assets/images/leicester_city.png": "bf4ea75235a810711fec6626c6d15572",
 "assets/assets/images/liverpool.png": "8598db5a6ba40dfec4ec476da48c6724",
@@ -80,9 +81,9 @@ const RESOURCES = {"assets/AssetManifest.bin": "75641eaa741cfe0fbb99aa2e7d1d12c5
 "icons/Icon-512.png": "343222d11edf74648c3aff06da3441b4",
 "icons/Icon-maskable-192.png": "0bcf6229c444c5092dfcdcf4d8bf2476",
 "icons/Icon-maskable-512.png": "343222d11edf74648c3aff06da3441b4",
-"index.html": "b95f56c0b4012f910c3d94f524c8f8c7",
-"/": "b95f56c0b4012f910c3d94f524c8f8c7",
-"main.dart.js": "7f422f6b80a2bd8ac81d3db4c660eb35",
+"index.html": "62282b0c08d84a0fd85ddc1b013b43c0",
+"/": "62282b0c08d84a0fd85ddc1b013b43c0",
+"main.dart.js": "7339639ee4abc4d330b686867792add6",
 "manifest.json": "151ccd9266762df03c0a36c000a70d57",
 "version.json": "abce5f5ec41188d0169babaa720dc38a"};
 // The application shell files that are downloaded before a service worker can

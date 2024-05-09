@@ -344,7 +344,7 @@ class _SecondAccountScreenState extends State<SecondAccountScreen> {
                 ),
                 Stats(
                   currentColor: currentColor,
-                  logo: "assets/images/swansea.png",
+                  logo: "assets/images/gol.png",
                   title: "Gol",
                   content:
                       returned["statistichePersonali"][0]["gol"].toString(),
