@@ -6,6 +6,8 @@ import 'package:football_app/screens/main/main_screen.dart';
 import 'package:football_app/screens/settings/settings_screen.dart';
 import 'package:football_app/widgets/loading.dart';
 
+import '../regolamento/regolamento.dart';
+
 // ignore: must_be_immutable
 class DrawerLorenzo extends StatelessWidget implements PreferredSizeWidget {
   int currentColor;
@@ -143,6 +145,26 @@ class DrawerLorenzo extends StatelessWidget implements PreferredSizeWidget {
                           ),
                           ListTile(
                             leading: const Icon(
+                              Icons.book,
+                              color: Colors.black,
+                            ),
+                            title: Text(
+                              'Regolamento',
+                              style: textStyleListTile(),
+                            ),
+                            onTap: () {
+                              //Get.to(
+                              //  () => const SettingsScreen(),
+                              //  transition: Transition.rightToLeft,
+                              //  duration: const Duration(seconds: 1),
+                              //);
+                              context
+                                  .read<DrawerBloc>()
+                                  .add(DrawerTapRegolamento());
+                            },
+                          ),
+                          ListTile(
+                            leading: const Icon(
                               Icons.logout,
                               color: Colors.black,
                             ),
@@ -187,6 +209,15 @@ class DrawerLorenzo extends StatelessWidget implements PreferredSizeWidget {
               context,
               MaterialPageRoute(
                 builder: (context) => const SettingsScreen(),
+              ),
+            );
+          }
+          if (state is DrawerTappedRegolamento) {
+            scaffoldKey.currentState!.closeDrawer();
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => RegolamentoScreen(),
               ),
             );
           }

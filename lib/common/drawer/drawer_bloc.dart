@@ -15,6 +15,7 @@ class DrawerBloc extends Bloc<DrawerEvent, DrawerState> {
     on<DrawerTapLineups>(OnTappedLineups);
     on<DrawerTapAccount>(OnTappedAccount);
     on<DrawerTapSettings>(OnTappedSettings);
+    on<DrawerTapRegolamento>(OnTappedRegolamento);
     on<DrawerTapLogout>(OnTappedLogout);
   }
 }
@@ -53,6 +54,13 @@ OnTappedSettings(DrawerTapSettings event, Emitter<DrawerState> emit) async {
   emit(DrawerLoading());
 
   emit(DrawerTappedSettings());
+}
+
+OnTappedRegolamento(
+    DrawerTapRegolamento event, Emitter<DrawerState> emit) async {
+  emit(DrawerLoading());
+
+  emit(DrawerTappedRegolamento());
 }
 
 OnTappedLogout(DrawerTapLogout event, Emitter<DrawerState> emit) async {

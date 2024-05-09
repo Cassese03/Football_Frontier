@@ -15,4 +15,6 @@ final class DrawerTapped extends DrawerState {
 
 final class DrawerTappedSettings extends DrawerState {}
 
+final class DrawerTappedRegolamento extends DrawerState {}
+
 final class DrawerTappedLogout extends DrawerState {}

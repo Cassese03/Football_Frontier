@@ -15,4 +15,6 @@ final class DrawerTapAccount extends DrawerEvent {}
 
 final class DrawerTapSettings extends DrawerEvent {}
 
+final class DrawerTapRegolamento extends DrawerEvent {}
+
 final class DrawerTapLogout extends DrawerEvent {}
