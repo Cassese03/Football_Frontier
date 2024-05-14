@@ -264,37 +264,40 @@ class LiveMatchInfoBox extends StatelessWidget {
                     return Expanded(
                       child: Row(
                         children: [
-                          Spacer(),
+                          const Spacer(),
                           SizedBox(
                             width: 150,
                             child: Text(
                               (e["casa"] == 1) ? e["nominativo"] : "",
                               textAlign: TextAlign.center,
-                              style: TextStyle(
+                              style: const TextStyle(
                                 color: Colors.white,
                                 fontSize: 16,
                               ),
                             ),
                           ),
-                          Icon(
-                            (e["gol"] == 1)
-                                ? Icons.sports_soccer
-                                : Icons.sports_esports_outlined,
-                            color: Colors.white,
-                            size: 18,
-                          ),
+                          (e["gol"] == 1)
+                              ? const Icon(
+                                  Icons.sports_soccer,
+                                  color: Colors.white,
+                                  size: 18,
+                                )
+                              : const ImageIcon(
+                                  AssetImage('assets/images/assist.png'),
+                                  color: Colors.white,
+                                ),
                           SizedBox(
                             width: 150,
                             child: Text(
                               (e["ospite"] == 1) ? e["nominativo"] : "",
                               textAlign: TextAlign.center,
-                              style: TextStyle(
+                              style: const TextStyle(
                                 color: Colors.white,
                                 fontSize: 16,
                               ),
                             ),
                           ),
-                          Spacer(),
+                          const Spacer(),
                         ],
                       ),
                     );

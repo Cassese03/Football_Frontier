@@ -38,11 +38,11 @@ class LiveMatchBox extends StatelessWidget {
       },
       child: SingleChildScrollView(
         child: Container(
-          height: 250,
+          height: 175,
           margin: const EdgeInsets.only(right: 10),
           padding: const EdgeInsets.symmetric(
-            vertical: 20,
-            horizontal: 30,
+            vertical: 5,
+            horizontal: 10,
           ),
           decoration: BoxDecoration(
             color: color,
@@ -56,18 +56,16 @@ class LiveMatchBox extends StatelessWidget {
                 style: TextStyle(
                   color: textColors,
                   fontWeight: FontWeight.bold,
-                  fontSize: 16,
+                  fontSize: 14,
                 ),
               ),
-              const SizedBox(height: 5),
               Text(
                 "Giornata $giornata",
                 style: const TextStyle(
                   color: Colors.white54,
-                  fontSize: 14,
+                  fontSize: 12,
                 ),
               ),
-              const SizedBox(height: 10),
               Row(
                 children: [
                   Column(
@@ -75,24 +73,24 @@ class LiveMatchBox extends StatelessWidget {
                       (homeLogo == 'assets/images/raimon.jpg')
                           ? Image.asset(
                               homeLogo,
-                              width: 90,
-                              height: 90,
+                              width: 75,
+                              height: 75,
                             )
                           : Image(
-                              width: 90,
-                              height: 90,
+                              width: 75,
+                              height: 75,
                               image: MemoryImage(
                                 base64Decode(
                                   homeLogo,
                                 ),
                               ),
                             ),
-                      const SizedBox(height: 10),
+                      const SizedBox(height: 5),
                       Text(
                         homeTitle,
                         style: TextStyle(
                           color: textColors,
-                          fontSize: 18,
+                          fontSize: 14,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -100,13 +98,13 @@ class LiveMatchBox extends StatelessWidget {
                       Text(
                         "Home",
                         style: TextStyle(
-                          fontSize: 14,
+                          fontSize: 12,
                           color: textColors,
                         ),
                       )
                     ],
                   ),
-                  const SizedBox(width: 20),
+                  const SizedBox(width: 10),
                   Column(
                     children: [
                       Text(
@@ -123,14 +121,14 @@ class LiveMatchBox extends StatelessWidget {
                             TextSpan(
                               text: "$homeGoal : ",
                               style: TextStyle(
-                                fontSize: 36,
+                                fontSize: 32,
                                 color: textColors,
                               ),
                             ),
                             TextSpan(
                               text: "$awayGoal",
                               style: const TextStyle(
-                                fontSize: 36,
+                                fontSize: 32,
                                 color: kprimaryColor,
                               ),
                             ),
@@ -145,24 +143,24 @@ class LiveMatchBox extends StatelessWidget {
                       (awayLogo == 'assets/images/raimon.jpg')
                           ? Image.asset(
                               awayLogo,
-                              width: 90,
-                              height: 90,
+                              width: 75,
+                              height: 75,
                             )
                           : Image(
-                              width: 90,
-                              height: 90,
+                              width: 75,
+                              height: 75,
                               image: MemoryImage(
                                 base64Decode(
                                   awayLogo,
                                 ),
                               ),
                             ),
-                      const SizedBox(height: 10),
+                      const SizedBox(height: 5),
                       Text(
                         awayTitle,
                         style: TextStyle(
                           color: textColors,
-                          fontSize: 18,
+                          fontSize: 14,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -170,7 +168,7 @@ class LiveMatchBox extends StatelessWidget {
                       Text(
                         "Away",
                         style: TextStyle(
-                          fontSize: 14,
+                          fontSize: 12,
                           color: textColors,
                         ),
                       )
