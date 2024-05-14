@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:football_app/common/appbar.dart';
 import 'package:football_app/common/drawer/drawer.dart';
 import 'package:football_app/constants.dart';
+import 'package:football_app/screens/capocannoniere/capocannoniere_screen.dart';
 import 'package:football_app/screens/main/main_bloc.dart';
 import 'package:football_app/screens/secondaccount/secondaccount_screen.dart';
 import 'package:football_app/screens/squad/squad_screen.dart';
@@ -49,6 +50,7 @@ class _MainScreenState extends State<MainScreen> {
       SecondAccountScreen(
         idGiocatore: widget.idGiocatore ?? 0,
       ),
+      const CapocannoniereScreen(),
     ];
 
     return BlocProvider(
@@ -130,6 +132,17 @@ class _MainScreenState extends State<MainScreen> {
                     //     });
                     //   },
                     // ),
+                    BottomNavItem(
+                      currentColor: state.currentColor,
+                      title: "Capocannoniere",
+                      icon: Icons.sports_soccer,
+                      isActive: widget.currentTab == 7,
+                      onTap: () {
+                        setState(() {
+                          widget.currentTab = 7;
+                        });
+                      },
+                    ),
                     BottomNavItem(
                       currentColor: state.currentColor,
                       title: "Account",

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:football_app/screens/capocannoniere/capocannoniere_bloc.dart';
 import 'package:football_app/widgets/loading.dart';
-import 'package:football_app/widgets/standing.dart';
-import 'package:football_app/widgets/standing_head.dart';
+import 'package:football_app/widgets/standingscorer.dart';
+import 'package:football_app/widgets/standingscorer_head.dart';
 
 class CapocannoniereScreen extends StatefulWidget {
   const CapocannoniereScreen({super.key});
@@ -34,7 +34,7 @@ class _CapocannoniereScreenState extends State<CapocannoniereScreen> {
                         children: [
                           Spacer(),
                           Text(
-                            "Classifica",
+                            "Classifica Marcatori",
                             style: TextStyle(
                               fontSize: 18,
                               color: Color(state.currentColor),
@@ -52,32 +52,25 @@ class _CapocannoniereScreenState extends State<CapocannoniereScreen> {
                         primary: false,
                         physics: const NeverScrollableScrollPhysics(),
                         children: [
-                          StandingHead(
+                          StandingScorerHead(
                             currentColor: state.currentColor,
                             Logo: "assets/images/raimon.jpg",
-                            Title: "Squadra",
-                            Winning: 'W',
-                            Losing: 'L',
-                            GolScored: "GS",
-                            GolConcessed: "GC",
-                            Points: "P",
+                            Title: "Giocatore",
+                            Winning: 'G',
+                            Losing: 'A',
                             isFavorite: false,
                             position: 0,
                           ),
                           ...state.returned
                               .map(
-                                (e) => Standing(
+                                (e) => StandingScorer(
                                   currentColor: state.currentColor,
-                                  Logo: "assets/images/raimon.jpg",
-                                  Title: e["nome"].toString(),
-                                  Winning: e["partitevinte"],
-                                  Losing: e["partiteperse"],
-                                  GolScored: e["golfatti"].toString(),
-                                  GolConcessed: e["golsubiti"].toString(),
-                                  Points: e["punti"].toString(),
-                                  isFavorite: (e["owner"] == 0) ? false : true,
-                                  position: e["position"],
-                                  idSquadra: e['id_squadra'],
+                                  Title: e["nominativo"].toString(),
+                                  Winning: int.parse(e["gol"]),
+                                  Losing: int.parse(e["assist"]),
+                                  isFavorite: (e["OWNER"] == 0) ? false : true,
+                                  position: e["POSITION"],
+                                  idGiocatore: e['id_giocatore'],
                                 ),
                               )
                               .toList(),
