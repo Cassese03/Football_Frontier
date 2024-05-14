@@ -52,7 +52,7 @@ class LiveMatchBox extends StatelessWidget {
           child: Column(
             children: [
               Text(
-                "Palladoro",
+                "Bombonera",
                 style: TextStyle(
                   color: textColors,
                   fontWeight: FontWeight.bold,

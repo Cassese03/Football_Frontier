@@ -185,16 +185,12 @@ class _HomeScreenState extends State<HomeScreen> {
                               return entry.value.map(
                                 (e) {
                                   return LiveMatchBox(
-                                    idPartita: int.parse(e["id_partita"]),
+                                    idPartita: e["id_partita"],
                                     awayGoal: int.parse(e["Gol_Ospite"]),
                                     homeGoal: int.parse(e["Gol_Casa"]),
                                     time: 90,
-                                    awayLogo: (e["Immagine_Ospite"] == null)
-                                        ? "assets/images/leicester_city.png"
-                                        : "assets/images/raimon.jpg",
-                                    homeLogo: (e["Immagine_Casa"] == null)
-                                        ? "assets/images/chelsea.png"
-                                        : "assets/images/raimon.jpg",
+                                    awayLogo: "assets/images/raimon.jpg",
+                                    homeLogo: "assets/images/raimon.jpg",
                                     awayTitle: e["Squadra_Ospite"].toString(),
                                     homeTitle: e["Squadra_Casa"].toString(),
                                     giornata: e["giornata"],
