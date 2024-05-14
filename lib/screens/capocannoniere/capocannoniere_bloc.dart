@@ -91,9 +91,6 @@ class CapocannoniereBloc
       var returned = json.decode(response.body);
 
 
-      print(returned);
-
-
       return emit(CapocannoniereReady(currentColor, returned));
 
     } else {

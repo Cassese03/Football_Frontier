@@ -78,20 +78,22 @@ class StandingScorer extends StatelessWidget {
                           ),
                         ],
                       ),
-                      const Spacer(),
-                      Column(
-                        children: [
-                          Text(
-                            Title,
-                            style: TextStyle(
-                              fontSize: 18,
-                              color: Colors.grey.shade700,
-                              fontWeight: FontWeight.bold,
+                      Expanded(
+                        child: Column(
+                          children: [
+                            Text(
+                              Title,
+                              textAlign: TextAlign.center,
+                              overflow: TextOverflow.clip,
+                              style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.grey.shade700,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                      const Spacer(),
                     ],
                   ),
                 ),
