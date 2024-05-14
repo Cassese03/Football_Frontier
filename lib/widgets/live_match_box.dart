@@ -36,39 +36,41 @@ class LiveMatchBox extends StatelessWidget {
           ),
         );
       },
-      child: SingleChildScrollView(
-        child: Container(
-          height: 175,
-          margin: const EdgeInsets.only(right: 10),
-          padding: const EdgeInsets.symmetric(
-            vertical: 5,
-            horizontal: 10,
-          ),
-          decoration: BoxDecoration(
-            color: color,
-            borderRadius: BorderRadius.circular(20),
-            image: backgroundImage,
-          ),
-          child: Column(
-            children: [
-              Text(
-                "Bombonera",
-                style: TextStyle(
-                  color: textColors,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 14,
-                ),
+      child: Container(
+        height: 175,
+        width: MediaQuery.of(context).size.width / 1.25,
+        margin: const EdgeInsets.only(right: 10),
+        padding: const EdgeInsets.symmetric(
+          vertical: 5,
+          horizontal: 10,
+        ),
+        decoration: BoxDecoration(
+          color: color,
+          borderRadius: BorderRadius.circular(20),
+          image: backgroundImage,
+        ),
+        child: Column(
+          children: [
+            Text(
+              "Bombonera",
+              style: TextStyle(
+                color: textColors,
+                fontWeight: FontWeight.bold,
+                fontSize: 14,
               ),
-              Text(
-                "Giornata $giornata",
-                style: const TextStyle(
-                  color: Colors.white54,
-                  fontSize: 12,
-                ),
+            ),
+            Text(
+              "Giornata $giornata",
+              style: const TextStyle(
+                color: Colors.white54,
+                fontSize: 12,
               ),
-              Row(
-                children: [
-                  Column(
+            ),
+            Row(
+              children: [
+                Expanded(
+                  flex: 30,
+                  child: Column(
                     children: [
                       (homeLogo == 'assets/images/raimon.jpg')
                           ? Image.asset(
@@ -94,18 +96,13 @@ class LiveMatchBox extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      const SizedBox(height: 5),
-                      Text(
-                        "Home",
-                        style: TextStyle(
-                          fontSize: 12,
-                          color: textColors,
-                        ),
-                      )
                     ],
                   ),
-                  const SizedBox(width: 10),
-                  Column(
+                ),
+                const Spacer(),
+                Expanded(
+                  flex: 40,
+                  child: Column(
                     children: [
                       Text(
                         "$time'",
@@ -137,8 +134,11 @@ class LiveMatchBox extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const SizedBox(width: 20),
-                  Column(
+                ),
+                const Spacer(),
+                Expanded(
+                  flex: 30,
+                  child: Column(
                     children: [
                       (awayLogo == 'assets/images/raimon.jpg')
                           ? Image.asset(
@@ -164,20 +164,12 @@ class LiveMatchBox extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      const SizedBox(height: 5),
-                      Text(
-                        "Away",
-                        style: TextStyle(
-                          fontSize: 12,
-                          color: textColors,
-                        ),
-                      )
                     ],
                   ),
-                ],
-              )
-            ],
-          ),
+                ),
+              ],
+            )
+          ],
         ),
       ),
     );
