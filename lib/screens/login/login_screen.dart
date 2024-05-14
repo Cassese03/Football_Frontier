@@ -171,6 +171,17 @@ class _LoginScreenState extends State<LoginScreen> {
                                   ),
                                 ),
                               ),
+                        TextButton(
+                          onPressed: () {
+                            context.read<LoginBloc>().add(
+                                  LoginOnTapLoginWithout(
+                                    'pubblico@gmail.com',
+                                    '1',
+                                  ),
+                                );
+                          },
+                          child: const Text('Accedi ora come anonimo'),
+                        )
                       ],
                     ),
                   )

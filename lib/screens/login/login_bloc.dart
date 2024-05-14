@@ -18,6 +18,8 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
     on<LoginOnTapLogin>(onLogin);
 
+    on<LoginOnTapLoginWithout>(onLoginWithout);
+
     on<LoginOnTapRemember>(onRemember);
   }
 }
@@ -53,6 +55,20 @@ onLogin(LoginOnTapLogin event, Emitter<LoginState> emit) async {
 
     return emit(LoginFailed(returned["error"]));
   }
+}
+
+onLoginWithout(LoginOnTapLoginWithout event, Emitter<LoginState> emit) async {
+  emit(LoginLoading());
+
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+
+  await prefs.setString('access_token', event.token);
+
+  await prefs.setString('email', event.username);
+
+  emit(LoginSuccess());
+
+  return;
 }
 
 onRemember(LoginOnTapRemember event, Emitter<LoginState> emit) async {
