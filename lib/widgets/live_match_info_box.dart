@@ -50,138 +50,146 @@ class LiveMatchInfoBox extends StatelessWidget {
           const SizedBox(height: 20),
           Row(
             children: [
-              (homeLogo == 'assets/images/raimon.jpg')
-                  ? Column(
-                      children: [
-                        Image.asset(
-                          homeLogo,
-                          width: 90,
-                          height: 90,
-                        ),
-                        Text(
-                          homeTitle,
-                          overflow: TextOverflow.clip,
-                          style: const TextStyle(
-                            fontSize: 14,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ],
-                    )
-                  : Column(
-                      children: [
-                        Image(
-                          width: 90,
-                          height: 90,
-                          image: MemoryImage(
-                            base64Decode(
+              Expanded(
+                child: Builder(builder: (context) {
+                  return (homeLogo == 'assets/images/raimon.jpg')
+                      ? Column(
+                          children: [
+                            Image.asset(
                               homeLogo,
+                              width: 90,
+                              height: 90,
                             ),
-                          ),
-                        ),
-                        Text(
-                          homeTitle,
-                          overflow: TextOverflow.clip,
-                          style: const TextStyle(
-                            fontSize: 14,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ],
-                    ),
-              const Spacer(),
-              Column(
-                children: [
-                  Container(
-                    padding: const EdgeInsets.all(5),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: const Color(0xffFFF4E5),
-                    ),
-                    child: Row(
-                      children: [
-                        const Icon(
-                          Icons.circle,
-                          color: kprimaryColor,
-                          size: 10,
-                        ),
-                        const SizedBox(width: 5),
-                        Text(
-                          (completata == 0) ? "Live" : "Completata",
-                          style: const TextStyle(
-                            color: kprimaryColor,
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(height: 10),
-                  Text.rich(
-                    TextSpan(
-                      children: [
-                        TextSpan(
-                          text: homeGoal.toString(),
-                          style: TextStyle(
-                            fontSize: 36,
-                            color: kprimaryColor,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        TextSpan(
-                          text: " : ${awayGoal.toString()}",
-                          style: TextStyle(
-                            fontSize: 36,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
+                            Text(
+                              homeTitle,
+                              overflow: TextOverflow.clip,
+                              style: const TextStyle(
+                                fontSize: 14,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ],
+                        )
+                      : Column(
+                          children: [
+                            Image(
+                              width: 90,
+                              height: 90,
+                              image: MemoryImage(
+                                base64Decode(
+                                  homeLogo,
+                                ),
+                              ),
+                            ),
+                            Text(
+                              homeTitle,
+                              overflow: TextOverflow.clip,
+                              style: const TextStyle(
+                                fontSize: 14,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ],
+                        );
+                }),
               ),
-              const Spacer(),
-              (awayLogo == 'assets/images/raimon.jpg')
-                  ? Column(
-                      children: [
-                        Image.asset(
-                          awayLogo,
-                          width: 90,
-                          height: 90,
-                        ),
-                        Text(
-                          awayTitle,
-                          overflow: TextOverflow.clip,
-                          style: const TextStyle(
-                            fontSize: 14,
-                            color: Colors.white,
+              Builder(builder: (context) {
+                return Column(
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(5),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: const Color(0xffFFF4E5),
+                      ),
+                      child: Row(
+                        children: [
+                          const Icon(
+                            Icons.circle,
+                            color: kprimaryColor,
+                            size: 10,
                           ),
-                        ),
-                      ],
-                    )
-                  : Column(
-                      children: [
-                        Image(
-                          width: 90,
-                          height: 90,
-                          image: MemoryImage(
-                            base64Decode(
-                              awayLogo,
+                          const SizedBox(width: 5),
+                          Text(
+                            (completata == 0) ? "Live" : "Completata",
+                            style: const TextStyle(
+                              color: kprimaryColor,
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
-                        ),
-                        Text(
-                          awayTitle,
-                          overflow: TextOverflow.clip,
-                          style: const TextStyle(
-                            fontSize: 14,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
+                    const SizedBox(height: 10),
+                    Text.rich(
+                      TextSpan(
+                        children: [
+                          TextSpan(
+                            text: homeGoal.toString(),
+                            style: TextStyle(
+                              fontSize: 36,
+                              color: kprimaryColor,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          TextSpan(
+                            text: " : ${awayGoal.toString()}",
+                            style: TextStyle(
+                              fontSize: 36,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                );
+              }),
+              Expanded(
+                child: Builder(builder: (context) {
+                  return (awayLogo == 'assets/images/raimon.jpg')
+                      ? Column(
+                          children: [
+                            Image.asset(
+                              awayLogo,
+                              width: 90,
+                              height: 90,
+                            ),
+                            Text(
+                              awayTitle,
+                              overflow: TextOverflow.clip,
+                              style: const TextStyle(
+                                fontSize: 14,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ],
+                        )
+                      : Column(
+                          children: [
+                            Image(
+                              width: 90,
+                              height: 90,
+                              image: MemoryImage(
+                                base64Decode(
+                                  awayLogo,
+                                ),
+                              ),
+                            ),
+                            Text(
+                              awayTitle,
+                              overflow: TextOverflow.clip,
+                              style: const TextStyle(
+                                fontSize: 14,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ],
+                        );
+                }),
+              ),
             ],
           ),
           SizedBox(
@@ -254,7 +262,9 @@ class LiveMatchInfoBox extends StatelessWidget {
               ],
             ),
           ),
-          const Spacer(),
+          const SizedBox(
+            height: 20,
+          ),
           Expanded(
             child: ListView(
               scrollDirection: Axis.vertical,
@@ -263,10 +273,10 @@ class LiveMatchInfoBox extends StatelessWidget {
                   (e) {
                     return Expanded(
                       child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          const Spacer(),
-                          SizedBox(
-                            width: 150,
+                          Expanded(
+                            flex: 40,
                             child: Text(
                               (e["casa"] == 1) ? e["nominativo"] : "",
                               textAlign: TextAlign.center,
@@ -277,17 +287,23 @@ class LiveMatchInfoBox extends StatelessWidget {
                             ),
                           ),
                           (e["gol"] == 1)
-                              ? const Icon(
-                                  Icons.sports_soccer,
-                                  color: Colors.white,
-                                  size: 18,
+                              ? const Expanded(
+                                  flex: 20,
+                                  child: Icon(
+                                    Icons.sports_soccer,
+                                    color: Colors.white,
+                                    size: 18,
+                                  ),
                                 )
-                              : const ImageIcon(
-                                  AssetImage('assets/images/assist.png'),
-                                  color: Colors.white,
+                              : const Expanded(
+                                  flex: 20,
+                                  child: ImageIcon(
+                                    AssetImage('assets/images/assist.png'),
+                                    color: Colors.white,
+                                  ),
                                 ),
-                          SizedBox(
-                            width: 150,
+                          Expanded(
+                            flex: 40,
                             child: Text(
                               (e["ospite"] == 1) ? e["nominativo"] : "",
                               textAlign: TextAlign.center,
@@ -377,7 +393,6 @@ class LiveMatchInfoBox extends StatelessWidget {
               ],
             ),
           ),
-          const Spacer(),
         ],
       ),
     );
