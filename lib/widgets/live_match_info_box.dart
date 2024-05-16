@@ -271,125 +271,52 @@ class LiveMatchInfoBox extends StatelessWidget {
               children: [
                 ...statistiche.map(
                   (e) {
-                    return Expanded(
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Expanded(
-                            flex: 40,
-                            child: Text(
-                              (e["casa"] == 1) ? e["nominativo"] : "",
-                              textAlign: TextAlign.center,
-                              style: const TextStyle(
-                                color: Colors.white,
-                                fontSize: 16,
-                              ),
+                    return Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Expanded(
+                          flex: 40,
+                          child: Text(
+                            (e["casa"] == 1) ? e["nominativo"] : "",
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
                             ),
                           ),
-                          (e["gol"] == 1)
-                              ? const Expanded(
-                                  flex: 20,
-                                  child: Icon(
-                                    Icons.sports_soccer,
-                                    color: Colors.white,
-                                    size: 18,
-                                  ),
-                                )
-                              : const Expanded(
-                                  flex: 20,
-                                  child: ImageIcon(
-                                    AssetImage('assets/images/assist.png'),
-                                    color: Colors.white,
-                                  ),
+                        ),
+                        (e["gol"] == 1)
+                            ? const Expanded(
+                                flex: 20,
+                                child: Icon(
+                                  Icons.sports_soccer,
+                                  color: Colors.white,
+                                  size: 18,
                                 ),
-                          Expanded(
-                            flex: 40,
-                            child: Text(
-                              (e["ospite"] == 1) ? e["nominativo"] : "",
-                              textAlign: TextAlign.center,
-                              style: const TextStyle(
-                                color: Colors.white,
-                                fontSize: 16,
+                              )
+                            : const Expanded(
+                                flex: 20,
+                                child: ImageIcon(
+                                  AssetImage('assets/images/assist.png'),
+                                  color: Colors.white,
+                                ),
                               ),
+                        Expanded(
+                          flex: 40,
+                          child: Text(
+                            (e["ospite"] == 1) ? e["nominativo"] : "",
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
                             ),
                           ),
-                          const Spacer(),
-                        ],
-                      ),
+                        ),
+                        const Spacer(),
+                      ],
                     );
                   },
                 ),
-                // Expanded(
-                //   child: Row(
-                //     children: [
-                //       Spacer(),
-                //       SizedBox(
-                //         width: 100,
-                //         child: Text(
-                //           "",
-                //           textAlign: TextAlign.center,
-                //           style: TextStyle(
-                //             color: Colors.white,
-                //             fontSize: 16,
-                //           ),
-                //         ),
-                //       ),
-                //       Icon(
-                //         Icons.sports_soccer,
-                //         color: Colors.white,
-                //         size: 18,
-                //       ),
-                //       SizedBox(
-                //         width: 100,
-                //         child: Text(
-                //           "NSP 45+2'",
-                //           textAlign: TextAlign.center,
-                //           style: TextStyle(
-                //             color: Colors.white,
-                //             fontSize: 16,
-                //           ),
-                //         ),
-                //       ),
-                //       Spacer(),
-                //     ],
-                //   ),
-                // ),
-                // Spacer(),
-                // Expanded(
-                //   child: Row(
-                //     children: [
-                //       Spacer(),
-                //       SizedBox(
-                //         width: 100,
-                //         child: Text(
-                //           "",
-                //           textAlign: TextAlign.center,
-                //           style: TextStyle(
-                //             color: Colors.white,
-                //             fontSize: 16,
-                //           ),
-                //         ),
-                //       ),
-                //       Icon(
-                //         Icons.sports_soccer,
-                //         color: Colors.white,
-                //         size: 18,
-                //       ),
-                //       SizedBox(
-                //         width: 100,
-                //         child: Text(
-                //           "Fati 45+2'",
-                //           textAlign: TextAlign.center,
-                //           style: TextStyle(
-                //             color: Colors.white,
-                //             fontSize: 16,
-                //           ),
-                //         ),
-                //       ),
-                //       Spacer(),
-                //     ],
-                //   ),
-                // ),
               ],
             ),
           ),
