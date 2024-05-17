@@ -5,6 +5,7 @@ import 'package:football_app/common/drawer/drawer.dart';
 import 'package:football_app/constants.dart';
 import 'package:football_app/screens/capocannoniere/capocannoniere_screen.dart';
 import 'package:football_app/screens/main/main_bloc.dart';
+import 'package:football_app/screens/referto/referto_screen.dart';
 import 'package:football_app/screens/secondaccount/secondaccount_screen.dart';
 import 'package:football_app/screens/squad/squad_screen.dart';
 import 'package:football_app/screens/stadium_screen.dart';
@@ -51,6 +52,7 @@ class _MainScreenState extends State<MainScreen> {
         idGiocatore: widget.idGiocatore ?? 0,
       ),
       const CapocannoniereScreen(),
+      RefertoScreen(),
     ];
 
     return BlocProvider(
@@ -140,6 +142,17 @@ class _MainScreenState extends State<MainScreen> {
                       onTap: () {
                         setState(() {
                           widget.currentTab = 7;
+                        });
+                      },
+                    ),
+                    BottomNavItem(
+                      currentColor: state.currentColor,
+                      title: "Referto",
+                      icon: Icons.file_copy,
+                      isActive: widget.currentTab == 8,
+                      onTap: () {
+                        setState(() {
+                          widget.currentTab = 8;
                         });
                       },
                     ),

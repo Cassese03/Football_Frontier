@@ -41,8 +41,7 @@ class SquadBloc extends Bloc<SquadEvent, SquadState> {
     var access_token = prefs.getString('access_token');
 
     var response = await http.post(
-      Uri.parse(
-          'https://footballfrontier-be.vercel.app/api2/dettaglio_squadra'),
+      Uri.parse('http://ws.footballfrontier.it/api2/dettaglio_squadra'),
       headers: <String, String>{
         "Content-Type": "application/json",
       },
@@ -76,7 +75,7 @@ void onTryEdit(SquadTryEdit event, Emitter<SquadState> emit) async {
   var access_token = prefs.getString('access_token');
 
   final response = await http.post(
-    Uri.parse('https://footballfrontier-be.vercel.app/api2/cambia_img_squadra'),
+    Uri.parse('http://ws.footballfrontier.it/api2/cambia_img_squadra'),
     body: {
       'token': access_token.toString(),
       'image': event.base64Image.toString()

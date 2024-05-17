@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:football_app/common/drawer/drawer_bloc.dart';
-import 'package:football_app/screens/main/main_screen.dart';
 import 'package:football_app/widgets/loading.dart';
 
 // ignore: must_be_immutable
