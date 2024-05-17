@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:football_app/constants.dart';
 import 'package:football_app/screens/main/main_screen.dart';
-import 'package:iconsax/iconsax.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 class StandingScorer extends StatelessWidget {
   final String Logo = "assets/images/raimon.jpg", Title;
@@ -186,7 +186,7 @@ class StandingScorer extends StatelessWidget {
                   top: 20,
                   left: 5,
                   child: Icon(
-                    Iconsax.star5,
+                    Iconsax.star_1,
                     color: Color(currentColor),
                     size: 14,
                   ),

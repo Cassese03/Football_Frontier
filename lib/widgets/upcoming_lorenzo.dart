@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:football_app/constants.dart';
 import 'package:football_app/screens/match/match_screen.dart';
-import 'package:iconsax/iconsax.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 class UpComingLorenzo extends StatelessWidget {
   final String homeLogo, homeTitle, awayLogo, awayTitle, date, time;
@@ -153,7 +153,7 @@ class UpComingLorenzo extends StatelessWidget {
                 top: 10,
                 left: 10,
                 child: Icon(
-                  Iconsax.star5,
+                  Iconsax.star_1,
                   color: kprimaryColor,
                   size: 15,
                 ),

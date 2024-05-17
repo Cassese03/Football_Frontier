@@ -14,7 +14,7 @@ import 'package:football_app/screens/calendar/calendar_screen.dart';
 import 'package:football_app/screens/home/home_screen.dart';
 import 'package:football_app/screens/standing/standing_screen.dart';
 import 'package:football_app/widgets/loading.dart';
-import 'package:iconsax/iconsax.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -115,7 +115,7 @@ class _MainScreenState extends State<MainScreen> {
                     BottomNavItem(
                       currentColor: state.currentColor,
                       title: "Standing",
-                      icon: Iconsax.chart,
+                      icon: Iconsax.status_up,
                       isActive: widget.currentTab == 2,
                       onTap: () {
                         setState(() {

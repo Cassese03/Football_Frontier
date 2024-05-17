@@ -5,6 +5,7 @@ import 'package:football_app/screens/login/login_screen.dart';
 import 'package:football_app/screens/main/main_screen.dart';
 import 'package:football_app/screens/settings/settings_screen.dart';
 import 'package:football_app/widgets/loading.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../regolamento/regolamento.dart';
 
@@ -45,7 +46,7 @@ class DrawerLorenzo extends StatelessWidget implements PreferredSizeWidget {
                         children: [
                           ListTile(
                             leading: const Icon(
-                              Icons.house,
+                              Iconsax.home,
                               color: Colors.black,
                             ),
                             title: Text(
@@ -58,7 +59,7 @@ class DrawerLorenzo extends StatelessWidget implements PreferredSizeWidget {
                           ),
                           ListTile(
                             leading: const Icon(
-                              Icons.sports_soccer,
+                              Iconsax.calendar_1,
                               color: Colors.black,
                             ),
                             title: Text(
@@ -73,7 +74,7 @@ class DrawerLorenzo extends StatelessWidget implements PreferredSizeWidget {
                           ),
                           ListTile(
                             leading: const Icon(
-                              Icons.stacked_bar_chart_sharp,
+                              Iconsax.status_up,
                               color: Colors.black,
                             ),
                             title: Text(
@@ -103,7 +104,7 @@ class DrawerLorenzo extends StatelessWidget implements PreferredSizeWidget {
                           // ),
                           ListTile(
                             leading: const Icon(
-                              Icons.emoji_people,
+                              Iconsax.profile_circle,
                               color: Colors.black,
                             ),
                             title: Text(

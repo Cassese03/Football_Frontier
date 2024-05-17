@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 class StandingScorerHead extends StatelessWidget {
   final String Logo, Title;
@@ -158,7 +158,7 @@ class StandingScorerHead extends StatelessWidget {
                 top: 20,
                 left: 5,
                 child: Icon(
-                  Iconsax.star5,
+                  Iconsax.star_1,
                   color: Color(currentColor),
                   size: 14,
                 ),

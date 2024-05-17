@@ -5,7 +5,7 @@ import 'package:football_app/constants.dart';
 import 'package:football_app/screens/match/match_bloc.dart';
 import 'package:football_app/widgets/live_match_info_box.dart';
 import 'package:football_app/widgets/loading.dart';
-import 'package:iconsax/iconsax.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 // ignore: must_be_immutable
 class MatchScreen extends StatefulWidget {

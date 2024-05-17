@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:football_app/screens/main/main_screen.dart';
 import 'package:football_app/screens/notification/notification_screen.dart';
-import 'package:iconsax/iconsax.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 class AppbarAll extends StatelessWidget implements PreferredSizeWidget {
   int currentColor;
