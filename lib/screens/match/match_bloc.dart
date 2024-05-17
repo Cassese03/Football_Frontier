@@ -32,7 +32,7 @@ onInit(MatchInit event, Emitter<MatchState> emit) async {
   var access_token = prefs.getString('access_token');
 
   var response = await http.post(
-    Uri.parse('http://ws.footballfrontier.it/api2/statistiche_partita'),
+    Uri.parse('https://ws.footballfrontier.it/api2/statistiche_partita'),
     headers: <String, String>{
       "Content-Type": "application/json",
     },

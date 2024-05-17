@@ -46,7 +46,7 @@ class SecondAccountBloc extends Bloc<SecondAccountEvent, SecondAccountState> {
     var access_token = prefs.getString('access_token');
 
     var response = await http.post(
-      Uri.parse('http://ws.footballfrontier.it/api2/profilo'),
+      Uri.parse('https://ws.footballfrontier.it/api2/profilo'),
       headers: <String, String>{
         "Content-Type": "application/json",
       },

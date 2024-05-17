@@ -37,7 +37,7 @@ onInit(HomeInit event, Emitter<HomeState> emit) async {
   var access_token = prefs.getString('access_token');
 
   var response = await http.post(
-    Uri.parse('http://ws.footballfrontier.it/api2/partite_home'),
+    Uri.parse('https://ws.footballfrontier.it/api2/partite_home'),
     headers: <String, String>{
       "Content-Type": "application/json",
     },
