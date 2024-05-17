@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
     return BlocProvider(
       create: (context) => LoginBloc(),
       child: MaterialApp(
-        title: 'Footbal Frontier',
+        title: 'Football Frontier',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           fontFamily: "PlusJakartaSans",
