@@ -63,7 +63,7 @@ class CapocannoniereBloc
 
     var response = await http.post(
 
-      Uri.parse('http://ws.footballfrontier.it/api2/classifica_marcatori'),
+      Uri.parse('https://ws.footballfrontier.it/api2/classifica_marcatori'),
 
       headers: <String, String>{
 

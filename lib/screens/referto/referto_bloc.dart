@@ -53,7 +53,7 @@ class RefertoBloc extends Bloc<RefertoEvent, RefertoState> {
 
     var response = await http.post(
 
-      Uri.parse('http://ws.footballfrontier.it/api2/sendReferto'),
+      Uri.parse('https://footballfrontier-be.vercel.app/api2/sendReferto'),
 
       headers: <String, String>{
 
@@ -124,7 +124,7 @@ class RefertoBloc extends Bloc<RefertoEvent, RefertoState> {
 
       var response = await http.post(
 
-        Uri.parse('http://ws.footballfrontier.it/api2/calendario'),
+        Uri.parse('https://footballfrontier-be.vercel.app/api2/calendario'),
 
         headers: <String, String>{
 
@@ -162,7 +162,7 @@ class RefertoBloc extends Bloc<RefertoEvent, RefertoState> {
 
       var response = await http.post(
 
-        Uri.parse('http://ws.footballfrontier.it/api2/referto'),
+        Uri.parse('https://footballfrontier-be.vercel.app/api2/referto'),
 
         headers: <String, String>{
 
