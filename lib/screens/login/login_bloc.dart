@@ -28,7 +28,7 @@ onLogin(LoginOnTapLogin event, Emitter<LoginState> emit) async {
   emit(LoginLoading());
 
   var response = await http.post(
-    Uri.parse('https://ws.footballfrontier.it/api2/login'),
+    Uri.parse('http://ws.footballfrontier.it/api2/login'),
     headers: <String, String>{
       "Content-Type": "application/json",
     },
@@ -94,7 +94,7 @@ onCheck(LoginCheckRemember event, Emitter<LoginState> emit) async {
       var email = prefs.getString('email');
 
       var response = await http.post(
-        Uri.parse('https://ws.footballfrontier.it/api2/fast_login'),
+        Uri.parse('http://ws.footballfrontier.it/api2/fast_login'),
         headers: <String, String>{
           "Content-Type": "application/json",
         },

@@ -61,7 +61,7 @@ class StandingBloc extends Bloc<StandingEvent, StandingState> {
 
     var response = await http.post(
 
-      Uri.parse('https://ws.footballfrontier.it/api2/classifica'),
+      Uri.parse('http://ws.footballfrontier.it/api2/classifica'),
 
       headers: <String, String>{
 

@@ -34,7 +34,7 @@ class AccountBloc extends Bloc<AccountEvent, AccountState> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     var access_token = prefs.getString('access_token');
     final response = await http.post(
-      Uri.parse('https://ws.footballfrontier.it/api2/cambia_img_profilo'),
+      Uri.parse('http://ws.footballfrontier.it/api2/cambia_img_profilo'),
       body: {
         'token': access_token.toString(),
         'image': event.base64Image.toString()
@@ -56,7 +56,7 @@ class AccountBloc extends Bloc<AccountEvent, AccountState> {
     var access_token = prefs.getString('access_token');
 
     var response = await http.post(
-      Uri.parse('https://ws.footballfrontier.it/api2/profilo'),
+      Uri.parse('http://ws.footballfrontier.it/api2/profilo'),
       headers: <String, String>{
         "Content-Type": "application/json",
       },

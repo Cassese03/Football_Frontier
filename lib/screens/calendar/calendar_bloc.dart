@@ -38,7 +38,7 @@ onInit(CalendarInit event, Emitter<CalendarState> emit) async {
   var access_token = prefs.getString('access_token');
 
   var response = await http.post(
-    Uri.parse('https://ws.footballfrontier.it/api2/calendario'),
+    Uri.parse('http://ws.footballfrontier.it/api2/calendario'),
     headers: <String, String>{
       "Content-Type": "application/json",
     },
