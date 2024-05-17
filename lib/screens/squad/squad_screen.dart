@@ -163,14 +163,23 @@ class _SquadScreenState extends State<SquadScreen> {
                                         child: (state.returned["squadra"][0]
                                                     ["img"] !=
                                                 null)
-                                            ? Image(
-                                                image: MemoryImage(
-                                                  base64Decode(
+                                            ? (state.returned["squadra"][0]
+                                                        ["img"]
+                                                    .toString()
+                                                    .startsWith('https'))
+                                                ? Image.network(
                                                     state.returned["squadra"][0]
                                                         ["img"],
-                                                  ),
-                                                ),
-                                              )
+                                                  )
+                                                : Image(
+                                                    image: MemoryImage(
+                                                      base64Decode(
+                                                        state.returned[
+                                                                "squadra"][0]
+                                                            ["img"],
+                                                      ),
+                                                    ),
+                                                  )
                                             : Image.asset(
                                                 'assets/images/pl.png',
                                               ),

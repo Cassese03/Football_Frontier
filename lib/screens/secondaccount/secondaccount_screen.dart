@@ -205,13 +205,19 @@ class _SecondAccountScreenState extends State<SecondAccountScreen> {
                             backgroundColor: Color(currentColor),
                             minRadius: 100,
                             child: (returned["profilo"][0]["img"] != null)
-                                ? Image(
-                                    image: MemoryImage(
-                                      base64Decode(
+                                ? (returned["profilo"][0]["img"]
+                                        .toString()
+                                        .startsWith('https'))
+                                    ? Image.network(
                                         returned["profilo"][0]["img"],
-                                      ),
-                                    ),
-                                  )
+                                      )
+                                    : Image(
+                                        image: MemoryImage(
+                                          base64Decode(
+                                            returned["profilo"][0]["img"],
+                                          ),
+                                        ),
+                                      )
                                 : Image.asset(
                                     'assets/images/pl.png',
                                   ),
