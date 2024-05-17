@@ -194,14 +194,21 @@ class _SquadScreenState extends State<SquadScreen> {
                                       child: (state.returned["squadra"][0]
                                                   ["img"] !=
                                               null)
-                                          ? Image(
-                                              image: MemoryImage(
-                                                base64Decode(
+                                          ? (state.returned["squadra"][0]["img"]
+                                                  .toString()
+                                                  .startsWith('https'))
+                                              ? Image.network(
                                                   state.returned["squadra"][0]
                                                       ["img"],
-                                                ),
-                                              ),
-                                            )
+                                                )
+                                              : Image(
+                                                  image: MemoryImage(
+                                                    base64Decode(
+                                                      state.returned["squadra"]
+                                                          [0]["img"],
+                                                    ),
+                                                  ),
+                                                )
                                           : Image.asset(
                                               'assets/images/pl.png',
                                             ),
@@ -305,7 +312,8 @@ class _SquadScreenState extends State<SquadScreen> {
                                         return AnteprimaProfilo(
                                           currentColor: state.currentColor,
                                           Logo: "assets/images/raimon.jpg",
-                                          Title: giocatore["nominativo"],
+                                          Title: giocatore["nominativo"]
+                                              .toString(),
                                           Ruolo: giocatore["ruolo"],
                                           Gol: int.parse(giocatore["gol"]),
                                           Assits:
