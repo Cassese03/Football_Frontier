@@ -189,8 +189,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                     awayGoal: int.parse(e["Gol_Ospite"]),
                                     homeGoal: int.parse(e["Gol_Casa"]),
                                     time: 90,
-                                    awayLogo: "assets/images/raimon.jpg",
-                                    homeLogo: "assets/images/raimon.jpg",
+                                    awayLogo: (e["Immagine_Ospite"] == null)
+                                        ? "assets/images/raimon.jpg"
+                                        : e["Immagine_Ospite"],
+                                    homeLogo: (e["Immagine_Casa"] == null)
+                                        ? "assets/images/raimon.jpg"
+                                        : e["Immagine_Casa"],
                                     awayTitle: e["Squadra_Ospite"].toString(),
                                     homeTitle: e["Squadra_Casa"].toString(),
                                     giornata: e["giornata"],

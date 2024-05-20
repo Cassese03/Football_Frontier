@@ -75,11 +75,18 @@ class Standing extends StatelessWidget {
                     children: [
                       Column(
                         children: [
-                          Image.asset(
-                            Logo,
-                            height: 45,
-                            width: 45,
-                          ),
+                          if (Logo == 'assets/images/raimon.jpg')
+                            Image.asset(
+                              Logo,
+                              height: 45,
+                              width: 45,
+                            )
+                          else
+                            Image(
+                              height: 45,
+                              width: 45,
+                              image: NetworkImage(Logo),
+                            ),
                         ],
                       ),
                       const Spacer(),

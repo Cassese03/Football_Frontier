@@ -75,10 +75,8 @@ class LiveMatchInfoBox extends StatelessWidget {
                             Image(
                               width: 90,
                               height: 90,
-                              image: MemoryImage(
-                                base64Decode(
-                                  homeLogo,
-                                ),
+                              image: NetworkImage(
+                                homeLogo,
                               ),
                             ),
                             Text(
@@ -172,10 +170,8 @@ class LiveMatchInfoBox extends StatelessWidget {
                             Image(
                               width: 90,
                               height: 90,
-                              image: MemoryImage(
-                                base64Decode(
-                                  awayLogo,
-                                ),
+                              image: NetworkImage(
+                                awayLogo,
                               ),
                             ),
                             Text(

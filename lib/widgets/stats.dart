@@ -39,11 +39,18 @@ class Stats extends StatelessWidget {
                     children: [
                       Column(
                         children: [
-                          Image.asset(
-                            logo,
-                            height: 50,
-                            width: 50,
-                          ),
+                          if (logo == 'assets/images/raimon.jpg')
+                            Image.asset(
+                              logo,
+                              height: 50,
+                              width: 50,
+                            )
+                          else
+                            Image(
+                              height: 50,
+                              width: 50,
+                              image: NetworkImage(logo),
+                            ),
                         ],
                       ),
                       Padding(

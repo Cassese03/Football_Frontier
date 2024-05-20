@@ -4,7 +4,7 @@ import 'package:football_app/screens/main/main_screen.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 class StandingScorer extends StatelessWidget {
-  final String Logo = "assets/images/raimon.jpg", Title;
+  final String Logo, Title;
   final bool isFavorite;
   final int position, currentColor, Winning, Losing, idGiocatore;
   const StandingScorer({
@@ -16,6 +16,7 @@ class StandingScorer extends StatelessWidget {
     required this.isFavorite,
     required this.position,
     required this.idGiocatore,
+    required this.Logo,
   });
 
   @override
@@ -71,11 +72,18 @@ class StandingScorer extends StatelessWidget {
                     children: [
                       Column(
                         children: [
-                          Image.asset(
-                            Logo,
-                            height: 45,
-                            width: 45,
-                          ),
+                          if (Logo == 'assets/images/raimon.jpg')
+                            Image.asset(
+                              Logo,
+                              height: 45,
+                              width: 45,
+                            )
+                          else
+                            Image(
+                              height: 45,
+                              width: 45,
+                              image: NetworkImage(Logo),
+                            ),
                         ],
                       ),
                       Expanded(

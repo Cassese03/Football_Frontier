@@ -64,6 +64,9 @@ class _CapocannoniereScreenState extends State<CapocannoniereScreen> {
                           ...state.returned
                               .map(
                                 (e) => StandingScorer(
+                                  Logo: (e['logo'] == null)
+                                      ? "assets/images/raimon.jpg"
+                                      : e['logo'],
                                   currentColor: state.currentColor,
                                   Title: e["nominativo"].toString(),
                                   Winning: int.parse(e["gol"]),

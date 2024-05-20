@@ -4,6 +4,7 @@ import 'package:football_app/screens/standing/standing_bloc.dart';
 import 'package:football_app/widgets/loading.dart';
 import 'package:football_app/widgets/standing.dart';
 import 'package:football_app/widgets/standing_head.dart';
+import 'package:get/get.dart';
 
 class StandingScreen extends StatefulWidget {
   const StandingScreen({super.key});
@@ -68,7 +69,9 @@ class _StandingScreenState extends State<StandingScreen> {
                               .map(
                                 (e) => Standing(
                                   currentColor: state.currentColor,
-                                  Logo: "assets/images/raimon.jpg",
+                                  Logo: (e['logo'] == null)
+                                      ? "assets/images/raimon.jpg"
+                                      : e['logo'],
                                   Title: e["nome"].toString(),
                                   Winning: e["partitevinte"],
                                   Losing: e["partiteperse"],

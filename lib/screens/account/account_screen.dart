@@ -363,7 +363,9 @@ class _AccountScreenState extends State<AccountScreen> {
                 ),
                 Stats(
                   currentColor: currentColor,
-                  logo: "assets/images/raimon.jpg",
+                  logo: (returned["profilo"][0]["img_squadra"] != null)
+                      ? returned["profilo"][0]["img_squadra"].toString()
+                      : "assets/images/raimon.jpg",
                   title: "Squadra",
                   content: returned["profilo"][0]["nomesquadra"].toString(),
                   icon: Icon(

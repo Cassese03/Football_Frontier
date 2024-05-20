@@ -68,11 +68,18 @@ class UpComingLorenzoReferto extends StatelessWidget {
                   flex: 10,
                   child: Column(
                     children: [
-                      Image.asset(
-                        homeLogo,
-                        height: 45,
-                        width: 45,
-                      ),
+                      if (homeLogo == 'assets/images/raimon.jpg')
+                        Image.asset(
+                          homeLogo,
+                          height: 45,
+                          width: 45,
+                        )
+                      else
+                        Image(
+                          height: 45,
+                          width: 45,
+                          image: NetworkImage(homeLogo),
+                        ),
                     ],
                   ),
                 ),
@@ -105,11 +112,18 @@ class UpComingLorenzoReferto extends StatelessWidget {
                   flex: 10,
                   child: Column(
                     children: [
-                      Image.asset(
-                        awayLogo,
-                        height: 45,
-                        width: 45,
-                      ),
+                      if (awayLogo == 'assets/images/SoloMcDonald.jpg')
+                        Image.asset(
+                          awayLogo,
+                          height: 45,
+                          width: 45,
+                        )
+                      else
+                        Image(
+                          height: 45,
+                          width: 45,
+                          image: NetworkImage(awayLogo),
+                        ),
                     ],
                   ),
                 ),

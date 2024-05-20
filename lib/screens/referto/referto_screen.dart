@@ -83,12 +83,12 @@ class _RefertoScreenState extends State<RefertoScreen> {
                                           '${dateTime.hour}:${(dateTime.minute < 10) ? '0${dateTime.minute}' : dateTime.minute}';
                                       return UpComingLorenzoReferto(
                                         idPartita: e['IdPartita'],
-                                        homeLogo: (e['imgcasa'] != null)
-                                            ? e['imgcasa']
+                                        homeLogo: (e['immaginecasa'] != null)
+                                            ? e['immaginecasa']
                                             : "assets/images/raimon.jpg",
                                         homeTitle: e['nomecasa'],
-                                        awayLogo: (e['imgospite'] != null)
-                                            ? e['imgospite']
+                                        awayLogo: (e['immagineospite'] != null)
+                                            ? e['immagineospite']
                                             : "assets/images/SoloMcDonald.png",
                                         awayTitle: e['nomeospite'],
                                         date: orarioFormattato,
@@ -180,10 +180,10 @@ class _RefertoScreenState extends State<RefertoScreen> {
                 bottomNavigationBar: FloatingActionButton(
                   onPressed: () {
                     context.read<RefertoBloc>().add(
-                  RefertoSend(
-                    result:result.toString(),
-                  ),
-                );
+                          RefertoSend(
+                            result: result.toString(),
+                          ),
+                        );
                   },
                   child: Icon(Icons.send),
                 ),

@@ -81,10 +81,8 @@ class LiveMatchBox extends StatelessWidget {
                           : Image(
                               width: 75,
                               height: 75,
-                              image: MemoryImage(
-                                base64Decode(
-                                  homeLogo,
-                                ),
+                              image: NetworkImage(
+                                homeLogo,
                               ),
                             ),
                       const SizedBox(height: 5),
@@ -149,10 +147,8 @@ class LiveMatchBox extends StatelessWidget {
                           : Image(
                               width: 75,
                               height: 75,
-                              image: MemoryImage(
-                                base64Decode(
-                                  awayLogo,
-                                ),
+                              image: NetworkImage(
+                                awayLogo,
                               ),
                             ),
                       const SizedBox(height: 5),

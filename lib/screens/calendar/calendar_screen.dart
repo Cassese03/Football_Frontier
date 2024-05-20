@@ -68,12 +68,12 @@ class _CalendarScreenState extends State<CalendarScreen> {
                                           '${dateTime.hour}:${(dateTime.minute < 10) ? '0${dateTime.minute}' : dateTime.minute}';
                                       return UpComingLorenzo(
                                         idPartita: e['IdPartita'],
-                                        homeLogo: (e['imgcasa'] != null)
-                                            ? e['imgcasa']
+                                        homeLogo: (e['immaginecasa'] != null)
+                                            ? e['immaginecasa']
                                             : "assets/images/raimon.jpg",
                                         homeTitle: e['nomecasa'],
-                                        awayLogo: (e['imgospite'] != null)
-                                            ? e['imgospite']
+                                        awayLogo: (e['immagineospite'] != null)
+                                            ? e['immagineospite']
                                             : "assets/images/SoloMcDonald.png",
                                         awayTitle: e['nomeospite'],
                                         date: orarioFormattato,
