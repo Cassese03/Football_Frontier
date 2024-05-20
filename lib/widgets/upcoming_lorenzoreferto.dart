@@ -112,7 +112,7 @@ class UpComingLorenzoReferto extends StatelessWidget {
                   flex: 10,
                   child: Column(
                     children: [
-                      if (awayLogo == 'assets/images/SoloMcDonald.jpg')
+                      if (awayLogo == 'assets/images/SoloMcDonald.png')
                         Image.asset(
                           awayLogo,
                           height: 45,
