@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:football_app/screens/main/main_screen.dart';
@@ -18,7 +20,6 @@ class RefertoScreen extends StatefulWidget {
 
 class _RefertoScreenState extends State<RefertoScreen> {
   final _formKey = GlobalKey<FormState>();
-  final Map<String, String> result = {};
 
   @override
   Widget build(BuildContext context) {
@@ -181,7 +182,7 @@ class _RefertoScreenState extends State<RefertoScreen> {
                   onPressed: () {
                     context.read<RefertoBloc>().add(
                           RefertoSend(
-                            result: result.toString(),
+                            result: state.result.toString(),
                           ),
                         );
                   },
@@ -216,11 +217,6 @@ class _RefertoScreenState extends State<RefertoScreen> {
                                 children: [
                                   ...e['squadra_casa'].map(
                                     (e2) {
-                                      if (result['gol${e2['id']}'].toString() ==
-                                          '') {
-                                        result['gol${e2['id']}'] =
-                                            'insert into statistiche_partite (id_giocatore,id_squadra,id_partita,gol,assist) values  (${e2['id']},${e2['id_squadra']},${e['id']},0,0);';
-                                      }
                                       return Padding(
                                         padding: const EdgeInsets.all(4.0),
                                         child: Row(
@@ -277,21 +273,20 @@ class _RefertoScreenState extends State<RefertoScreen> {
                                                             labelText: 'GOL',
                                                           ),
                                                           onChanged: (value) {
-                                                            if (value == '') {
-                                                              String stringhe =
-                                                                  '';
+                                                            if (value != '') {
+                                                              int ciao = 0;
                                                               for (int i = 0;
                                                                   i <
                                                                       int.parse(
                                                                           value
                                                                               .toString());
                                                                   i++) {
-                                                                stringhe =
-                                                                    '$stringhe insert into statistiche_partite (id_giocatore,id_squadra,id_partita,gol,assist) values  (${e2['id']},${e2['id_squadra']},${e['id']},1,0);';
+                                                                ciao++;
                                                               }
-                                                              result['gol${e2['id']}'] =
-                                                                  stringhe
-                                                                      .toString();
+                                                              state.result[
+                                                                      '${e2['id']}']
+                                                                  ?[
+                                                                  'gol'] = ciao;
                                                             }
                                                           },
                                                         ),
@@ -310,20 +305,20 @@ class _RefertoScreenState extends State<RefertoScreen> {
                                                             labelText: 'ASSIST',
                                                           ),
                                                           onChanged: (value) {
-                                                            if (value == '') {
-                                                              String stringhe =
-                                                                  '';
+                                                            if (value != '') {
+                                                              int ciao = 0;
                                                               for (int i = 0;
                                                                   i <
                                                                       int.parse(
                                                                           value
                                                                               .toString());
                                                                   i++) {
-                                                                stringhe =
-                                                                    '$stringhe insert into statistiche_partite (id_giocatore,id_squadra,id_partita,gol,assist) values  (${e2['id']},${e2['id_squadra']},${e['id']},0,1);';
+                                                                ciao++;
                                                               }
-                                                              result['assist${e2['id']}'] =
-                                                                  stringhe;
+                                                              state.result[
+                                                                      '${e2['id']}']
+                                                                  ?[
+                                                                  'assist'] = ciao;
                                                             }
                                                           },
                                                         ),
@@ -363,11 +358,6 @@ class _RefertoScreenState extends State<RefertoScreen> {
                             children: [
                               ...e['squadra_ospite'].map(
                                 (e2) {
-                                  if (result['gol${e2['id']}'].toString() ==
-                                      '') {
-                                    result['gol${e2['id']}'] =
-                                        'insert into statistiche_partite (id_giocatore,id_squadra,id_partita,gol,assist) values  (${e2['id']},${e2['id_squadra']},${e['id']},0,0);';
-                                  }
                                   return Padding(
                                     padding: const EdgeInsets.all(4.0),
                                     child: Row(
@@ -424,18 +414,18 @@ class _RefertoScreenState extends State<RefertoScreen> {
                                                         labelText: 'GOL',
                                                       ),
                                                       onChanged: (value) {
-                                                        if (value == '') {
-                                                          String stringhe = '';
+                                                        if (value != '') {
+                                                          int ciao = 0;
                                                           for (int i = 0;
                                                               i <
                                                                   int.parse(value
                                                                       .toString());
                                                               i++) {
-                                                            stringhe =
-                                                                '$stringhe insert into statistiche_partite (id_giocatore,id_squadra,id_partita,gol,assist) values  (${e2['id']},${e2['id_squadra']},${e['id']},1,0);';
+                                                            ciao++;
                                                           }
-                                                          result['gol${e2['id']}'] =
-                                                              stringhe;
+                                                          state.result[
+                                                                  '${e2['id']}']
+                                                              ?['gol'] = ciao;
                                                         }
                                                       },
                                                     ),
@@ -455,17 +445,18 @@ class _RefertoScreenState extends State<RefertoScreen> {
                                                       ),
                                                       onChanged: (value) {
                                                         if (value != '') {
-                                                          String stringhe = '';
+                                                          int ciao = 0;
                                                           for (int i = 0;
                                                               i <
                                                                   int.parse(value
                                                                       .toString());
                                                               i++) {
-                                                            stringhe =
-                                                                '$stringhe insert into statistiche_partite (id_giocatore,id_squadra,id_partita,gol,assist) values  (${e2['id']},${e2['id_squadra']},${e['id']},0,1);';
+                                                            ciao++;
                                                           }
-                                                          result['assist${e2['id']}'] =
-                                                              stringhe;
+                                                          state.result[
+                                                                  '${e2['id']}']
+                                                              ?[
+                                                              'assist'] = ciao;
                                                         }
                                                       },
                                                     ),
