@@ -1,8 +1,10 @@
 import 'dart:convert';
 
 import 'package:bloc/bloc.dart';
+import 'package:flutter/services.dart';
 
 import 'package:football_app/constants.dart';
+import 'package:get/get.dart';
 
 import 'package:meta/meta.dart';
 
@@ -35,19 +37,15 @@ class RefertoBloc extends Bloc<RefertoEvent, RefertoState> {
       headers: <String, String>{
         "Content-Type": "application/json",
       },
-      body: jsonEncode(
+      body: json.encode(
         <String, dynamic>{
           'token': access_token.toString(),
-          'result': jsonEncode(event.result),
+          'result': jsonDecode(event.result),
+          'idpartita': event.idPartita
         },
       ),
     );
-    print(jsonEncode(
-      <String, dynamic>{
-        'token': access_token.toString(),
-        'result': jsonEncode(event.result),
-      },
-    ));
+
     if (response.statusCode == 200) {
       var returned = json.decode(response.body);
 
@@ -115,20 +113,20 @@ class RefertoBloc extends Bloc<RefertoEvent, RefertoState> {
 
         for (var e in returned) {
           for (var e2 in e['squadra_casa']) {
-            if (result['${e2['id']}'] == null) {
-              result['${e2['id']}'] = {'gol': 0};
-            } else if (result['${e2['id']}']?['gol'] == null) {
-              result['${e2['id']}']?['gol'] = 0;
+            if (result['"${e2['id']}"'] == null) {
+              result['"${e2['id']}"'] = {'"gol"': 0};
+            } else if (result['"${e2['id']}"']?['"gol"'] == null) {
+              result['"${e2['id']}"']?['"gol"'] = 0;
             }
           }
         }
 
         for (var e in returned) {
           for (var e2 in e['squadra_ospite']) {
-            if (result['${e2['id']}'] == null) {
-              result['${e2['id']}'] = {'gol': 0};
-            } else if (result['${e2['id']}']?['gol'] == null) {
-              result['${e2['id']}']?['gol'] = 0;
+            if (result['"${e2['id']}"'] == null) {
+              result['"${e2['id']}"'] = {'"gol"': 0};
+            } else if (result['"${e2['id']}"']?['"gol"'] == null) {
+              result['"${e2['id']}"']?['"gol"'] = 0;
             }
           }
         }

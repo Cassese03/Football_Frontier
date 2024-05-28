@@ -182,6 +182,7 @@ class _RefertoScreenState extends State<RefertoScreen> {
                   onPressed: () {
                     context.read<RefertoBloc>().add(
                           RefertoSend(
+                            idPartita: state.returned[0]['id'],
                             result: state.result.toString(),
                           ),
                         );
@@ -284,9 +285,9 @@ class _RefertoScreenState extends State<RefertoScreen> {
                                                                 ciao++;
                                                               }
                                                               state.result[
-                                                                      '${e2['id']}']
+                                                                      '"${e2['id']}"']
                                                                   ?[
-                                                                  'gol'] = ciao;
+                                                                  '"gol"'] = ciao;
                                                             }
                                                           },
                                                         ),
@@ -316,15 +317,15 @@ class _RefertoScreenState extends State<RefertoScreen> {
                                                                 ciao++;
                                                               }
                                                               state.result[
-                                                                      '${e2['id']}']
+                                                                      '"${e2['id']}"']
                                                                   ?[
-                                                                  'assist'] = ciao;
+                                                                  '"assist"'] = ciao;
                                                             }
                                                           },
                                                         ),
                                                       ),
                                                       // Text(
-                                                      //   'ASSIST',
+                                                      //   '"assist"',
                                                       //   style: const TextStyle(
                                                       //     color: Colors.black,
                                                       //     fontSize: 18,
@@ -424,8 +425,8 @@ class _RefertoScreenState extends State<RefertoScreen> {
                                                             ciao++;
                                                           }
                                                           state.result[
-                                                                  '${e2['id']}']
-                                                              ?['gol'] = ciao;
+                                                                  '"${e2['id']}"']
+                                                              ?['"gol"'] = ciao;
                                                         }
                                                       },
                                                     ),
@@ -454,9 +455,9 @@ class _RefertoScreenState extends State<RefertoScreen> {
                                                             ciao++;
                                                           }
                                                           state.result[
-                                                                  '${e2['id']}']
+                                                                  '"${e2['id']}"']
                                                               ?[
-                                                              'assist'] = ciao;
+                                                              '"assist"'] = ciao;
                                                         }
                                                       },
                                                     ),
