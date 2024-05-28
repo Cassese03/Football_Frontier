@@ -193,21 +193,17 @@ class _RefertoScreenState extends State<RefertoScreen> {
                   bottom: TabBar(
                     tabs: [
                       Tab(
-                        child: Expanded(
-                          child: Text(
-                            overflow: TextOverflow.clip,
-                            textAlign: TextAlign.center,
-                            'Squadra Casa (${state.returned[0]['nome_casa'].toString()})',
-                          ),
+                        child: Text(
+                          overflow: TextOverflow.clip,
+                          textAlign: TextAlign.center,
+                          'Squadra Casa (${state.returned[0]['nome_casa'].toString()})',
                         ),
                       ),
                       Tab(
-                        child: Expanded(
-                          child: Text(
-                            overflow: TextOverflow.clip,
-                            textAlign: TextAlign.center,
-                            'Squadra Ospite (${state.returned[0]['nome_ospite'].toString()})',
-                          ),
+                        child: Text(
+                          overflow: TextOverflow.clip,
+                          textAlign: TextAlign.center,
+                          'Squadra Ospite (${state.returned[0]['nome_ospite'].toString()})',
                         ),
                       ),
                     ],
