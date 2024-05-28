@@ -28,7 +28,5 @@ final class RefertoLoading extends RefertoState {}
 final class RefertoDenied extends RefertoState {}
 
 final class RefertoSuccess extends RefertoState {
-  final String returned;
-
-  RefertoSuccess(this.returned);
+  RefertoSuccess();
 }

@@ -49,7 +49,7 @@ class RefertoBloc extends Bloc<RefertoEvent, RefertoState> {
     if (response.statusCode == 200) {
       var returned = json.decode(response.body);
 
-      return emit(RefertoSuccess(returned));
+      return emit(RefertoSuccess());
     } else {
       return emit(RefertoDenied());
     }
