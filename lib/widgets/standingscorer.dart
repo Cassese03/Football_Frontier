@@ -73,18 +73,24 @@ class StandingScorer extends StatelessWidget {
                       Column(
                         children: [
                           if (Logo == 'assets/images/raimon.jpg')
-                            Image.asset(
-                              Logo,
-                              height: 45,
-                              width: 45,
-                              fit: BoxFit.fill,
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(20),
+                              child: Image.asset(
+                                Logo,
+                                height: 45,
+                                width: 45,
+                                fit: BoxFit.fill,
+                              ),
                             )
                           else
-                            Image(
-                              height: 45,
-                              width: 45,
-                              image: NetworkImage(Logo),
-                              fit: BoxFit.fill,
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(20),
+                              child: Image(
+                                height: 45,
+                                width: 45,
+                                image: NetworkImage(Logo),
+                                fit: BoxFit.fill,
+                              ),
                             ),
                         ],
                       ),

@@ -193,17 +193,23 @@ class _AccountScreenState extends State<AccountScreen> {
                                 ? (returned["profilo"][0]["img"]
                                         .toString()
                                         .startsWith('https'))
-                                    ? Image.network(
-                                        returned["profilo"][0]["img"],
-                                        fit: BoxFit.fill,
-                                      )
-                                    : Image(
-                                        image: MemoryImage(
-                                          base64Decode(
-                                            returned["profilo"][0]["img"],
-                                          ),
+                                    ? ClipRRect(
+                                        borderRadius: BorderRadius.circular(20),
+                                        child: Image.network(
+                                          returned["profilo"][0]["img"],
+                                          fit: BoxFit.fill,
                                         ),
-                                        fit: BoxFit.fill,
+                                      )
+                                    : ClipRRect(
+                                        borderRadius: BorderRadius.circular(20),
+                                        child: Image(
+                                          image: MemoryImage(
+                                            base64Decode(
+                                              returned["profilo"][0]["img"],
+                                            ),
+                                          ),
+                                          fit: BoxFit.fill,
+                                        ),
                                       )
                                 : Image.asset(
                                     'assets/images/pl.png',
