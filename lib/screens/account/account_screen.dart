@@ -195,6 +195,7 @@ class _AccountScreenState extends State<AccountScreen> {
                                         .startsWith('https'))
                                     ? Image.network(
                                         returned["profilo"][0]["img"],
+                                        fit: BoxFit.fill,
                                       )
                                     : Image(
                                         image: MemoryImage(
@@ -202,9 +203,11 @@ class _AccountScreenState extends State<AccountScreen> {
                                             returned["profilo"][0]["img"],
                                           ),
                                         ),
+                                        fit: BoxFit.fill,
                                       )
                                 : Image.asset(
                                     'assets/images/pl.png',
+                                    fit: BoxFit.fill,
                                   ),
                           ),
                         ),

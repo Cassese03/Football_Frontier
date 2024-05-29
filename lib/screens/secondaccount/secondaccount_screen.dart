@@ -210,6 +210,7 @@ class _SecondAccountScreenState extends State<SecondAccountScreen> {
                                         .startsWith('https'))
                                     ? Image.network(
                                         returned["profilo"][0]["img"],
+                                        fit: BoxFit.fill,
                                       )
                                     : Image(
                                         image: MemoryImage(
@@ -217,9 +218,11 @@ class _SecondAccountScreenState extends State<SecondAccountScreen> {
                                             returned["profilo"][0]["img"],
                                           ),
                                         ),
+                                        fit: BoxFit.fill,
                                       )
                                 : Image.asset(
                                     'assets/images/pl.png',
+                                    fit: BoxFit.fill,
                                   ),
                           ),
                         ),
@@ -234,6 +237,7 @@ class _SecondAccountScreenState extends State<SecondAccountScreen> {
                                       .startsWith('https'))
                                   ? Image.network(
                                       returned["profilo"][0]["img"],
+                                      fit: BoxFit.fill,
                                     )
                                   : Image(
                                       image: MemoryImage(
@@ -241,9 +245,11 @@ class _SecondAccountScreenState extends State<SecondAccountScreen> {
                                           returned["profilo"][0]["img"],
                                         ),
                                       ),
+                                      fit: BoxFit.fill,
                                     )
                               : Image.asset(
                                   'assets/images/pl.png',
+                                  fit: BoxFit.fill,
                                 ),
                         ),
                       ),

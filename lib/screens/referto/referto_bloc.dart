@@ -1,10 +1,8 @@
 import 'dart:convert';
 
 import 'package:bloc/bloc.dart';
-import 'package:flutter/services.dart';
 
 import 'package:football_app/constants.dart';
-import 'package:get/get.dart';
 
 import 'package:meta/meta.dart';
 
@@ -28,7 +26,6 @@ class RefertoBloc extends Bloc<RefertoEvent, RefertoState> {
 
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
-    int currentColor = kprimaryColor.value;
 
     var access_token = prefs.getString('access_token');
 
@@ -47,7 +44,6 @@ class RefertoBloc extends Bloc<RefertoEvent, RefertoState> {
     );
 
     if (response.statusCode == 200) {
-      var returned = json.decode(response.body);
 
       return emit(RefertoSuccess());
     } else {

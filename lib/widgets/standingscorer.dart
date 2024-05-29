@@ -77,12 +77,14 @@ class StandingScorer extends StatelessWidget {
                               Logo,
                               height: 45,
                               width: 45,
+                              fit: BoxFit.fill,
                             )
                           else
                             Image(
                               height: 45,
                               width: 45,
                               image: NetworkImage(Logo),
+                              fit: BoxFit.fill,
                             ),
                         ],
                       ),
