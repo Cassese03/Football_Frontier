@@ -4,7 +4,6 @@ import 'package:football_app/screens/standing/standing_bloc.dart';
 import 'package:football_app/widgets/loading.dart';
 import 'package:football_app/widgets/standing.dart';
 import 'package:football_app/widgets/standing_head.dart';
-import 'package:get/get.dart';
 
 class StandingScreen extends StatefulWidget {
   const StandingScreen({super.key});

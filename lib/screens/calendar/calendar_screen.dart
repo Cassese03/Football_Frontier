@@ -4,6 +4,7 @@ import 'package:football_app/screens/calendar/calendar_bloc.dart';
 import 'package:football_app/widgets/giornata.dart';
 import 'package:football_app/widgets/loading.dart';
 import 'package:football_app/widgets/upcoming_lorenzo.dart';
+import 'package:football_app/widgets/upcoming_lorenzoCompletato.dart';
 import 'package:intl/intl.dart' as inter;
 
 class CalendarScreen extends StatefulWidget {
@@ -78,6 +79,35 @@ class _CalendarScreenState extends State<CalendarScreen> {
                                         awayTitle: e['nomeospite'],
                                         date: orarioFormattato,
                                         time: dataFormattata,
+                                        isFavorite: false,
+                                      );
+                                    },
+                                  ),
+                                ],
+                              );
+                            },
+                          ).toList(),
+                          ...state.returned2.map(
+                            (e) {
+                              return Column(
+                                children: [
+                                  Giornata(
+                                    currentColor: state.currentColor,
+                                    giornata: e['giornata'],
+                                  ),
+                                  ...e['partite_concluse'].map(
+                                    (e) {
+                                      return UpComingLorenzoCompletato(
+                                        idPartita: e['IdPartita'],
+                                        homeLogo: (e['immaginecasa'] != null)
+                                            ? e['immaginecasa']
+                                            : "assets/images/raimon.jpg",
+                                        homeTitle: e['nomecasa'],
+                                        awayLogo: (e['immagineospite'] != null)
+                                            ? e['immagineospite']
+                                            : "assets/images/SoloMcDonald.png",
+                                        awayTitle: e['nomeospite'],
+                                        score: e['score'].toString(),
                                         isFavorite: false,
                                       );
                                     },

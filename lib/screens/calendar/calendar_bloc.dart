@@ -52,7 +52,24 @@ onInit(CalendarInit event, Emitter<CalendarState> emit) async {
   if (response.statusCode == 200) {
     var returned = json.decode(response.body);
 
-    return emit(CalendarReady(currentColor, returned));
+    var response2 = await http.post(
+      Uri.parse('https://ws.footballfrontier.it/api2/calendario_concluso'),
+      headers: <String, String>{
+        "Content-Type": "application/json",
+      },
+      body: jsonEncode(
+        <String, String>{
+          'token': access_token.toString(),
+        },
+      ),
+    );
+    if (response2.statusCode == 200) {
+      var returned2 = json.decode(response2.body);
+
+      return emit(CalendarReady(currentColor, returned, returned2));
+    } else {
+      return emit(CalendarInitial());
+    }
   } else {
     return emit(CalendarInitial());
   }
