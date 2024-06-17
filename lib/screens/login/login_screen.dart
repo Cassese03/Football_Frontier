@@ -27,7 +27,10 @@ class _LoginScreenState extends State<LoginScreen> {
       MetaSEO meta = MetaSEO();
       // add meta seo data for web app as you want
       meta.author(author: 'Lorenzo Cassese');
-      meta.description(description: 'Torneo di Calcio Nola Festa dei Gigli');
+      meta.description(
+        description:
+            'Torneo di Calcio Nola Festa dei Gigli, amatoriale, creato da giovani per divertimento senza scopo di lucro. Giovani talenti gol incredibili nola.',
+      );
       meta.keywords(
           keywords:
               'Torneo, Calcio, Nola, Inazuma,Football,Frontier,Festa,Gigli');
