@@ -94839,8 +94839,8 @@ a9(){return new A.Zr(4294948172,B.m)}}
 A.Zr.prototype={
 E(a){var s=null,r="seoNameJS",q=$.aD(),p=$.aT6()
 p.oe(r,["author","Lorenzo Cassese"])
-p.oe(r,["description","Torneo di Calcio Nola Festa dei Gigli, amatoriale, creato da giovani per divertimento senza scopo di lucro. Giovani talenti gol incredibili nola."])
-p.oe(r,["keywords","Torneo, Calcio, Nola, Inazuma,Football,Frontier,Festa,Gigli"])
+p.oe(r,["description",'Torneo di Calcio Nola Festa dei Gigli, amatoriale, creato da giovani per divertimento senza scopo di lucro. Giovani talenti gol incredibili nola.Vieni a NOLA da BOMBONERA a divertirti con noi.Il motto \xe8 "I giovani per il sociale!"'])
+p.oe(r,["keywords","Torneo, Calcio, Nola, Inazuma,Football,Frontier,Festa,Gigli,Gol,Talento,Diverimento,Incredibile,Amatoriale,Bombonera,Insieme,Sociale"])
 return A.h5(s,s,A.e1(A.vk(new A.awO(this,new A.iD(B.d2,q),new A.iD(B.d2,q)),new A.awP(),t.wt,t.K4),s,s),s,s,s)}}
 A.awO.prototype={
 $2(a,b){var s,r,q,p,o,n,m,l,k,j=null

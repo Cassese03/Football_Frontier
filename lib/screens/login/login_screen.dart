@@ -29,11 +29,12 @@ class _LoginScreenState extends State<LoginScreen> {
       meta.author(author: 'Lorenzo Cassese');
       meta.description(
         description:
-            'Torneo di Calcio Nola Festa dei Gigli, amatoriale, creato da giovani per divertimento senza scopo di lucro. Giovani talenti gol incredibili nola.',
+            'Torneo di Calcio Nola Festa dei Gigli, amatoriale, creato da giovani per divertimento senza scopo di lucro. Giovani talenti gol incredibili nola.Vieni a NOLA da BOMBONERA a divertirti con noi.Il motto è "I giovani per il sociale!"',
       );
       meta.keywords(
-          keywords:
-              'Torneo, Calcio, Nola, Inazuma,Football,Frontier,Festa,Gigli');
+        keywords:
+            'Torneo, Calcio, Nola, Inazuma,Football,Frontier,Festa,Gigli,Gol,Talento,Diverimento,Incredibile,Amatoriale,Bombonera,Insieme,Sociale',
+      );
     }
     return Scaffold(
       body: Center(
