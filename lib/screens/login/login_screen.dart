@@ -5,6 +5,8 @@ import 'package:football_app/screens/login/login_bloc.dart';
 import 'package:football_app/screens/main/main_screen.dart';
 import 'package:fancy_password_field/fancy_password_field.dart';
 import 'package:football_app/widgets/loading.dart';
+import 'package:meta_seo/meta_seo.dart';
+import 'package:flutter/foundation.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -20,6 +22,16 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     TextEditingController email = TextEditingController();
     TextEditingController password = TextEditingController();
+    if (kIsWeb) {
+      // Define MetaSEO object
+      MetaSEO meta = MetaSEO();
+      // add meta seo data for web app as you want
+      meta.author(author: 'Lorenzo Cassese');
+      meta.description(description: 'Torneo di Calcio Nola Festa dei Gigli');
+      meta.keywords(
+          keywords:
+              'Torneo, Calcio, Nola, Inazuma,Football,Frontier,Festa,Gigli');
+    }
     return Scaffold(
       body: Center(
         child: BlocConsumer<LoginBloc, LoginState>(
