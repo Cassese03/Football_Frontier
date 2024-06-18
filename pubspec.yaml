@@ -46,7 +46,7 @@ flutter:
   assets:
     - google_fonts/
     - assets/images/
-    - web/Robots.txt
+    - web/robots.txt
     - web/sitemap.xml
 
 
