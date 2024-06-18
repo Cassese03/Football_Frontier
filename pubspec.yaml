@@ -46,6 +46,9 @@ flutter:
   assets:
     - google_fonts/
     - assets/images/
+    - robots.txt
+    - sitemap.xml
+
 
   fonts:
     - family: PlusJakartaSans
