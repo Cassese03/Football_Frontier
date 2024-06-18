@@ -46,8 +46,8 @@ flutter:
   assets:
     - google_fonts/
     - assets/images/
-    - robots.txt
-    - sitemap.xml
+    - web/Robots.txt
+    - web/sitemap.xml
 
 
   fonts:
