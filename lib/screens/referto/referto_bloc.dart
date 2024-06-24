@@ -26,7 +26,6 @@ class RefertoBloc extends Bloc<RefertoEvent, RefertoState> {
 
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
-
     var access_token = prefs.getString('access_token');
 
     var response = await http.post(
@@ -44,7 +43,6 @@ class RefertoBloc extends Bloc<RefertoEvent, RefertoState> {
     );
 
     if (response.statusCode == 200) {
-
       return emit(RefertoSuccess());
     } else {
       return emit(RefertoDenied());
