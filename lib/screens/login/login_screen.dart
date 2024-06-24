@@ -56,6 +56,17 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    Seo.text(
+                      text: 'Il torneo Nolano',
+                      style: TextTagStyle.h3,
+                      child: const Text(
+                        'Il torneo Nolano',
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
                     //   const HtmlWidget(
                     //     '''
                     //             <h1>FootballFrontier di Nola</h7>
@@ -69,8 +80,13 @@ class _LoginScreenState extends State<LoginScreen> {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Center(
-                        child: Image.asset(
-                          "assets/images/McDonald.png",
+                        child: Seo.image(
+                          src:
+                              "https://footballfrontier.it/assets/assets/images/McDonald.png",
+                          alt: 'McDonald x Football Frontier',
+                          child: Image.asset(
+                            "assets/images/McDonald.png",
+                          ),
                         ),
                       ),
                     ),
@@ -142,10 +158,14 @@ class _LoginScreenState extends State<LoginScreen> {
                                     const SizedBox(
                                       width: 20,
                                     ),
-                                    const Text(
-                                      'Ricordati di me',
-                                      style: TextStyle(
-                                        fontSize: 14,
+                                    Seo.text(
+                                      text: 'Ricordati di me',
+                                      style: TextTagStyle.h1,
+                                      child: const Text(
+                                        'Ricordati di me',
+                                        style: TextStyle(
+                                          fontSize: 14,
+                                        ),
                                       ),
                                     ),
                                   ],
@@ -165,10 +185,14 @@ class _LoginScreenState extends State<LoginScreen> {
                                     const SizedBox(
                                       width: 20,
                                     ),
-                                    const Text(
-                                      'Ricordati di me',
-                                      style: TextStyle(
-                                        fontSize: 14,
+                                    Seo.text(
+                                      text: 'Ricordati di me',
+                                      style: TextTagStyle.h1,
+                                      child: const Text(
+                                        'Ricordati di me',
+                                        style: TextStyle(
+                                          fontSize: 14,
+                                        ),
                                       ),
                                     ),
                                   ],
@@ -191,12 +215,16 @@ class _LoginScreenState extends State<LoginScreen> {
                                             ),
                                           );
                                     },
-                                    child: const Text(
-                                      'Login',
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.bold,
+                                    child: Seo.text(
+                                      text: 'Login',
+                                      style: TextTagStyle.h2,
+                                      child: const Text(
+                                        'Login',
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.bold,
+                                        ),
                                       ),
                                     ),
                                   ),
