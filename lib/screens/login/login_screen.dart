@@ -53,16 +53,16 @@ class _LoginScreenState extends State<LoginScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const HtmlWidget(
-                    '''
-                            <h1>FooballFrontier di Nola</h7>
-                            <h2>FooballFrontier di Nola</h2>
-                            <h3>FooballFrontier di Nola</h3>
-                            <h4>FooballFrontier di Nola</h4>
-                            <h5>FooballFrontier di Nola</h5>
-                            <h6>FooballFrontier di Nola</h6>
-                            ''',
-                  ),
+                  //   const HtmlWidget(
+                  //     '''
+                  //             <h1>FootballFrontier di Nola</h7>
+                  //             <h2>FootballFrontier di Nola</h2>
+                  //             <h3>FootballFrontier di Nola</h3>
+                  //             <h4>FootballFrontier di Nola</h4>
+                  //             <h5>FootballFrontier di Nola</h5>
+                  //             <h6>FootballFrontier di Nola</h6>
+                  //             ''',
+                  //   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: Center(
