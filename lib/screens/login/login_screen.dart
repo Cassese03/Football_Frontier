@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 import 'package:football_app/constants.dart';
 import 'package:football_app/screens/login/login_bloc.dart';
 import 'package:football_app/screens/main/main_screen.dart';
@@ -52,6 +53,16 @@ class _LoginScreenState extends State<LoginScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  const HtmlWidget(
+                    '''
+                            <h1>FooballFrontier di Nola</h7>
+                            <h2>FooballFrontier di Nola</h2>
+                            <h3>FooballFrontier di Nola</h3>
+                            <h4>FooballFrontier di Nola</h4>
+                            <h5>FooballFrontier di Nola</h5>
+                            <h6>FooballFrontier di Nola</h6>
+                            ''',
+                  ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: Center(
@@ -196,7 +207,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                   ),
                                 );
                           },
-                          child: const Text('Accedi ora come anonimo'),
+                          child: const HtmlWidget(
+                            '<h7>Accedi ora come anonimo</h7>',
+                          ),
                         )
                       ],
                     ),
