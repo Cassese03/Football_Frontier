@@ -36,10 +36,6 @@ class _LoginScreenState extends State<LoginScreen> {
         keywords:
             'Torneo, Calcio, Nola, Inazuma,Football,Frontier,Festa,Gigli,Gol,Talento,Diverimento,Incredibile,Amatoriale,Bombonera,Insieme,Sociale',
       );
-      meta.ogImage(
-        ogImage:
-            'https://footballfrontier.it/assets/assets/images/McDonald.png',
-      );
       meta.ogTitle(
         ogTitle:
             'Torneo di Calcio Nola Festa dei Gigli, amatoriale, creato da giovani per divertimento senza scopo di lucro. Giovani talenti gol incredibili nola.Vieni a NOLA da BOMBONERA a divertirti con noi.Il motto è "I giovani per il sociale!"',
