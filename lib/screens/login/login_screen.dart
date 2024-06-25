@@ -57,6 +57,18 @@ class _LoginScreenState extends State<LoginScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Seo.text(
+                      text:
+                          'Torneo, Calcio, Nola, Inazuma,Football,Frontier,Festa,Gigli,Gol,Talento,Diverimento,Incredibile,Amatoriale,Bombonera,Insieme,Sociale',
+                      style: TextTagStyle.h1,
+                      child: const Text(''),
+                    ),
+                    Seo.text(
+                      text:
+                          'Football Frontier - Benvenuti su footballfrontier.it, il sito dedicato a tutti gli appassionati del torneo amatoriale di calcio a Nola. Qui troverete notizie aggiornate, risultati in tempo reale, analisi esclusive e approfondimenti su tutte le squadre e i giocatori partecipanti. Segui le cronache delle partite, scopri le statistiche dettagliate e rimani informato su tutte le novità e gli eventi speciali legati al torneo. Unisciti alla nostra comunità e vivi da protagonista l\'emozione del calcio amatoriale a Nola con Football Frontier!',
+                      style: TextTagStyle.h1,
+                      child: const Text(''),
+                    ),
+                    Seo.text(
                       text: 'Il torneo Nolano',
                       style: TextTagStyle.h3,
                       child: const Text(
@@ -66,12 +78,6 @@ class _LoginScreenState extends State<LoginScreen> {
                           color: Colors.white,
                         ),
                       ),
-                    ),
-                    Seo.text(
-                      text:
-                          'Football Frontier - Benvenuti su footballfrontier.it, il sito dedicato a tutti gli appassionati del torneo amatoriale di calcio a Nola. Qui troverete notizie aggiornate, risultati in tempo reale, analisi esclusive e approfondimenti su tutte le squadre e i giocatori partecipanti. Segui le cronache delle partite, scopri le statistiche dettagliate e rimani informato su tutte le novità e gli eventi speciali legati al torneo. Unisciti alla nostra comunità e vivi da protagonista l\'emozione del calcio amatoriale a Nola con Football Frontier!',
-                      style: TextTagStyle.h1,
-                      child: const Text(''),
                     ),
                     //   const HtmlWidget(
                     //     '''
