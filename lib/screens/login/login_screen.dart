@@ -58,7 +58,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   children: [
                     Seo.text(
                       text: 'Il torneo Nolano',
-                      style: TextTagStyle.h3,
+                      style: TextTagStyle.h1,
                       child: const Text(
                         '',
                         style: TextStyle(
@@ -223,7 +223,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     },
                                     child: Seo.text(
                                       text: 'Login',
-                                      style: TextTagStyle.h2,
+                                      style: TextTagStyle.h1,
                                       child: const Text(
                                         'Login',
                                         style: TextStyle(
@@ -246,7 +246,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             },
                             child: Seo.text(
                               text: 'Accedi ora come anonimo',
-                              style: TextTagStyle.h6,
+                              style: TextTagStyle.h1,
                               child: const Text('Accedi ora come anonimo'),
                             ),
                           )
