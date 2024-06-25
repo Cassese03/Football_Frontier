@@ -91,15 +91,9 @@ const RESOURCES = {"assets/AssetManifest.bin": "7e5ad23dadd613551b121c8d21c2a485
 "icons/Icon-maskable-192.png": "0bcf6229c444c5092dfcdcf4d8bf2476",
 "icons/Icon-maskable-512.png": "343222d11edf74648c3aff06da3441b4",
 "icons/manifest.json": "151ccd9266762df03c0a36c000a70d57",
-<<<<<<< HEAD
-"index.html": "2360df4901fee6a00b378d7b8fa840ad",
-"/": "2360df4901fee6a00b378d7b8fa840ad",
+"index.html": "dc6fb0028da6d15376a4b4ee11f8ec85",
+"/": "dc6fb0028da6d15376a4b4ee11f8ec85",
 "main.dart.js": "ea0c15afbd7b0902fee0d28efab62e6c",
-=======
-"index.html": "f833e7ab6a8ea76d0fd0e80a5c709a7c",
-"/": "f833e7ab6a8ea76d0fd0e80a5c709a7c",
-"main.dart.js": "76db2f4112ea3529b13786ca3e2610ff",
->>>>>>> a6591cb2f96dc57876ab58108e209a129d43bbbe
 "manifest.json": "151ccd9266762df03c0a36c000a70d57",
 "robots.txt": "7549a1cbf35136934e124912018172bf",
 "sitemap.xml": "f54deafc7460632335686f601e3dd111",
