@@ -90422,10 +90422,16 @@ A.anw.prototype={
 $0(){this.a.e=this.b},
 $S:0}
 A.vA.prototype={
-D(a){var s=null
-return new A.aW(B.Os,A.aAi(A.aV(A.a([B.u,A.an("Giornata "+B.h.j(this.d),s,s,s,s,B.kl,s,s),B.u],t.p),B.i,B.e,B.f),new A.k(this.c>>>0),s),s)}}
+D(a){var s=null,r=this.d,q=r===8
+if(!q&&r!==9)r="Giornata "+B.h.j(r)
+else r=q?"Semifinale Andata":"Semifinale Ritorno"
+return new A.aW(B.Os,A.aAi(A.aV(A.a([B.u,A.an(r,s,s,s,s,B.kl,s,s),B.u],t.p),B.i,B.e,B.f),new A.k(this.c>>>0),s),s)}}
 A.w3.prototype={
-D(a){var s,r,q,p=this,o=null,n="assets/images/raimon.jpg",m=A.bN(a,o,t.l).w,l=A.cZ(20),k=p.as,j=A.an("Bombonera",o,o,o,o,A.bE(o,o,k,o,o,o,o,o,o,o,o,14,o,o,B.G,o,o,!0,o,o,o,o,o,o,o,o),o,o),i=A.an("Giornata "+p.y,o,o,o,o,B.aap,o,o),h=p.c
+D(a){var s,r,q,p=this,o=null,n="assets/images/raimon.jpg",m=A.bN(a,o,t.l).w,l=A.cZ(20),k=p.as,j=A.an("Bombonera",o,o,o,o,A.bE(o,o,k,o,o,o,o,o,o,o,o,14,o,o,B.G,o,o,!0,o,o,o,o,o,o,o,o),o,o),i=p.y,h=i===8
+if(!h&&i!==9)i="Giornata "+B.h.j(i)
+else i=h?"Semifinale Andata":"Semifinale Ritorno"
+i=A.an(i,o,o,o,o,B.aap,o,o)
+h=p.c
 h=h===n?A.dh(h,o,75,75):A.eL(o,!1,o,75,new A.eq(h,1,o),75)
 s=t.p
 h=A.aG(A.at(A.a([h,B.hg,A.an(p.d,o,o,o,o,A.bE(o,o,k,o,o,o,o,o,o,o,o,14,o,o,B.G,o,o,!0,o,o,o,o,o,o,o,o),o,o)],s),B.i,B.e,B.f),30)

@@ -20,7 +20,11 @@ class Giornata extends StatelessWidget {
           children: [
             const Spacer(),
             Text(
-              'Giornata ${giornata.toString()}',
+              (giornata != 8 && giornata != 9)
+                  ? 'Giornata ${giornata.toString()}'
+                  : (giornata == 8)
+                      ? 'Semifinale Andata'
+                      : 'Semifinale Ritorno',
               style: const TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,

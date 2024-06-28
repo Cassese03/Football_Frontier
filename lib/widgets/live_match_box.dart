@@ -60,7 +60,11 @@ class LiveMatchBox extends StatelessWidget {
               ),
             ),
             Text(
-              "Giornata $giornata",
+              (giornata != 8 && giornata != 9)
+                  ? 'Giornata ${giornata.toString()}'
+                  : (giornata == 8)
+                      ? 'Semifinale Andata'
+                      : 'Semifinale Ritorno',
               style: const TextStyle(
                 color: Colors.white54,
                 fontSize: 12,
