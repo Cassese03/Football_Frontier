@@ -89103,7 +89103,7 @@ f=J.aT(J.I(J.I(a6.h(b0,a4),0),a3))
 e=b.d
 d=A.dJ(B.cq,new A.k(e>>>0),a,28)
 c=J.I(J.I(a6.h(b0,a0),0),a5)!=null?J.aT(J.I(J.I(a6.h(b0,a0),0),a5)):"assets/images/raimon.jpg"
-return A.bq(a,A.at(A.a([a7,s,r,B.pT,A.aG(A.hy(A.a([new A.io("assets/images/giocatore.png",p,"Posizione : "+o,m,q,a),new A.io("assets/images/Gol.png","Gol",l,j,n,a),new A.io("assets/images/assist.png","Assist",i,g,k,a),new A.io("assets/images/maglia.png","Presenze",f,d,h,a),new A.io(c,"Squadra",J.aT(J.I(J.I(a6.h(b0,a0),0),"nomesquadra")),A.dJ(B.cq,new A.k(b.d>>>0),a,28),e,a)],a8),a,a,!1,B.L,!0),50)],a8),B.i,B.e,B.f),B.p,B.l,a,a,a,a,a,a,a,a,a)}}
+return A.bq(a,A.at(A.a([a7,s,r,B.pT,A.aG(A.hy(A.a([new A.io("assets/assets/images/giocatore.png",p,"Posizione : "+o,m,q,a),new A.io("assets/assets/images/Gol.png","Gol",l,j,n,a),new A.io("assets/assets/images/assist.png","Assist",i,g,k,a),new A.io("assets/assets/images/maglia.png","Presenze",f,d,h,a),new A.io(c,"Squadra",J.aT(J.I(J.I(a6.h(b0,a0),0),"nomesquadra")),A.dJ(B.cq,new A.k(b.d>>>0),a,28),e,a)],a8),a,a,!1,B.L,!0),50)],a8),B.i,B.e,B.f),B.p,B.l,a,a,a,a,a,a,a,a,a)}}
 A.amC.prototype={
 $0(){this.a.d=this.b},
 $S:0}

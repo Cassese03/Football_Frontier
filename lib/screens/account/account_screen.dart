@@ -324,7 +324,7 @@ class _AccountScreenState extends State<AccountScreen> {
               children: [
                 Stats(
                   currentColor: currentColor,
-                  logo: "assets/images/giocatore.png",
+                  logo: "assets/assets/images/giocatore.png",
                   title: returned["profilo"][0]["nome"].toString(),
                   content:
                       "Posizione : ${returned["profilo"][0]["ruolo"].toString()}",
@@ -336,7 +336,7 @@ class _AccountScreenState extends State<AccountScreen> {
                 ),
                 Stats(
                   currentColor: currentColor,
-                  logo: "assets/images/Gol.png",
+                  logo: "assets/assets/images/Gol.png",
                   title: "Gol",
                   content:
                       returned["statistichePersonali"][0]["gol"].toString(),
@@ -348,7 +348,7 @@ class _AccountScreenState extends State<AccountScreen> {
                 ),
                 Stats(
                   currentColor: currentColor,
-                  logo: "assets/images/assist.png",
+                  logo: "assets/assets/images/assist.png",
                   title: "Assist",
                   content:
                       returned["statistichePersonali"][0]["assist"].toString(),
@@ -360,7 +360,7 @@ class _AccountScreenState extends State<AccountScreen> {
                 ),
                 Stats(
                   currentColor: currentColor,
-                  logo: "assets/images/maglia.png",
+                  logo: "assets/assets/images/maglia.png",
                   title: "Presenze",
                   content: returned["statistichePersonali"][0]["presenze"]
                       .toString(),
