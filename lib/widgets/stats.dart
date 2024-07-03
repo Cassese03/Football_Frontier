@@ -46,10 +46,11 @@ class Stats extends StatelessWidget {
                               width: 50,
                             )
                           else
-                            Image(
+                            Image.network(
                               height: 50,
                               width: 50,
-                              image: NetworkImage(logo),
+                              logo,
+                              fit: BoxFit.fill,
                             ),
                         ],
                       ),
