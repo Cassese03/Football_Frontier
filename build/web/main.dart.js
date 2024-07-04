@@ -90423,13 +90423,17 @@ $0(){this.a.e=this.b},
 $S:0}
 A.vA.prototype={
 D(a){var s=null,r=this.d,q=r===8
-if(!q&&r!==9)r="Giornata "+B.h.j(r)
-else r=q?"Semifinale Andata":"Semifinale Ritorno"
+if(!q&&r!==9&&r!==10&&r!==11)r="Giornata "+B.h.j(r)
+else if(q)r="Semifinale Andata"
+else if(r===9)r="Semifinale Ritorno"
+else r=r===10?"Finale 3/4 posto":"Finale"
 return new A.aW(B.Os,A.aAi(A.aV(A.a([B.u,A.an(r,s,s,s,s,B.kl,s,s),B.u],t.p),B.i,B.e,B.f),new A.k(this.c>>>0),s),s)}}
 A.w3.prototype={
 D(a){var s,r,q,p=this,o=null,n="assets/images/raimon.jpg",m=A.bN(a,o,t.l).w,l=A.cZ(20),k=p.as,j=A.an("Bombonera",o,o,o,o,A.bE(o,o,k,o,o,o,o,o,o,o,o,14,o,o,B.G,o,o,!0,o,o,o,o,o,o,o,o),o,o),i=p.y,h=i===8
-if(!h&&i!==9)i="Giornata "+B.h.j(i)
-else i=h?"Semifinale Andata":"Semifinale Ritorno"
+if(!h&&i!==9&&i!==10&&i!==11)i="Giornata "+B.h.j(i)
+else if(h)i="Semifinale Andata"
+else if(i===9)i="Semifinale Ritorno"
+else i=i===10?"Finale 3/4 posto":"Finale"
 i=A.an(i,o,o,o,o,B.aap,o,o)
 h=p.c
 h=h===n?A.dh(h,o,75,75):A.f0(o,!1,o,75,new A.eO(h,1,o),75)
